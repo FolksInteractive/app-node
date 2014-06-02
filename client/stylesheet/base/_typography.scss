@@ -1,0 +1,48 @@
+//
+// Base/Typography
+// --------------------------------------------------
+
+
+// Imports
+// -------------------------
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('../fonts/OpenSans-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/OpenSans-Bold.ttf');
+    font-weight: 700;
+}
+
+// Overwriting Bootstrap Variables
+// -------------------------
+
+// TimeCrumbs' Variables
+// -------------------------
+
+$tc-line-height: 25px;
+
+
+// Typography Elements
+// -------------------------
+
+// Links
+a {
+    color: $brand-primary;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+// Paragraphs
+p {
+    font-size: $font-size-base;
+    color: $gray;
+    line-height: $tc-line-height;
+}

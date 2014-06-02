@@ -1,0 +1,58 @@
+//
+// Layouts/Menubar
+// --------------------------------------------------
+
+// Variables 
+// -------------------------
+
+$menubar-compressed-width: 60px;
+
+// Basic Elements 
+// -------------------------
+
+// Left Menu
+.tc-menu { 
+
+    &.compressed{
+    }
+    
+    color: #fff;
+    background: $gray-darker;
+    box-shadow: -5px 0px 5px -5px $gray-darker inset;
+
+    z-index: 1000;
+    -webkit-transition: width .25s;
+    transition: width .25s;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;  
+    
+    .tc-user-section{
+        background: #000;
+        padding:10px 0;
+        text-align: center;
+        
+        & > img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .tc-logo {
+        position: absolute;
+        width:100%;
+        text-align: center;
+        bottom: 20px;      
+    }  
+}
+
+.tc-menu.compressed{
+    width: $menubar-compressed-width;
+
+    .tc-logo a{
+        width: 33px;
+        height: 33px;
+        background : url('../img/logo-clock.png') no-repeat center;
+    } 
+
+}

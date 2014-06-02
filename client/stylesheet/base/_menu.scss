@@ -1,0 +1,51 @@
+.tc-menu {
+    
+    i {
+        width:20px !important;
+        color: #C1C5C8;
+    }
+    
+    li {    
+        a {
+            font-size: $font-size-small;
+            color: $gray-lighter;
+            text-shadow: none;
+            display: block;
+            padding: 10px 5px;
+            border-left: 4px solid transparent;
+            text-align: center;
+
+            span{
+                display: block;
+                font-size: $font-size-h3;
+            }
+        }
+        a:hover{
+            text-decoration: none;
+            cursor: pointer;
+            background: rgba(0,0,0,.75);
+            border-color: #777;
+            box-shadow: 0px 3px 3px -3px #222 inset, 0px -3px 3px -3px #222 inset;
+        }
+    }
+    
+    .active {
+        border-left: 4px solid #75d600;
+        background: rgba(0,0,0,.75);
+        
+        a, a:hover{
+            margin-left: -4px;
+            color: #FFF;
+        }
+    }
+    
+    .active:after {
+        content: "";
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #fff;
+        position: absolute;
+        right: 0;
+        top: 10px; 
+    }
+}

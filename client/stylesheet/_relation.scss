@@ -1,0 +1,104 @@
+
+.tc-relation-global{
+	@include hbox;
+
+	.tc-relation-aside{
+		@include hbox-item;
+
+		width: 360px;
+
+		.tc-contact-section{		
+			margin: 24px 0;
+			text-align: center;
+
+		}
+		.tc-contact-avatar{
+
+			img{
+				border: 10px solid $gray-lighter;
+				width: 178px;
+				height: 178px;
+			}
+		}
+		.tc-contact-name{
+			h3{
+				margin-top:10px;
+				color: $gray; 
+			}
+		}
+		.tc-contact-title{
+			padding:0 12px;
+			p{
+				color: $gray-light;
+				line-height : $line-height-small;
+			}
+		}
+
+
+		.tc-overview-section{			
+			margin: 24px 0;
+			text-align : center;
+		}
+		.tc-overview{
+		}
+		.tc-overview-item{
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 10px;
+			text-align:center;
+
+			h3{
+				color : $gray;
+				margin-top:0;
+			}
+			span{
+				color : $brand-primary;
+				font-size: $font-size-small;
+			}
+		}
+
+
+		.tc-switch-section{				
+			margin: 24px 0;
+			text-align: center;
+		}		
+		.tc-switch{
+			.btn.active {
+  				@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);			
+  			}
+  			.btn{
+  				color : $btn-primary-bg;
+  			}
+		}
+
+		.tc-spacer-section{				
+			margin: 24px 0 12px 0;
+			height: 36px;
+			background: url('/img/relation_aside_spacer.gif') no-repeat top center;
+		}
+
+		.tc-others-section{			
+			padding: 24px 0;
+		}
+	}
+
+	.tc-relation-main{
+		background: url('/img/relation_main_spacer.gif') no-repeat top left;
+		@include hbox-item;
+		
+		.tc-line{
+			position:absolute;
+			top: 110px;
+			left: 112px;
+			bottom: 0;
+			background : $gray-lighter;
+			width: 2px;
+		}
+
+		.tc-messages-section{
+			position: relative;
+			margin: 48px;
+			height: 100%;	
+		}
+	}
+}

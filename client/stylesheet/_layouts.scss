@@ -1,0 +1,20 @@
+html, body{
+	height: 100%;
+}
+
+.tc-global{
+	display: table;
+	table-layout: fixed;
+	border-spacing: 0;
+	width: 100%;
+	height: 100%;
+}
+.tc-menu,
+.tc-main {
+	position: relative;
+	display: table-cell;
+	vertical-align: top;
+	height: 100%;
+	padding: 0;
+	float: none;
+}

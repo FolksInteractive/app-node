@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "sass": {},
+    "iron-router": {},
+    "bootstrap3-sass": {},
+    "moment": {},
+    "livestamp": {},
+    "collectionFS": {}
+  }
+}

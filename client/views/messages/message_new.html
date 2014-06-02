@@ -1,0 +1,36 @@
+<template name="message_new">
+  <div class="tc-new-message tc-message media">
+    
+    <div class="tc-avatar pull-left">
+      <img src="/img/avatar.png" class="media-object img-circle" />
+    </div>
+
+    <div class="media-body">
+      <form id="newMessageForm">
+        
+        <div class="tc-message-body">
+          <textarea class="form-control" placeholder="Write a message..."></textarea> 
+        </div> 
+      
+        <footer>
+          <div class="btn-group">
+            <span class="btn-file btn btn-default">
+              <span class="glyphicon glyphicon-picture"></span> Add image
+              <input type="file" />
+            </span>
+
+            <span class="btn-file btn btn-default">
+              <span class="glyphicon glyphicon-paperclip"></span> Add file
+              <input type="file" />
+            </span>
+          </div>
+
+          <button class="tc-post-btn btn btn-primary pull-right">
+            <span class="glyphicon glyphicon-send"></span> Post
+          </button>
+          
+        </footer>
+      </form>
+    </div>
+  </div>
+</template>

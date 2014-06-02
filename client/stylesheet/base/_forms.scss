@@ -1,0 +1,145 @@
+//
+// Base/Forms
+// --------------------------------------------------
+
+
+legend {
+    padding: 10px 16px 10px 0;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    border-bottom: 1px dotted #dededf;
+    font-size: 24px;
+    //color: $tc-brand-blue;
+    color: $gray-dark;
+    
+    span {
+        vertical-align: middle;
+        font-size: 14px;
+        color: #999;
+        padding-left: 5px;
+    }
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline; 
+}
+
+input[type='email'] {
+    font-size: $font-size-base; 
+}
+
+.btn-file{
+    position:relative;
+    overflow:hidden;
+                
+    input[type="file"]{
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        font-size: 1000px !important;
+        opacity: 0;
+        cursor: inherit;
+    }
+    input[type="file"]:focus{
+        border:0;
+        outline:0;
+    }
+}
+
+.form-group.has-error{
+    .tooltip-inner {
+        max-width:inherit;
+        white-space: nowrap;
+        background-color: $brand-danger;
+    }
+
+    .tooltip{
+        &.top .tooltip-arrow {
+            border-top-color: $brand-danger;
+        }
+        &.top-left .tooltip-arrow {
+            border-top-color: $brand-danger;
+        }
+        &.top-right .tooltip-arrow {
+            border-top-color: $brand-danger;
+        }
+        &.right .tooltip-arrow {
+            border-right-color: $brand-danger;
+        }
+        &.left .tooltip-arrow {
+            border-left-color: $brand-danger;
+        }
+        &.bottom .tooltip-arrow {
+            border-bottom-color: $brand-danger;
+        }
+        &.bottom-left .tooltip-arrow {
+            border-bottom-color: $brand-danger;
+        }
+        &.bottom-right .tooltip-arrow {
+            border-bottom-color: $brand-danger;
+        }
+    }
+}
+
+.checkbox-item {
+    position: relative; 
+}
+
+.checkbox-item label {
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    background: #fff;
+    border: 3px solid #dededf; 
+}
+
+.checkbox-item label:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 7px;
+    background: transparent;
+    top: 2px;
+    left: 2px;
+    border: 3px solid #777;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg); 
+}
+
+.checkbox-item label:hover::after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: alpha(opacity=30);
+    opacity: 0.3; 
+}
+
+.checkbox-item label:hover {
+    border: 3px solid #ccc;
+}
+
+.checkbox-item input[type=checkbox]:checked + label:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1; 
+}
+
+.checkbox-item input[type=checkbox] {
+    margin-left: -12px; 
+    display: none;
+}
