@@ -5,6 +5,8 @@
     "bootstrap3-sass": {},
     "moment": {},
     "livestamp": {},
-    "collectionFS": {}
+    "collectionFS": {},
+    "autoform": {},
+    "underscore-string-latest": {}
   }
 }

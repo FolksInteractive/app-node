@@ -1,0 +1,1 @@
+Objectives = new Meteor.Collection('objectives');

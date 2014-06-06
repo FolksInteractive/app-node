@@ -1,0 +1,105 @@
+.tc-relation-aside{
+	@include hbox-item;
+
+	width: 360px;
+
+	.tc-contact-section{		
+		margin: 24px 0;
+		text-align: center;
+
+	}
+	.tc-contact-avatar{
+
+		img{
+			border: 5px solid $gray-lighter;
+			@include square(100px);
+		}
+	}
+	.tc-contact-name{
+		h3{
+			margin-top:10px;
+			color: $gray; 
+		}
+	}
+	.tc-contact-title{
+		padding:0 12px;
+		p{
+			color: $gray-light;
+			line-height : $line-height-small;
+		}
+	}
+
+
+	.tc-overview-section{			
+		margin: 24px 0 0 0;
+		text-align : center;
+	}
+	.tc-overview{
+	}
+	.tc-overview-item{
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 20px 14px 20px;
+		margin-bottom:-1px;
+		text-align:center;
+
+		&.active{
+			border-bottom: 2px solid $brand-primary;
+
+			h3{
+				color : $brand-primary;
+			}
+		}
+
+		h3{
+			color : $gray;
+			margin-top:0;
+		}
+		span{
+			color : $brand-primary;
+			font-size: $font-size-small;
+		}
+	}
+
+	.tc-spacer-section{				
+		margin: 24px 0 12px 0;
+		height: 36px;
+		background: url('/img/relation_aside_spacer.gif') no-repeat top center;
+	}
+
+	.tc-objectives-section{
+		margin: 0 24px 24px 24px;
+
+		.tc-objectives{
+		}
+
+		.tc-objective{
+			border-top: 1px solid $gray-lighter;
+			padding:10px 0;
+			overflow: hidden;
+
+			.tc-title {
+				font-size: $font-size-base;
+				color: $gray;
+			}
+
+			.tc-createdAt {
+				font-size: $font-size-small;
+				color: $gray-light;
+			}
+
+			.tc-check{
+				border-radius : 50%;
+				border: 3px solid $gray-lighter;
+				line-height: 14px;
+				padding:6px;
+				margin: 2px 10px 0 0;
+				color: $gray-light;
+
+				span{
+					line-height:0;
+				}
+			}
+		}
+	}
+}

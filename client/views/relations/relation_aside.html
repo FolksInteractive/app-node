@@ -14,7 +14,7 @@
 
     <div class="tc-overview-section">
       <div class="tc-overview">
-        <div class="tc-overview-item">
+        <div class="tc-overview-item active">
           <h3>000</h3>
           <span>To Do</span>
         </div>
@@ -29,24 +29,20 @@
       </div>
     </div>
 
-    <div class="tc-switch-section">
-      <div class="tc-switch btn-group">
-            <a href="#" class="active btn btn-default">Discuss</a>
-            <a href="#" class="btn btn-default">Business</a>
-        </div>
-    </div>
-
-    <div class="tc-spacer-section"></div>
-
-    <div class="tc-others-section">
-    <!-- <ul>
-      <li ng-repeat="client in user.clients">
-        <a href="#">client : {{ client.id }}</a>
-      </li>
-      <li ng-repeat="vendor in user.vendors">
-        <a  href="#">vendor : {{ vendor.id }}</a>
-      </li>
-    </ul> -->
+    <div class="tc-objectives-section">
+      <ul class="tc-objectives list-unstyled">
+        {{#each objectives}}
+          <li class="tc-objective">
+            <div class="tc-check pull-left img-circle">
+              <span class="glyphicon glyphicon-ok"></span>
+            </div>
+            <div class="tc-info">
+              <div class="tc-title">{{title}}</div>
+              <div class="tc-createdAt">Created on {{date createdAt}}</div>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 </template>

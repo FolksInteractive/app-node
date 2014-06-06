@@ -2,26 +2,63 @@
   <div class="tc-new-message tc-message media">
     
     <div class="tc-avatar pull-left">
-      <img src="/img/avatar.png" class="media-object img-circle" />
+      <img src="{{avatar currentUser}}" class="media-object img-circle" />
     </div>
 
     <div class="media-body">
+
       <form id="newMessageForm">
+
+        <ul class="nav nav-tabs">
+          <li class="{{activeTabClass 'discuss'}}"><a href="#" data-tab="discuss">Discuss</a></li>
+          <li class="{{activeTabClass 'objective'}}"><a href="#" data-tab="objective">Objective</a></li>
+          <li class="{{activeTabClass 'progress'}}"><a href="#" data-tab="progress">Progress Note</a></li>
+        </ul>
         
-        <div class="tc-message-body">
-          <textarea class="form-control" placeholder="Write a message..."></textarea> 
-        </div> 
-      
+        {{> message_new_discuss}}
+
+        <div class=" {{#unless isCurrentTab 'objective' }}hide{{/unless}}">
+          {{> message_new_objective}}
+        </div>
+
+        <div class=" {{#unless isCurrentTab 'progress' }}hide{{/unless}}">
+          {{> message_new_progress}}
+        </div>
+
         <footer>
+          {{# if hasDraftFiles}}
+            <div class="tc-message-files">
+              <ul class="list-unstyled">
+                {{#each files}}
+                  <li>
+                    {{# if isUploaded }}
+                    <a href="#" class="tc-remove pull-right">
+                      <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                    {{/ if}}
+
+                    {{# unless isUploaded}}
+                    <div class="tc-upload-progress progress progress-striped active pull-right">
+                      <div class="progress-bar progress-bar-warning"  role="progressbar"></div>
+                    </div>
+                    {{/unless}}
+
+                    <span class="glyphicon glyphicon-file"></span> {{name}}
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          {{/if}}
+
           <div class="btn-group">
             <span class="btn-file btn btn-default">
               <span class="glyphicon glyphicon-picture"></span> Add image
-              <input type="file" />
+              <input type="file" multiple=""/>
             </span>
 
             <span class="btn-file btn btn-default">
               <span class="glyphicon glyphicon-paperclip"></span> Add file
-              <input type="file" />
+              <input type="file" multiple="" />
             </span>
           </div>
 

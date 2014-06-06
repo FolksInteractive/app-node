@@ -1,0 +1,20 @@
+@-webkit-keyframes tc-upload-progress {
+  from  { background-position: 0 0; }
+  to    { background-position: 120px 0; }
+}
+
+// Spec and IE10+
+@keyframes tc-upload-progress {
+  from  { background-position: 0 0; }
+  to    { background-position: 120px 0; }
+}
+
+.tc-upload-progress{
+  .progress-bar{
+    width: 100%;
+  }
+
+  &.active .progress-bar{
+    @include animation(tc-upload-progress 2s linear infinite);
+  }
+}

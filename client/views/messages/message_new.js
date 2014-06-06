@@ -1,36 +1,125 @@
-Template.message_new.helpers({
+Template.message_new.rendered = function(){
+  Session.set('newMessageCurrentTab', 'discuss');
+  Session.set('newMessageFiles', []);
+}
 
+//                                                                            //
+//                                  Tabs                                      //
+//                                                                            //
+Template.message_new.helpers({
+  currentTab : function(){
+    return Session.get('newMessageCurrentTab');
+  },
+  isCurrentTab : function(value){
+    return Session.equals('newMessageCurrentTab', value)
+  },
+  activeTabClass : function(value){
+    return Session.equals('newMessageCurrentTab', value) ? 'active' : 'no';
+  }
 });
 
 Template.message_new.events({
+  //When a tab is click
+  'click #newMessageForm .nav a' : function(e){
+    e.preventDefault();
+
+    var selectedTab = $(e.target).data('tab');
+    
+    Session.set('newMessageCurrentTab', selectedTab);
+  },
+
+  // When submitting the form
   'submit #newMessageForm' : function(e){
     e.preventDefault();
 
-    var params = {
-      body : $(e.target).find('.tc-message-body .form-control').val(),
-      relationId : Session.get('currentRelationId'),
-      type : MessageTypes.NORMAL
-    }
+    var $form = $(e.target);
+    var relationId = Session.get('currentRelationId')
 
+    // Makes draft file as attachments to message
+    var draftFiles = getDraftFilesByRelationId(relationId);
+    var draftFileIds = _.map(draftFiles, function(file){
+      return file._id;
+    });
+
+    var params = {
+      'body' : $form.find('.tc-message-body .form-control').val(),
+      'relationId' : relationId,
+      'files' : draftFileIds
+    }
     // Cleaning params
-    params.body = $.trim(params.body)|| "";
+    params.body = _.trim(params.body)|| "";
 
     // Do nothing if no content
-    if(params.body.length ==0)
+    if(_.isBlank(params.body))
       return
+
+    // Convert current tab to message type
+    console.log(Session.get('newMessageCurrentTab'));
+    switch(Session.get('newMessageCurrentTab')){
+      case 'discuss'  : params.type = MessageTypes.DISCUSS; break;
+      case 'objective': params.type = MessageTypes.OBJECTIVE; break;
+      case 'progress' : params.type = MessageTypes.PROGRESS; break;
+    }
+    
+    // Build obective message type
+    if(params.type == MessageTypes.OBJECTIVE){
+      var $objectives = $form.find('.tc-new-objective');
+      //Extract objective
+      params.objectives = _.map($objectives, function(objectiveElem){
+        return $(objectiveElem).find('input').val();
+      });
+
+      // Keep none empty objectives
+      params.objectives = _.filter(params.objectives, function(value){
+        return !_.isBlank(_.trim(value));
+      });
+
+      // Stop everything if no objective is specified
+      if(params.objectives.length === 0)
+        return;
+    }
     
     Meteor.call('post_message', params, function(err, messageId){
-      console.log(err, messageId);
       if(!err)
         $('#newMessageForm')[0].reset();
     });
   },
+});
 
-  'change .myFileInput': function(event, template) {
+//                                                                            //
+//                                  Files                                     //
+//                                                                            //
+Template.message_new.helpers({
+  files : function(){
+    return getFiles({draft : true})
+  },
+  hasDraftFiles : function(){
+    return hasDraftFilesByRelationId(Session.get('currentRelationId'));
+  },
+});
+
+Template.message_new.events({
+  'click #newMessageForm .tc-message-files .tc-remove' : function(e){
+    e.preventDefault();
+
+    Meteor.call('remove_file', this._id)
+  },
+
+  'change #newMessageForm input[type=file]': function(event, template) {
     FS.Utility.eachFile(event, function(file) {
-      Images.insert(file, function (err, fileObj) {
-        //If !err, we have inserted new doc with ID fileObj._id, and
-        //kicked off the data upload using HTTP
+      var fsFile = new FS.File(file);
+      fsFile.relationId = Session.get('currentRelationId');
+      fsFile.draft = true;
+      fsFile.uploaderId = Meteor.userId();
+
+      Files.insert(fsFile, function (err, fileResult) {
+        //Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+        if(err)
+          return console.log(err);
+
+          var newMessageFiles = Session.get('newMessageFiles')
+          newMessageFiles.push(fileResult);
+          Session.set('newMessageFiles', newMessageFiles);
       });
     });
   }

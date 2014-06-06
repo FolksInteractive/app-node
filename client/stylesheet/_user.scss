@@ -1,162 +1,32 @@
+.tc-login-section{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 315px;
+  margin-top: -240px;
+  margin-left: -158px;
 
-.tc_user{
-    height: 100%;
-    width: 100%;
-    font-family: Arial;
+  .tc-logo{
+    background : url('/img/logo_login.png') no-repeat top center;
+    width: 112px;
+    height: 78px;
     
-    form{
-        margin-bottom: 0;
-    }
-    
-    input[type='text'], input[type='password'] {
-        font-size: 14px;
-        margin-bottom: 25px;
-    }
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
 
-    .errors{
-        position: relative;
-        padding: 12px;
-        margin: 0px auto;
-        width: 300px;
-        background: #fcfbe4;
-        border:1px solid #dededf;
-        margin-bottom:24px;
-        margin-top: -12px;
-        text-align: center;
-        
-        .error_line,
-        p {
-            color: #a72323;
-            font-style: italic;
-            font-size: 13px;
-            line-height:18px;
-        }
-        
-        .opps{
-            font-size:12px;
-            font-weight: bold;
-            margin-bottom:5px;
-        }
-        .message{
-        }
-    }
-    
-    .wrapper{
-        position: absolute;
-        left: 50%;
-        top: 50px;
-        width:320px;
-        margin-left: -160px;
-            
-        .logo{
-            background: url(/img/logo_login.png) no-repeat;
-            width: 226px;
-            height: 31px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-    }
-    
-    .submit_row{
-        text-align: right;
-        
-        span {
-            margin-right: 5px;
-            font-size: 16px;
-        }
-    }
+  .form-group{
+    margin-top: 20px;
+  }
+
+  .btn{
+    background-color: #00b5dc;
+  }
+
+  .alert-danger{
+    border:0;
+    color: #ff481e;
+    background-color: rgba(255, 255, 255, .2);
+    text-shadow: 2px 2px #333loc;
+  }
 }
-
-.tc_login{    
-    .remember_row {
-        padding-top: 10px;
-        margin-bottom: 30px;
-        
-        label {
-            font-weight: normal;
-            display: block;
-        }
-        
-        input {
-            margin-top: 2px;
-        }
-    }
-    
-    .submit_login {
-        position: absolute;
-        right: 0;
-        margin-top: -65px;
-    }
-    
-    .more_links{    
-        margin-top: 25px;
-        padding: 30px 20px;
-        height:40px;
-        border-top: 1px dashed #dededf;
-        
-        a{
-            font-size: 13px;
-            margin-right: 12px;
-        }
-        a:hover{
-            //color: #990000;
-        }        
-    }
-}
-
-.tc_registration_register{    
-    .wrapper{
-        width:350px;
-        margin-right: -175px;
-    }
-}
-
-.tc_registration_confirmed,
-.tc_registration_check{
-    .wrapper{
-        width:400px;
-        margin-left:-200px;
-    }
-    .message{
-        padding-bottom:10px;
-    }
-    .fos_user_success{
-        font-weight:bold;
-        color: #990000;
-    }
-}
-
-.tc_login,
-.tc_registration_register,
-.tc_registration_check,
-.tc_registration_confirmed,
-.tc_resetting_request,
-.tc_resetting_reset {
-    background: #f6f6f6;
-}
-
-/*******************************************************************/
-/* Section Profile:edit.html.twig & Profile:edit_content.html.twig */
-/*******************************************************************/
-
-.profile_edit {
-    
-    .tc-sheet {
-        
-        legend {
-            margin-bottom: 30px;
-        }
-        
-        label {
-            padding-bottom: 5px;
-            color: #333;
-        }
-        
-        .col2 {
-            padding: 0 50px;
-        }
-
-    }
-    
-}
-

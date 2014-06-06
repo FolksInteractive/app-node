@@ -3,4 +3,7 @@ Template.relation_aside.helpers({
     return Meteor.user();
   },
 
+  objectives : function(){
+    return getObjectives();
+  },
 })

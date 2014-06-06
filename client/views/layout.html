@@ -1,11 +1,28 @@
 <template name="layout">
-  <div class="tc-global">
-    <div class="tc-menu compressed">
-      {{>menu}}
+
+  <div class="tc-global {{globalState}}">
+
+    <div class="tc-entry">
+      {{# if isLoggedOut }}
+      {{> login}}
+      {{/ if }}
     </div>
 
-    <div class="tc-main">
-      {{>yield}}
+    <div class="tc-inside">
+      {{#unless loggingIn}}
+      {{# if isLoggedIn }}
+      <div class="tc-main">
+        <!-- <div class="tc-menu compressed">
+          {{>menu}}
+        </div> -->
+
+        <div class="tc-yield">
+          {{>yield}}
+        </div>
+      </div>
+      {{/ if}}
+      {{/ unless}}
     </div>
+
   </div>
 </template>

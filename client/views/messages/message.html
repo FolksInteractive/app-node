@@ -1,9 +1,9 @@
 <template name="message">
   <div class="tc-message media">
-    <div class="tc-avatar pull-left">
-      <img src="/img/avatar.png" class="media-object img-circle" />
+    <div class="tc-avatar media-object">
+      <img src="/img/avatar.png" class="img-circle" />
     </div>
-    <div class="tc-message-body media-body">
+    <div class="tc-message-content media-body">
       <div class="tc-message-heading media-heading">
         <a class="tc-username">{{fullname authorId}} </a>
         <span class="tc-bullet" aria-hidden="true"> • </span>
@@ -16,6 +16,42 @@
           50% Completed
         </div> -->
       </div>
+
+
+      {{# if isNotEmpty objectives}}
+      <div class="tc-message-objectives tc-pill-holder">
+        <div class="tc-pill"></div>
+        <ul class="list-unstyled">          
+          {{#each objectives}}
+            <li>
+              {{title}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+
+
+      {{# if isNotEmpty files}}
+      <div class="tc-message-files tc-pill-holder">
+        <div class="tc-pill"></div>
+        <ul class="list-unstyled">          
+          {{#each files}}
+            <li>
+              <a href="{{url}}">
+                {{#if isImage}}
+                  <img src="{{url}}" />
+                {{/if}}
+
+                {{#unless isImage}}
+                  <span class="glyphicon glyphicon-file"></span> {{name}}
+                {{/unless}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
 
       <div class="tc-message-options">
         <ul class="list-inline">

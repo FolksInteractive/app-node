@@ -20,14 +20,14 @@ if(Meteor.users.find().count() === 0){
   var relationId = Relations.insert({
     'clientId' : clientId,
     'vendorId' : vendorId,
-    'createdAt' : new Date().getTime()
+    'createdAt' : new Date()
   });
 
   var messageId = Messages.insert({
     'body' : "Fixture Message",
     'type' : MessageTypes.NORMAL,
     'relationId' : relationId,
-    'createdAt' : new Date().getTime(),
+    'createdAt' : new Date(),
     'authorId' : clientId
   });
 

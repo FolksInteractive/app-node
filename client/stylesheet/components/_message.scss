@@ -1,15 +1,53 @@
+.tc-messages-section{
+	.media{
+		overflow: visible;
+		position:relative;
+	}
+	.media-object{
+		position: absolute;
+		top:-10px;
+		left:5px;
+	}
+	.media-body{
+		overflow: visible;
+		margin-left:85px;
+	}
+}
+
+
 .tc-message{
 	margin: 30px;
 
+	.tc-pill{
+		position: absolute;
+		top: -5px;
+		left: -65px;
+		@include square(30px);
+		background : $brand-primary;
+		border-radius: 50%;
+	}
+
+	.tc-pill-holder{
+		position: relative;
+	}
+
 	.tc-avatar img{
-		width: 70px;
-		height: 70px;
+		@include square(60px);
 		border: 5px solid white;
 	}
 
 	.tc-message-body{
+		min-height: 30px;
 		p{
 			font-size: $font-size-large;
+		}
+	}
+
+	.tc-message-files{
+		img {
+			display: block;
+			width: 100% !important;
+			height: auto !important;
 		}
 	}
 
@@ -23,9 +61,6 @@
 		}
 		.tc-bullet{
 			margin: 0 5px;
-		}
-		.tc-timeago{
-			
 		}
 	}
 
@@ -56,7 +91,7 @@
 			p{
 				font-size: $font-size-base;
 			}
-		}	
+		}
 	}
 	.tc-new-comment{
 		.tc-message-body{

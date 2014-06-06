@@ -3,5 +3,13 @@ Template.message.helpers({
     return "<span data-livestamp='"+this.createdAt+"'>"+
     moment(this.createdAt).fromNow()
       +"</span>";
+  },
+
+  objectives : function(){
+    return getObjectivesByMessage(this);
+  },
+
+  files : function(){
+    return getFilesByMessageId(this);
   }
 })

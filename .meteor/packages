@@ -12,3 +12,8 @@ session
 moment
 livestamp
 collectionFS
+cfs-filesystem
+cfs-ejson-file
+autoform
+cfs-graphicsmagick
+underscore-string-latest
