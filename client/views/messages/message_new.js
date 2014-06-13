@@ -54,15 +54,15 @@ Template.message_new.events({
       return
 
     // Convert current tab to message type
-    console.log(Session.get('newMessageCurrentTab'));
     switch(Session.get('newMessageCurrentTab')){
       case 'discuss'  : params.type = MessageTypes.DISCUSS; break;
       case 'objective': params.type = MessageTypes.OBJECTIVE; break;
       case 'progress' : params.type = MessageTypes.PROGRESS; break;
     }
     
-    // Build obective message type
-    if(params.type == MessageTypes.OBJECTIVE){
+
+    // Build objective MESSAGE type
+    if(MessageTypes.OBJECTIVE == params.type){
       var $objectives = $form.find('.tc-new-objective');
       //Extract objective
       params.objectives = _.map($objectives, function(objectiveElem){
@@ -76,6 +76,19 @@ Template.message_new.events({
 
       // Stop everything if no objective is specified
       if(params.objectives.length === 0)
+        return;
+    }
+
+    
+    // Build progress PROGRESS type
+    if(MessageTypes.PROGRESS == params.type){
+      params.progress = {
+        objective : _.trim($form.find('select[name=progressObjective]').val()),
+        value : _.trim($form.find('select[name=progressValue]').val())
+      }
+
+      // Stop everything if no objective or value is specified
+      if(_.isBlank(params.progress.objective) || _.isBlank(params.progress.value))
         return;
     }
     

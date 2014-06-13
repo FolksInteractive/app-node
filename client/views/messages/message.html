@@ -1,20 +1,20 @@
 <template name="message">
-  <div class="tc-message media">
+  <div class="tc-message media {{new}}">
     <div class="tc-avatar media-object">
       <img src="/img/avatar.png" class="img-circle" />
     </div>
-    <div class="tc-message-content media-body">
+
+    <div class="media-body">
+
       <div class="tc-message-heading media-heading">
         <a class="tc-username">{{fullname authorId}} </a>
-        <span class="tc-bullet" aria-hidden="true"> • </span>
+        <span class="tc-bullet"> • </span>
         <span class="tc-timeago"> {{{createdAt}}}</span>
       </div>
       
+
       <div class="tc-message-body">
         <p>{{body}}</p>
-        <!-- <div class="tc-progress-attachment tc-attachment">
-          50% Completed
-        </div> -->
       </div>
 
 
@@ -52,6 +52,7 @@
         </ul>
       </div>
       {{/if}}
+
 
       <div class="tc-message-options">
         <ul class="list-inline">

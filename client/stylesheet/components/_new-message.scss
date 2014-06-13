@@ -6,6 +6,7 @@
 
 	.tc-message-body{
 		min-height: 0;
+		
 		.form-control {
 			max-width: 100%;
 
@@ -19,33 +20,34 @@
 		}
 	}
 
+	.tc-message-progress,
 	.tc-message-objectives{
 		padding: 10px;
 		border: 1px solid $navbar-default-toggle-border-color;
 		border-top: 0;
+	}
 
-		.tc-new-objective{
-			position: relative;
+	.tc-new-objective{
+		position: relative;
 
+		.tc-remove{
+			position: absolute;
+			top: -2px;
+			right: 0;
+			display: none;
+			width: 34px;
+			height: 34px;
+			line-height: 0;
+			text-align: center;
+			color: $gray-light;
+			border-left:0;
+			z-index:2;
+		}
+
+		&:hover{
 			.tc-remove{
-				position: absolute;
-				top: -2px;
-				right: 0;
-				display: none;
-				width: 34px;
-				height: 34px;
-				line-height: 0;
-				text-align: center;
-				color: $gray-light;
-				border-left:0;
-				z-index:2;
-			}
-
-			&:hover{
-				.tc-remove{
-					display:block;
-					color: $brand-danger;
-				}
+				display:block;
+				color: $brand-danger;
 			}
 		}
 	}

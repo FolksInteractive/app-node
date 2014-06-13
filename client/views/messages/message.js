@@ -11,5 +11,13 @@ Template.message.helpers({
 
   files : function(){
     return getFilesByMessageId(this);
-  }
+  },
+
+  new : function(){
+    var now = moment();
+    var createdAt = moment(this.createdAt);
+    var diff = now.diff(createdAt);
+
+    return diff < 5000 ? 'new' : '';
+  }  
 })

@@ -3,7 +3,7 @@
 }
 
 .tc-relation-main{
-  background: url('/img/relation_main_spacer.gif') no-repeat top left;
+  background: url('/img/relation_main_spacer.gif') white no-repeat top left;
   @include hbox-item;
   
   .tc-line{
@@ -18,4 +18,9 @@
     position: relative;
     margin: 48px;
   }
+}
+
+.tc-relation-bar{
+  @include hbox-item;
+  width:60px;
 }

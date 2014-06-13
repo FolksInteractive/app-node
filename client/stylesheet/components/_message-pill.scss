@@ -1,0 +1,54 @@
+.tc-message{
+  margin: 30px;
+
+  .tc-pill-holder{
+    position: relative;
+  }
+
+  .tc-pill{
+    position: absolute;
+    top: -5px;
+    left: -65px;
+    @include square(30px);
+    color: white;
+    border-radius: 50%;
+    background-color : $gray-lighter;
+
+    &:after{
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      width: 25px;
+      height: 2px;
+      background-color: $gray-lighter;
+      content: " ";
+    }
+  }
+}
+
+.tc-message-objectives{
+  .tc-pill{
+    background-color : $brand-primary;
+    @extend .glyphicon;
+    @extend .glyphicon-ok;
+    padding: 8px;
+  }
+}
+
+.tc-message-progresses{
+  .tc-pill{
+    background-color : $brand-primary;
+    @extend .glyphicon;
+    @extend .glyphicon-tasks;
+    padding: 8px;
+  }
+}
+
+.tc-message-files{
+  .tc-pill{
+    background-color : $brand-info;   
+    @extend .glyphicon;
+    @extend .glyphicon-paperclip;
+    padding: 8px;
+  }
+}

@@ -4,7 +4,7 @@
 
 // Overwriting Bootstrap 2.3
 // -------------------------
-[class^="icon-"], [class*=" icon-"] {
+.tc-icon {
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -18,7 +18,15 @@
 // Custom Icons
 // -------------------------
 
-.icon-addtext-dark-lg{
+.tc-icon-dashboard{
+    width: 23px;
+    height: 23px;
+    background: url("/img/icons/icon-dashboard.png");
+    background-repeat: no-repeat;
+    margin: -2px 3px 0 0;
+}
+
+.tc-icon-addtext-dark-lg{
     width: 50px;
     height: 33px;
     background: url("/img/icons/icon-addtext-dark-lg.png");
@@ -30,10 +38,10 @@
     padding-right: 20px;
 }
 
-.icon-dashboard{
+.tc-icon-home{
     width: 13px;
     height: 18px;
-    background: url("/img/icons/icon-dashboard.png");
+    background: url("/img/icons/icon-home.png");
     background-repeat: no-repeat;
     margin: -2px 3px 0 0;
 }
@@ -45,18 +53,18 @@
     background-repeat: no-repeat;
 }
 
-.icon-projects{
+.tc-icon-projects{
     width: 17px;
     height: 18px;
     background: url("/img/icons/icon-projects.png");
     background-repeat: no-repeat;
     margin: -2px 3px 0 0;
 }
-.icon-discussion.icon-white{
+.tc-icon-discussion.tc-icon-white{
     background: url("/img/icons/icon-projects-white.png");
 }
 
-.icon-projects-dark-lg{
+.tc-icon-projects-dark-lg{
     width: 26px;
     height: 22px;
     background: url("/img/icons/icon-projects-dark-lg.png");
@@ -69,7 +77,7 @@
     color: $gray;
 }
 
-.icon-relations{
+.tc-icon-relations{
     width: 19px;
     height: 14px;
     background: url("/img/icons/icon-relations-light-sm.png");
@@ -77,21 +85,21 @@
     margin: 0px 3px 0 0;
 }
 
-.icon-relations-dark-lg{
+.tc-icon-relations-dark-lg{
     width: 29px;
     height: 22px;
     background: url("/img/icons/icon-relations-dark-lg.png");
     background-repeat: no-repeat;
 }
 
-.icon-edit-profile-dark-large{
+.tc-icon-edit-profile-dark-large{
     width: 23px;
     height: 22px;
     background: url("/img/icons/icon-edit-profile-dark-lg.png");
     background-repeat: no-repeat;
 }
 
-.icon-agreement{
+.tc-icon-agreement{
     width: 13px;
     height: 18px;
     background: url("/img/icons/icon-agreement.png");
@@ -99,7 +107,7 @@
     margin: 3px 3px 0 0;
 }
 
-.icon-rfp-light{
+.tc-icon-rfp-light{
     width: 16px;
     height: 17px;
     background: url("/img/icons/icon-rfp-light-sm.png");
@@ -107,14 +115,14 @@
     margin: -2px 3px 0 0;
 }
 
-.icon-rfps-dark{
+.tc-icon-rfps-dark{
     width: 28px;
     height: 28px;
     background: url("/img/icons/icon-rfp-dark-lg.png");
     background-repeat: no-repeat;
 }
 
-.icon-orders{
+.tc-icon-orders{
     width: 20px;
     height: 17px;
     background: url("/img/icons/icon-proposals-light-sm.png");
@@ -122,7 +130,7 @@
     margin: -2px 3px 0 0;
 }
 
-.icon-new-proposals-light-sm{
+.tc-icon-new-proposals-light-sm{
     width: 23px;
     height: 17px;
     background: url("/img/icons/icon-new-proposals-light-sm.png");
@@ -130,28 +138,28 @@
     margin: 2px 5px 0 0;
 }
 
-.icon-progress-light-sm{
+.tc-icon-progress-light-sm{
     width: 20px;
     height: 20px;
     background: url("/img/icons/icon-progress-light-sm.png");
     background-repeat: no-repeat;
 }
 
-.icon-progress-white-sm{
+.tc-icon-progress-white-sm{
     width: 20px;
     height: 20px;
     background: url("/img/icons/icon-progress-white-sm.png");
     background-repeat: no-repeat;
 }
 
-.icon-progress-dark-lg{
+.tc-icon-progress-dark-lg{
     width: 25px;
     height: 25px;
     background: url("/img/icons/icon-progress-dark-lg.png");
     background-repeat: no-repeat;
 }
 
-.icon-orders-dark{
+.tc-icon-orders-dark{
     width: 29px;
     height: 25px;
     background: url("/img/icons/icon-proposals-dark-lg.png");
@@ -159,7 +167,7 @@
     margin: 18px 5px 0 0;
 }
 
-.icon-bill{
+.tc-icon-bill{
     width: 16px;
     height: 18px;
     background: url("/img/icons/icon-bill.png");
@@ -167,7 +175,7 @@
     margin: -3px 3px 0 0;
 }
 
-.icon-bill-dark-lg{
+.tc-icon-bill-dark-lg{
     width: 25px;
     height: 28px;
     background: url("/img/icons/icon-bill-dark-lg.png");
@@ -175,7 +183,7 @@
     margin: 18px 5px 0 0;
 }
 
-.icon-invoice{
+.tc-icon-invoice{
     width: 18px;
     height: 18px;
     background: url("/img/icons/icon-invoice.png");
@@ -183,14 +191,14 @@
     margin: -3px 3px 0 0;
 }
 
-.icon-invoices-dark-lg{
+.tc-icon-invoices-dark-lg{
     width: 12px;
     height: 22px;
     background: url("/img/icons/icon-invoices-dark-lg.png");
     background-repeat: no-repeat;
 }
 
-.icon-settings{
+.tc-icon-settings{
     width: 20px;
     height: 18px;
     background: url("/img/icons/icon-settings.png");
@@ -198,7 +206,7 @@
     margin: 3px 3px 0 0;
 }
 
-.icon-discussion{
+.tc-icon-discussion{
     width: 13px;
     height: 10px;
     background: url("/img/icons/icon-discussion.png");
@@ -206,11 +214,11 @@
     margin: 3px 3px 0 0;
 }
 
-.icon-discussion.icon-white{
+.tc-icon-discussion.tc-icon-white{
     background: url("/img/icons/icon-discussion-white.png");
 }
 
-.icon-add-discussion-white-lg{
+.tc-icon-add-discussion-white-lg{
     width: 25px;
     height: 20px;
     background: url("/img/icons/icon-add-discussion-white-lg.png");
@@ -225,7 +233,7 @@
     color: #fff;
 }
 
-.icon-add-user{
+.tc-icon-add-user{
     width: 24px;
     height: 17px;
     background: url("/img/icons/icon-add-user.png");
@@ -233,7 +241,7 @@
     margin: 2px 5px 0 0;
 }
 
-.icon-check-sm{
+.tc-icon-check-sm{
     width: 13px;
     height: 11px;
     background: url("/img/icons/icon-check-sm.png");
@@ -241,7 +249,7 @@
     margin: 2px 5px 0 0;
 }
 
-/*.icon-check-sm-dark{
+/*.tc-icon-check-sm-dark{
     width: 13px;
     height: 11px;
     background: url("/img/icons/icon-check-sm-dark.png");

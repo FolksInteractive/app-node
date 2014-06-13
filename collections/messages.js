@@ -58,6 +58,24 @@ Meteor.methods({
     //
     // For Progress Message
     //
+    if(MessageTypes.PROGRESS === params.type){
+      check(params.progress, Object);
+      check(params.progress.objective, String);
+      check(params.progress.value, String);
+
+      // Update objective progress
+      Objectives.update(params.progress.objective, {
+        '$set':{
+          'progress': params.progress.value
+      }});  
+
+      // Update message to specify objectives
+      Messages.update(messageId, {
+        '$set':{
+          'objective' : params.progress.objective, 
+          'progress': params.progress.value
+      }});      
+    }
 
     // Update files to remove draft mode to files
     _.each(params.files, function(fileId){

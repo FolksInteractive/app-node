@@ -3,26 +3,30 @@
 
     <div class="tc-logo center-block"></div>
 
-    {{#autoForm schema=loginSchema id="loginForm" }}
-
-    {{#if hasError}}
-    <div class="alert alert-danger">{{errorMessage}}</div>
-    {{/if}}
-
-    {{> afQuickField name="email" 
-        label=false 
-        placeholder="Email" 
-        class="input-lg text-center" }}
-
-    {{> afQuickField name="password" 
-        label=false 
-        type="password" 
-        placeholder="Password"
-        class="input-lg text-center" }}
-
-    <div class="form-group pull-right">
-      <input type="submit" value="Sign in" class="btn-lg btn btn-primary" />
-    </div>
-    {{/autoForm}}
+    {{> login_form}}
   </div>
+</template>
+
+<template name="login_form">
+  {{#autoForm schema=schema id="loginForm" }}
+
+  {{#if hasError}}
+  <div class="alert alert-danger">{{getError}}</div>
+  {{/if}}
+
+  {{> afQuickField name="email" 
+      label=false 
+      placeholder="Email" 
+      class="input-lg text-center" }}
+
+  {{> afQuickField name="password" 
+      label=false 
+      type="password" 
+      placeholder="Password"
+      class="input-lg text-center" }}
+
+  <div class="form-group pull-right">
+    <input type="submit" value="Sign in" class="btn-lg btn btn-primary" />
+  </div>
+  {{/autoForm}}    
 </template>

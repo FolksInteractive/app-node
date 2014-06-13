@@ -1,0 +1,57 @@
+<template name="dashboard">
+  <div class="tc-dashboard-global">
+    
+    <div class="tc-header-section">
+      <div class="tc-header">
+        <span class="tc-icon tc-icon-dashboard"></span> Dashboard
+      </div>
+    </div>
+
+    <div class="tc-dashboard container">
+      <div class="tc-chart-section">
+        <div class="tc-chart">
+          <canvas width="900" height="150"></canvas>
+        </div>
+      </div>
+
+      <div class="tc-list-section"> 
+        <div class="tc-header">
+          <h3>Your relations</h3>
+          <span class="tc-info">Click on one of your client to view your relationship</span>
+        </div>
+
+        <div class="tc-list">
+        {{#each relations}}
+          <div class="tc-item">
+            <a href="{{pathFor 'relation' relationId=_id}}">
+              <div class="tc-progress-40 tc-media">
+                <img src="/img/avatar.png" border="0"/>
+
+                <div class="tc-over">
+                  <div class="tc-number">8</div>
+                  <div class="tc-label">Objectives</div>
+                </div>
+              </div>
+
+              <div class="tc-name">{{fullname contact}}</div>
+              <div class="tc-role">{{role}}</div>
+            </a>
+          </div>
+        {{/each}}
+
+          <div class="tc-new-item tc-item">
+            <a href="{{pathFor 'relation_invite'}}">
+              <div class="tc-media">
+                <span class="tc-plus glyphicon glyphicon-plus"></span> 
+                <div class="tc-over">
+                  <div class="tc-label">Invite Contact</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

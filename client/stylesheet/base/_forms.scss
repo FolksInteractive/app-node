@@ -28,6 +28,15 @@ form {
     vertical-align: baseline; 
 }
 
+.form-control.plain{
+    border:0;
+}
+
+.has-error{
+    .btn-group .btn{
+        border-color: $brand-danger;
+    }
+}
 .btn-file{
     position:relative;
     overflow:hidden;

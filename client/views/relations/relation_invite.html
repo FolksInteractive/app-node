@@ -1,0 +1,33 @@
+<template name="relation_invite">
+<div class="tc-invite-global">
+
+    {{> relation_bar}}
+
+    <div class="tc-invite-main">
+      <div class="tc-form-section">
+        <form>
+          <h5 class="text-center">Enter contact's email address</h5>
+
+          <div class="form-group">
+            <input type="text" name="email" class="form-control text-center plain input-lg" />
+          </div>
+
+          <div class="form-group text-right">
+            <div class="role-group btn-group" data-toggle="buttons">
+              <label class="btn btn-default btn-sm">
+                <input type="radio" name="role" value="client"> is the client
+              </label>
+              <label class="btn btn-default btn-sm">
+                <input type="radio" name="role" value="vendor"> is the vendor
+              </label>
+            </div>
+          </div>
+
+          <div class="tc-submit-group form-group text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Invite contact</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+</template>

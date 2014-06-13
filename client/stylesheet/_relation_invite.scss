@@ -1,0 +1,23 @@
+.tc-invite-global{
+  @include hbox;
+
+  .tc-invite-main{
+    @include hbox-item;
+    background: white;
+
+    .tc-form-section{
+      @include center-block();
+      width: 400px;
+      margin-top:20%;
+
+      h5{
+        text-transform: uppercase;
+        color:$gray-light;
+      }
+
+      .tc-submit-group{
+        margin-top:30px;
+      }
+    }
+  }
+}

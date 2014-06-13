@@ -6,4 +6,8 @@ Template.relation_aside.helpers({
   objectives : function(){
     return getObjectives();
   },
+
+  contact : function(){
+    return getContact(Session.get('currentRelationId'))
+  }
 })

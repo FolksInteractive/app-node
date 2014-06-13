@@ -1,0 +1,188 @@
+.tc-dashboard-global{
+  color: white;
+
+  .tc-dashboard{
+    padding-top:50px;
+  }
+
+  .tc-chart-section{
+    .tc-chart{
+      text-align: center;
+
+      canvas{
+        max-width: 900px;
+        width: 100% !important;
+      }
+    }
+  }
+
+  .tc-header-section{
+    margin-top: 30px;
+
+    .tc-header{
+      @include center-block();
+      width: 70px;
+      font-size: $font-size-small;
+      text-align:center;
+
+      .tc-icon{
+        margin-bottom: 10px;
+      }
+    }
+  }  
+
+  .tc-list-section{
+    margin-top: 90px;
+
+    .tc-info{
+      font-style: italic;
+      color : #00d2ff;
+    }
+
+    .tc-item{
+      width: 160px;
+      display: inline-block;
+      vertical-align: top;
+      margin : 50px 30px;
+      text-align:center;
+
+      a{
+        display: block;
+      }
+
+      a:hover{
+        color:white;
+        text-decoration: none;
+
+        .tc-media{
+          @include rotate(15deg);
+        }
+        .tc-over{
+          @include opacity(1);
+          @include rotate(-15deg);
+        }
+      } 
+
+      .tc-name{
+        color: white;
+        text-decoration: none;
+        font-size: $font-size-h4;
+        padding: 5px 0;
+      }
+
+      .tc-role{
+        color: $gray-light;
+        font-size: $font-size-small;
+        text-decoration: none;
+      }
+
+      .tc-media {
+        position: relative;
+        @include center-block();
+        width : 120px;
+        height : 120px;
+        padding: 8px;
+        @include transition(all 0.2s ease-in-out);
+
+        img{
+          width: 100%;
+          height: 100%;
+          border: 3px solid black;
+          border-radius: 50%;
+        }
+
+        .tc-over{
+          position: absolute;
+          top:0;
+          left:0;
+          right:0;
+          bottom:0;
+          margin:10px;
+          text-align: center;
+          background: rgba(0,0,0,.7);
+          border-radius: 50%;
+          padding-top: 17px;
+          @include rotate(-15deg);
+          @include opacity(0);
+          @include transition(all 0.2s linear);
+
+          .tc-number{
+            font-size: $font-size-h3;
+            text-align: center;
+          }
+
+          .tc-label{
+            color: $gray-light;
+            font-size: $font-size-small;
+            text-align: center;
+          }
+        }
+
+
+        $backColor: #0a4050;
+        $barColor: #00d2ff;
+        $step: 5; // step of % for created classes
+        $loops: round(100 / $step);
+        $increment: 360 / $loops;
+        $half: round($loops / 2);
+
+        @for $i from 0 through $loops {
+          &.tc-progress-#{$i*$step} {        
+            border-radius: 50%;
+            border: 2px solid $backColor; // remove gradient color
+            background-color: $barColor; // default 100%
+
+            @if $i < $half {
+              $nextdeg: 90deg + ( $increment * $i );      
+              background-image: linear-gradient(90deg, $backColor 50%, transparent 50%, transparent), linear-gradient($nextdeg, $barColor 50%, $backColor 50%, $backColor);
+            
+            } @else {
+              $nextdeg: -90deg + ( $increment * ( $i - $half ) );
+              background-image: linear-gradient($nextdeg, $barColor 50%, transparent 50%, transparent), linear-gradient(270deg, $barColor 50%, $backColor 50%, $backColor);
+
+            }
+          }
+        }
+      }   
+    }
+
+    $backColor: #3d494f;
+    $barColor: #0a4050;
+    .tc-new-item{
+      .tc-role{
+        margin-top:10px;
+      }
+
+      .tc-media{
+
+        color: white;
+        font-size: $font-size-h3;
+
+        border-radius: 50%;
+        //border: 1px solid black;
+        background-image: linear-gradient(312deg, transparent 50%, $backColor 50%, $backColor);
+        
+        .tc-plus{
+          border-radius: 50%;
+          background: #0F232D;
+          width: 100%;
+          height: 100%;
+          border: 3px solid black;
+          line-height: 90px;
+        }
+
+        .tc-over .tc-label{
+          padding-top: 6px;
+          font-size: 16px;
+          color:white;
+        }
+      }
+
+      a:hover{
+        .tc-media{
+          //@include rotate(90deg);
+        }
+      }
+    }
+  }
+}

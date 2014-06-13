@@ -14,21 +14,20 @@
 	}
 }
 
+@keyframes tc-message-new-kf {
+  from { opacity: 0; margin-top: -100px }
+  to { opacity: 1; margin-top: 30px }
+}
+@-webkit-keyframes tc-message-new-kf {
+  from { opacity: 0; margin-top: -100px }
+  to { opacity: 1; margin-top: 30px }
+}
 
 .tc-message{
 	margin: 30px;
 
-	.tc-pill{
-		position: absolute;
-		top: -5px;
-		left: -65px;
-		@include square(30px);
-		background : $brand-primary;
-		border-radius: 50%;
-	}
-
-	.tc-pill-holder{
-		position: relative;
+	&.new{
+		@include animation(tc-message-new-kf 1s cubic-bezier(0.215, 0.61, 0.355, 1));
 	}
 
 	.tc-avatar img{
@@ -38,6 +37,7 @@
 
 	.tc-message-body{
 		min-height: 30px;
+		
 		p{
 			font-size: $font-size-large;
 		}

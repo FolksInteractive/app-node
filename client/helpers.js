@@ -1,3 +1,4 @@
+
 UI.registerHelper('fullname', function(user){
   return getFullname(user);
 });

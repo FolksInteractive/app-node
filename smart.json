@@ -7,6 +7,7 @@
     "livestamp": {},
     "collectionFS": {},
     "autoform": {},
-    "underscore-string-latest": {}
+    "underscore-string-latest": {},
+    "select2": {}
   }
 }

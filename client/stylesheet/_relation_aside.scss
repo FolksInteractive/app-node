@@ -1,6 +1,6 @@
 .tc-relation-aside{
 	@include hbox-item;
-
+	background: white;
 	width: 360px;
 
 	.tc-contact-section{		
@@ -8,8 +8,8 @@
 		text-align: center;
 
 	}
+	
 	.tc-contact-avatar{
-
 		img{
 			border: 5px solid $gray-lighter;
 			@include square(100px);
@@ -88,12 +88,17 @@
 				color: $gray-light;
 			}
 
+			.tc-progress {
+				margin: 5px 0 0 0;
+				height:5px;
+			}
+
 			.tc-check{
 				border-radius : 50%;
 				border: 3px solid $gray-lighter;
 				line-height: 14px;
 				padding:6px;
-				margin: 2px 10px 0 0;
+				margin: 2px 10px 20px 0;
 				color: $gray-light;
 
 				span{

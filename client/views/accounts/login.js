@@ -6,9 +6,10 @@ AutoForm.hooks({
 
       Meteor.loginWithPassword(params.email, params.password, function(err){
         if(err)
-          return Session.set('formError', "Invalid email or password");
+          return Template.login_form.error(err);
 
-        Session.set('formError', null);
+        Template.login_form.success();
+
       });
 
       return false;
@@ -16,21 +17,29 @@ AutoForm.hooks({
   }
 });
 
-Template.login.rendered = function(){
-  Session.set('formError', null);
+Template.login_form.rendered = function(){
+  Session.set('login_error', null);
 }
 
-Template.login.helpers({
+Template.login_form.helpers({
 
-  loginSchema : function(){
+  schema : function(){
     return getLoginSchema();
   },
 
   hasError : function(){
-    return !Session.equals('formError', null)
+    return !Session.equals('login_error', null)
   },
 
-  errorMessage : function(){
-    return Session.get('formError');
+  getError : function(){
+    return Session.get('login_error');
+  },
+
+  success : function(){    
+    Session.set('login_error', null);
+  },
+
+  error : function(){
+    Session.set('login_error', "Invalid email or password");
   }
 });

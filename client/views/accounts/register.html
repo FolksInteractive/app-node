@@ -1,0 +1,43 @@
+<template name="register">
+  {{> register_form}}
+</template>
+
+<template name="register_form">
+  {{#autoForm schema=schema id="loginForm" }}
+
+  {{#if hasError}}
+  <div class="alert alert-danger">{{getError}}</div>
+  {{/if}}
+
+  {{> afQuickField name="firstname" 
+      label=false 
+      placeholder="First name" 
+      class="input-lg text-center" }}
+
+  {{> afQuickField name="lastname" 
+      label=false 
+      placeholder="Last name"
+      class="input-lg text-center" }}
+
+  {{> afQuickField name="email" 
+      label=false 
+      placeholder="Email" 
+      class="input-lg text-center" }}
+
+  {{> afQuickField name="password" 
+      label=false 
+      type="password" 
+      placeholder="Password"
+      class="input-lg text-center" }}
+
+  {{> afQuickField name="confirmPassword" 
+      label=false 
+      type="password" 
+      placeholder="Confirm Password"
+      class="input-lg text-center" }}
+
+  <div class="form-group pull-right">
+    <input type="submit" value="Sign in" class="btn-lg btn btn-primary" />
+  </div>
+  {{/autoForm}} 
+</template>

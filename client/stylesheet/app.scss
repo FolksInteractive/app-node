@@ -16,10 +16,13 @@
 
 
 // the COMPONENTS are each individuals pieces of the app
+//@import "vendor/select2-bootstrap3.css";
 @import "components/components";
 
 // The LAYOUTS builds the structure
 @import "layouts";
+@import "dashboard";
 @import "relation";
 @import "relation_aside";
+@import "relation_invite";
 @import "user";
