@@ -1,0 +1,23 @@
+@-webkit-keyframes slide-in-top {
+  from {
+    margin-top: -100%
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    margin-top: -100%
+  }
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0
+  }
+}

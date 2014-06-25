@@ -3,31 +3,54 @@
 
     {{> relation_bar}}
 
-    <div class="tc-invite-main">
-      <div class="tc-form-section">
-        <form>
-          <h5 class="text-center">Enter contact's email address</h5>
+    <div class="tc-invite-main">        
+        {{#if connectionsReady}}
+        {{> relation_invite_form}}
+        {{/if}}
 
-          <div class="form-group">
-            <input type="text" name="email" class="form-control text-center plain input-lg" />
-          </div>
+        {{#unless connectionsReady}}
+          <h2 class="tc-info-loading">Loading Linkedin your connections...</h2>
+        {{/unless}}
+    </div>
+</div>
+</template>
 
-          <div class="form-group text-right">
-            <div class="role-group btn-group" data-toggle="buttons">
-              <label class="btn btn-default btn-sm">
-                <input type="radio" name="role" value="client"> is the client
-              </label>
-              <label class="btn btn-default btn-sm">
-                <input type="radio" name="role" value="vendor"> is the vendor
-              </label>
-            </div>
-          </div>
+<template name="relation_invite_form">
+<div class="tc-form-section">
+  <form>
+    <h5 class="text-center">Enter contact's email address</h5>
 
-          <div class="tc-submit-group form-group text-center">
-            <button type="submit" class="btn btn-primary btn-lg">Invite contact</button>
-          </div>
-        </form>
+    <div class="form-group">
+      <select name="contact" 
+        class="form-control input-lg" 
+        placeholder="Select LinkedIn contact">  
+        <option></option>
+        {{#each connections}}
+          <option value='{{linkedinId}}'
+            data-name='{{profile.firstname}} {{profile.lastname}}' 
+            data-img='{{profile.pictureUrl}}'
+            data-headline='{{profile.headline}}'>
+              {{profile.firstname}} {{profile.lastname}} {{profile.headline}}
+          </option>
+        {{/each}}
+
+      </select>
+    </div>
+
+    <div class="form-group text-right">
+      <div class="role-group btn-group" data-toggle="buttons">
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="role" value="client"> is the client
+        </label>
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="role" value="vendor"> is the vendor
+        </label>
       </div>
     </div>
+
+    <div class="tc-submit-group form-group text-center">
+      <button type="submit" class="btn btn-primary btn-lg">Invite contact</button>
+    </div>
+  </form>
 </div>
 </template>

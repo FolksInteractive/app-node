@@ -5,10 +5,19 @@
     @include hbox-item;
     background: white;
 
+    .tc-info-loading{
+      @include center-block();
+      text-align:center;
+      color: $gray-light;
+      width: 600px;
+      margin-top: 30%;
+      @include animation (fade-in .7s cubic-bezier(0.19, 1, 0.22, 1));
+    }
     .tc-form-section{
       @include center-block();
       width: 400px;
       margin-top:20%;
+      @include animation (slide-in-top .7s cubic-bezier(0.19, 1, 0.22, 1));
 
       h5{
         text-transform: uppercase;
@@ -20,4 +29,62 @@
       }
     }
   }
+
+  .tc-invite-select2{
+      height: auto;
+
+    .media{
+      @include fade-in();
+    }
+    
+    .select2-choice{
+      height: auto;
+      border-radius: 4px;
+      border: transparent;
+      @include box-shadow(none); 
+
+      div{
+        border:0px;
+      }
+
+      .select2-arrow{
+        @include square(18px);
+        border: 1px solid $gray-light;
+        border-radius: 50%;
+        top:40%;
+        b{
+          background-position : 0 -4px ;
+        }
+      }
+    }
+
+    &.select2-dropdown-open{
+      .select2-arrow{
+        b{
+          background-position : -18px -4px ;
+        }
+      }
+    }
+    
+    &.select2-drop-above.select2-dropdown-open,
+    &.select2-drop-above {
+      .select2-choice{
+        background:none;
+      }
+    }
+  }
 }
+
+.tc-invite-dropdown.select2-drop-above,
+.tc-invite-dropdown{
+  padding-top:5px;
+  border-radius: 4px;
+  border: 1px solid #5897fb;
+  @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)); 
+}
+
+.tc-invite-dropdown.select2-drop-above{
+  padding-top:3px;
+  padding-bottom:5px;
+}
+

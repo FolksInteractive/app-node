@@ -10,7 +10,7 @@ Template.message.helpers({
   },
 
   files : function(){
-    return getFilesByMessageId(this);
+    return getFilesByMessage(this);
   },
 
   new : function(){

@@ -1,30 +1,85 @@
+// Helper object for select2 (used in .rendered())
+var select2Formats = {
+  result : function(state){
+
+    data = _.defaults($(state.element).data(), {
+      'img' : '/img/avatar.png',
+      'name' : ''
+    });
+
+    return "<div class='media'>"+
+      "<div class='media-object pull-left'>"+
+      "  <img src='"+data.img+"' class='img-circle' width='30' height='30' />"+
+      "</div>"+
+      "<div class='media-body'>"+
+      "  <div class=''>"+data.name+"</div>"+
+      "  <div class='small'>"+data.headline+"</div>"+
+      "</div>"+
+   "</div>";
+  },
+  selection : function(state){
+    console.log(state);
+
+    data = _.defaults($(state.element).data(), {
+      'img' : '/img/avatar.png',
+      'name' : ''
+    });
+
+    return "<div class='media text-center'>"+
+      "<div class='media-object'>"+
+      "  <img src='"+data.img+"' class='img-circle' width='80' height='80' />"+
+      "</div>"+
+      "<div class='media-body'>"+
+      "  <div class=''>"+data.name+"</div>"+
+      "  <div class='small'>"+data.headline+"</div>"+
+      "</div>"+
+   "</div>";
+  }
+}
+
 Template.relation_invite.rendered = function(){
   $('.tc-invite-global .role-btn-group .btn').button();
-  $('.tc-invite-global input[name=email]').focus();
+
+  // Cache user's connections in the Session
+  if(!Session.get('connections')){
+    Session.set('connections', []);
+    Meteor.call('IN_connections', function(err, connections){
+      Session.set('connections', connections);
+    });
+  }
 }
+
+
+Template.relation_invite.helpers({
+  'connectionsReady' : function(){
+    return Session.get('connections') && Session.get('connections').length>0;
+  }
+});
+
 
 Template.relation_invite.events({
   'submit .tc-invite-global form' : function(e){
     var formValid = true;
     var $form = $(e.target);
-    var $email = $form.find('input[name=email]');
+    var $contact = $form.find('select[name="contact"]');
     var $role = $form.find('input[name=role]');
 
     var params = {
-      email: _.trim($email.val()),
+      linkedinId: _.trim($contact.val()),
       role: _.trim($role.filter(':checked').val()) || ''
     };
 
-    // Validating email
-    if(_.isBlank(params.email) || !_.isEmail(params.email)){
-      $email.parents('.form-group').addClass('has-error');
-      $email.focus();
+    var connections = Session.get('connections') || [];
+
+    // Validating contact
+    if(_.isBlank(params.linkedinId) || !_.contains(_.pluck(connections, 'linkedinId'), params.linkedinId)){
+      $contact.parents('.form-group').addClass('has-error');
       formValid = false;
     }else{
-      $email.parents('.form-group').removeClass('has-error');
+      $contact.parents('.form-group').removeClass('has-error');
     }
 
-    // Validating role sleection
+    // Validating role selection
     if(_.isBlank(params.role)){
       $role.parents('.form-group').addClass('has-error');
       formValid = false;
@@ -45,3 +100,22 @@ Template.relation_invite.events({
     return false;
   }
 });
+//                                                                            //
+//                                 FORM                                       //
+//                                                                            //
+Template.relation_invite_form.helpers({
+  'connections' : function(){
+    return Session.get('connections');
+  }
+});
+
+Template.relation_invite_form.rendered = function(){
+  // Select 2
+  $('.tc-invite-global select[name="contact"]').select2({
+    formatResult : select2Formats.result,
+    formatSelection : select2Formats.selection,
+    dropdownCssClass : 'tc-invite-dropdown',
+    containerCssClass : "tc-invite-select2",
+    placeholder: "Select a LinkedIn contact to start doing business with him",
+  });
+}
