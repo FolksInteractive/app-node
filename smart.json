@@ -11,6 +11,10 @@
     "select2": {},
     "accounts-linkedin": {},
     "npm": {},
-    "typeahead": {}
+    "typeahead": {},
+    "iron-transitioner" : {
+        "git": "https://github.com/percolatestudio/iron-transitioner.git",
+        "branch": "blaze"
+    }
   }
 }

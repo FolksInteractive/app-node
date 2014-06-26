@@ -13,7 +13,11 @@
       "select2": {},
       "accounts-linkedin": {},
       "npm": {},
-      "typeahead": {}
+      "typeahead": {},
+      "iron-transitioner": {
+        "git": "https://github.com/percolatestudio/iron-transitioner.git",
+        "branch": "blaze"
+      }
     },
     "packages": {
       "sass": {
@@ -75,6 +79,11 @@
         "git": "https://github.com/sergeyt/meteor-typeahead.git",
         "tag": "v0.0.10",
         "commit": "fe0bb03aea8493037de134d815f9663feb21a944"
+      },
+      "iron-transitioner": {
+        "git": "https://github.com/percolatestudio/iron-transitioner.git",
+        "branch": "blaze",
+        "commit": "f2fb6b516ed609405c9ef80f55a5f7f7e645e9dc"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
@@ -143,8 +152,8 @@
       },
       "cfs-storage-adapter": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-storage-adapter.git",
-        "tag": "v0.0.26",
-        "commit": "cb9808ec519f8673d2cc4cc881b6eda9e56bdead"
+        "tag": "v0.0.27",
+        "commit": "cb9c89450762396418c09a14b5a48609b4e62fc8"
       },
       "http-methods": {
         "git": "https://github.com/CollectionFS/Meteor-http-methods.git",
@@ -198,8 +207,8 @@
       },
       "cfs-graphicsmagick": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-graphicsmagick.git",
-        "tag": "v0.0.12",
-        "commit": "3ab945c2018aad2316eabf85ac1814e76a8ed627"
+        "tag": "v0.0.13",
+        "commit": "9c107d5304e6cc0f7bc91a6d61b936b19b75ae01"
       },
       "cfs-ejson-file": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-ejson-file.git",
