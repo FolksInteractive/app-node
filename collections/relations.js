@@ -107,82 +107,44 @@ Meteor.methods({
     if(!_.contains(RelationRoles,params.role))
       throw new Meteor.Error(500, "Invalid role");
 
+    // Check if user already exists in TC
+    var contact = Meteor.users.findOne({"linkedinId" : params.linkedinId});
+    // If contact doesn't exist, we create it by fetching basic information from linkedin
+    if(!contact){
+      contactParams = Meteor.call('IN_profile', params.linkedinId, true); 
+      contactId = Meteor.users.insert(contactParams);
+      contact = Meteor.users.findOne(contactId);
+    }
 
     // Prepare insert params
     var relationParams = {
       'createdAt' : new Date(),
-      'invitation' : {
-        'invitedAt' : new Date(),
-        'token' : Random.secret(),
-        'role' : params.role,
-        'accepted' : false,
-        // 'email' : params.email,
-        'linkedinId' : params.linkedinId || null
-      }
-    }
-
-    // Check if user already exists in TC
-    // If user exist in TC, we check if there is a similar relation (same client and vendor)    
-    var contact = Meteor.users.findOne({"emails.address" : params.email});
-
-    var existingRelation = null;
-
-    if(contact){
-      relationParams.clientId = (params.role == RelationRoles.CLIENT) ? contact._id : this.userId;
-      relationParams.vendorId = (params.role == RelationRoles.VENDOR) ? contact._id : this.userId;
-      
-      existingRelation = Relations.findOne({
-        'clientId' : (params.role == RelationRoles.CLIENT) ? contactId : this.userId,
-        'vendorId' : (params.role == RelationRoles.VENDOR) ? contactId : this.userId
-      });
-    //
-    // If contact doesn't exist, we fetch it from linkedin API
-    // Check if there is a similar relation by invitation
-    }else{     
-      // Place the current user to the corresponding role
-      // Fetch for a similar relation
-      if(params.role == RelationRoles.CLIENT){
-        relationParams.vendorId = this.userId
-
-        existingRelation = Relations.findOne({ 
-          'vendorId' : relationParams.vendorId,
-          'invitation.linkedinId' : params.linkedinId
-        });
-      }
-
-      if(params.role == RelationRoles.VENDOR){
-        relationParams.clientId = this.userId
-
-        existingRelation = Relations.findOne({
-          'clientId' : relationParams.clientId,
-          'invitation.linkedinId' : params.linkedinId
-        });
-      }
+      'clientId' : (params.role == RelationRoles.CLIENT) ? contact._id : this.userId,
+      'vendorId' : (params.role == RelationRoles.VENDOR) ? contact._id : this.userId
     }
 
     // Send back the existing Relation for possible redirection
-    if(existingRelation)
-      return existingRelation._id;
+    var existingParams = _.pick(relationParams,['clientId', 'vendorId']);
+    var existing = Relations.findOne(existingParams);
+    if(existing)
+      return existing._id;
+
     //
     // 
     // Creating Relation 
     console.log('Creating relation ...', relationParams);
-    
+
     // Insert new Relation
     var relationId = Relations.insert(relationParams);
 
     // Sending Invitation
     if(Meteor.isServer){
-
-      if(!contact && params.linkedinId)
-          contact = Meteor.call('IN_profile', params.linkedinId); 
-
       var to = params.email;
       var subject = getFullname(user)+" invites you to TimeCrumbs";
       var data = {
         contact : getFullname(contact),
         user : getFullname(user),
-        url : getRelationInviteUrl(relationId, relationParams.invitation.token)
+        url : getRelationInviteUrl(relationId)
       }
       var html = renderOnServer("emails-templates/invite.html", data);
 

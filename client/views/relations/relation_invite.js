@@ -40,12 +40,18 @@ var select2Formats = {
 Template.relation_invite.rendered = function(){
   $('.tc-invite-global .role-btn-group .btn').button();
 
-  // Cache user's connections in the Session
+  // Cache user's connections in the Session and LocalStorage
   if(!Session.get('connections')){
     Session.set('connections', []);
-    Meteor.call('IN_connections', function(err, connections){
-      Session.set('connections', connections);
-    });
+    // Check in localStorage
+    if(localStorage.getItem('connections')){
+      Session.set('connections', JSON.parse(localStorage.getItem('connections')));
+    }else{
+      Meteor.call('IN_connections', function(err, connections){
+        Session.set('connections', connections);
+        localStorage.setItem('connections', JSON.stringify(connections));
+      });
+    }
   }
 }
 

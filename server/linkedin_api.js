@@ -9,7 +9,8 @@ var getAccessToken = function(userId){
 
 Meteor.methods({
   'IN_message' : function(from, to, subject, body){
-
+    check([from, to, subject, body], [String]);
+    
     if(!this.userId)
       return;
     
@@ -21,7 +22,7 @@ Meteor.methods({
       'recipients': {
         'values': [
           { 
-            'person': { '_path': '/people/~'}
+            'person': { '_path': '/people/'+to}
           }
         ]
       }
@@ -71,7 +72,7 @@ Meteor.methods({
         'format': 'json'
       }
     }).data;
-    
+
     return normalizeLinkedinUser(profile);
   }
 });

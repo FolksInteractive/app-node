@@ -13,10 +13,11 @@ normalizeLinkedinUser = function(options){
 
   normalized.linkedinId = options.id
 
-  normalized.emails = [{
-    'address' : options.emailAddress,
-    'verified' : false
-  }];
+  if(options.emailAddress)
+    normalized.emails = [{
+      'address' : options.emailAddress,
+      'verified' : false
+    }];
 
   return normalized;
 }
