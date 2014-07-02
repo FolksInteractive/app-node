@@ -1,54 +1,50 @@
 .tc-message{
   margin: 30px;
+}
 
-  .tc-pill-holder{
-    position: relative;
-  }
+.tc-message-objectives{
+  margin-top: 30px;
 
-  .tc-pill{
-    position: absolute;
-    top: -5px;
-    left: -65px;
-    @include square(30px);
-    color: white;
-    border-radius: 50%;
-    background-color : $gray-lighter;
+  .list-unstyled {
+    margin-top: -12px;
+    li {
+      border-bottom: 1px solid #f2f2f2;
+      padding: 12px 12px 12px 0;
+      color: $gray;
+      font-style: italic;
 
-    &:after{
-      position: absolute;
-      top: 15px;
-      left: 30px;
-      width: 25px;
-      height: 2px;
-      background-color: $gray-lighter;
-      content: " ";
+      img {
+        padding-right: 10px;
+      }
     }
   }
 }
 
-.tc-message-objectives{
-  .tc-pill{
-    background-color : $brand-primary;
-    @extend .glyphicon;
-    @extend .glyphicon-ok;
-    padding: 8px;
-  }
-}
-
 .tc-message-progresses{
-  .tc-pill{
-    background-color : $brand-primary;
-    @extend .glyphicon;
-    @extend .glyphicon-tasks;
-    padding: 8px;
-  }
 }
 
 .tc-message-files{
-  .tc-pill{
-    background-color : $brand-info;   
-    @extend .glyphicon;
-    @extend .glyphicon-paperclip;
-    padding: 8px;
+  
+  .list-unstyled {
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .tc-icon-pdf {
+    display: inline-block;
+    margin: 10px 15px 0 0;
+  }
+  .name {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .size {
+    color: $gray-light;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 3px;
   }
 }

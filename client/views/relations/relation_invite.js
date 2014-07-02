@@ -18,8 +18,6 @@ var select2Formats = {
    "</div>";
   },
   selection : function(state){
-    console.log(state);
-
     data = _.defaults($(state.element).data(), {
       'img' : '/img/avatar.png',
       'name' : ''
@@ -43,10 +41,14 @@ Template.relation_invite.rendered = function(){
   // Cache user's connections in the Session and LocalStorage
   if(!Session.get('connections')){
     Session.set('connections', []);
+
     // Check in localStorage
-    if(localStorage.getItem('connections')){
-      Session.set('connections', JSON.parse(localStorage.getItem('connections')));
-    }else{
+    var localConnections = localStorage.getItem('connections');
+    try{
+      localConnections =  JSON.parse(localConnections)
+      Session.set('connections', localConnections);
+    }catch(e){
+      delete localStorage.connections;
       Meteor.call('IN_connections', function(err, connections){
         Session.set('connections', connections);
         localStorage.setItem('connections', JSON.stringify(connections));
@@ -69,16 +71,21 @@ Template.relation_invite.events({
     var $form = $(e.target);
     var $contact = $form.find('select[name="contact"]');
     var $role = $form.find('input[name=role]');
+    var connections = Session.get('connections') || [];
+
+    var contact = _.find(connections, function(connection){
+      return connection.linkedinId == $contact.val();
+    });
 
     var params = {
-      linkedinId: _.trim($contact.val()),
+      linkedinApiId: contact.linkedinApiId,
+      linkedinId : contact.linkedinId,
       role: _.trim($role.filter(':checked').val()) || ''
     };
 
-    var connections = Session.get('connections') || [];
 
     // Validating contact
-    if(_.isBlank(params.linkedinId) || !_.contains(_.pluck(connections, 'linkedinId'), params.linkedinId)){
+    if(!contact){
       $contact.parents('.form-group').addClass('has-error');
       formValid = false;
     }else{

@@ -1,17 +1,16 @@
 <template name="message">
+
+  <div class="tc-date main-date">
+    <h3 class="tc-day"> 08/06</h3>
+    <span class="tc-time"> @18:52</span>
+  </div>   
+
   <div class="tc-message media {{new}}">
     <div class="tc-avatar media-object">
-      <img src="/img/avatar.png" class="img-circle" />
+      <img src="{{avatar authorId}}" class="img-circle" />
     </div>
 
     <div class="media-body">
-
-      <div class="tc-message-heading media-heading">
-        <a class="tc-username">{{fullname authorId}} </a>
-        <span class="tc-bullet"> • </span>
-        <span class="tc-timeago"> {{{createdAt}}}</span>
-      </div>
-      
 
       <div class="tc-message-body">
         <p>{{body}}</p>
@@ -20,11 +19,10 @@
 
       {{# if isNotEmpty objectives}}
       <div class="tc-message-objectives tc-pill-holder">
-        <div class="tc-pill"></div>
         <ul class="list-unstyled">          
           {{#each objectives}}
             <li>
-              {{title}}
+               <img src="/img/icons/icon-target.png" /> {{title}}
             </li>
           {{/each}}
         </ul>
@@ -34,7 +32,6 @@
 
       {{# if isNotEmpty files}}
       <div class="tc-message-files tc-pill-holder">
-        <div class="tc-pill"></div>
         <ul class="list-unstyled">          
           {{#each files}}
             <li>
@@ -44,7 +41,8 @@
                 {{/if}}
 
                 {{#unless isImage}}
-                  <span class="glyphicon glyphicon-file"></span> {{name}}
+                  <div class="tc-icon-pdf"></div>
+                  <div class="name">{{name}}<div class="size">188kb</div></div>
                 {{/unless}}
               </a>
             </li>

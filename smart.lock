@@ -11,7 +11,10 @@
       "autoform": {},
       "underscore-string-latest": {},
       "select2": {},
-      "accounts-linkedin": {},
+      "accounts-linkedin": {
+        "git": "https://github.com/fpoirier1/meteor-accounts-linkedin.git",
+        "branch": "master"
+      },
       "npm": {},
       "typeahead": {},
       "iron-transitioner": {
@@ -52,8 +55,8 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.13.3",
-        "commit": "23a7ba0754f353513fda44f666b600e69c62a208"
+        "tag": "v0.13.5",
+        "commit": "27dd5b912eeba687b228a6a7c2c14eef63b12cca"
       },
       "underscore-string-latest": {
         "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
@@ -66,9 +69,9 @@
         "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
       },
       "accounts-linkedin": {
-        "git": "https://github.com/yefim/meteor-accounts-linkedin.git",
-        "tag": "v0.0.6",
-        "commit": "58ae8fc9da845c2eabcacc5cc6a238af6189d19d"
+        "git": "https://github.com/fpoirier1/meteor-accounts-linkedin.git",
+        "branch": "master",
+        "commit": "5780ace46aac8c3f5916b6f07db6f1720e8f0a7f"
       },
       "npm": {
         "git": "https://github.com/arunoda/meteor-npm.git",
@@ -102,8 +105,8 @@
       },
       "cfs-file": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-file.git",
-        "tag": "v0.1.5",
-        "commit": "02dbe5f51a9d1067c3891e3658c48d4fadb9dff6"
+        "tag": "v0.1.7",
+        "commit": "9fb8dcb9afd25c9f737497e102e266a2c81e481b"
       },
       "cfs-collection": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-collection.git",
@@ -137,13 +140,13 @@
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.4.1",
-        "commit": "a9ffc9b285c3af8ad631f9cda4851b0ffc30c5ce"
+        "tag": "v0.4.2",
+        "commit": "4ff4b707bec8be434919730bf101325adb215444"
       },
       "linkedin": {
-        "git": "https://github.com/yefim/meteor-linkedin.git",
-        "tag": "v0.0.2",
-        "commit": "c3bac682ea0edd19e58b9172e708f91616888ba0"
+        "git": "https://github.com/fpoirier1/meteor-linkedin.git",
+        "branch": "master",
+        "commit": "d01c69b3620b85852f192e08a81e7a5d478f9bb2"
       },
       "cfs-filesaver": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-filesaver.git",
@@ -152,8 +155,8 @@
       },
       "cfs-storage-adapter": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-storage-adapter.git",
-        "tag": "v0.0.27",
-        "commit": "cb9c89450762396418c09a14b5a48609b4e62fc8"
+        "tag": "v0.0.28",
+        "commit": "8e0513815501d79b3d531a64f80717b4e9a34a42"
       },
       "http-methods": {
         "git": "https://github.com/CollectionFS/Meteor-http-methods.git",
@@ -168,7 +171,7 @@
       "data-man": {
         "git": "https://github.com/CollectionFS/Meteor-data-man.git",
         "branch": "master",
-        "commit": "c42e97728b38c29522d59db58d290e928df831ba"
+        "commit": "b929af5d64113c23480d4e2432bef836346d0b46"
       },
       "cfs-upload-ddp": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-upload-ddp.git",
@@ -207,8 +210,8 @@
       },
       "cfs-graphicsmagick": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-graphicsmagick.git",
-        "tag": "v0.0.13",
-        "commit": "9c107d5304e6cc0f7bc91a6d61b936b19b75ae01"
+        "tag": "v0.0.14",
+        "commit": "a9178346f25b0556f1470c7b8e97925ab5f534a9"
       },
       "cfs-ejson-file": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-ejson-file.git",

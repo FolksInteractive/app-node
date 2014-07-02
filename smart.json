@@ -9,7 +9,9 @@
     "autoform": {},
     "underscore-string-latest": {},
     "select2": {},
-    "accounts-linkedin": {},
+    "accounts-linkedin": {
+        "git": "https://github.com/fpoirier1/meteor-accounts-linkedin.git"
+    },
     "npm": {},
     "typeahead": {},
     "iron-transitioner" : {
