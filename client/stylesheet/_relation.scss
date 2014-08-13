@@ -1,26 +1,66 @@
 .tc-relation-global{
   @include hbox;
-}
 
-.tc-relation-main{
-  background: url('/img/relation_main_spacer.gif') white no-repeat top left;
-  @include hbox-item;
-  
-  .tc-line{
-    position:absolute;
-    top: 110px;
-    bottom: 0;
-    margin-left: 112px;
-    border-left: 2px solid #EEE;
+  .tc-relation-main{
+    background: url('/img/relation_main_spacer.gif') white no-repeat top left;
+    @include hbox-item;
+    
+    .tc-line{
+      position:absolute;
+      top: 110px;
+      bottom: 0;
+      margin-left: 112px;
+      border-left: 2px solid #EEE;
+    }
+
+    .tc-messages-section{
+      position: relative;
+      margin: 48px;
+    }
   }
 
-  .tc-messages-section{
-    position: relative;
-    margin: 48px;
-  }
-}
+  .tc-side-bar{
+    @include hbox-item;
+    width:60px;
 
-.tc-relation-bar{
-  @include hbox-item;
-  width:60px;
+    li{
+      padding:10px 4px;
+
+      a{
+        display:block;
+        border:3px solid transparent;
+        border-radius: 50%;
+        @include transition(opacity .1s linear);
+        overflow:hidden;
+
+        &:hover{
+          @include opacity(.5);
+        }
+      }
+
+      a.tc-invite-link{
+        position: relative;
+        padding:23px;
+        border-color:white;
+        color:white;
+        span{
+          position: absolute;
+          left: 50%;
+          margin-left:-6px;
+          top: 50%;
+          margin-top: -8px;
+        }
+      }
+
+      &.active{
+        a{
+          border-color: $tc-brand-blue-light;
+        }
+      }
+
+      img{
+        width:100%;
+      }
+    }
+  }
 }

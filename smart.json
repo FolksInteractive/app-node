@@ -13,10 +13,6 @@
         "git": "https://github.com/fpoirier1/meteor-accounts-linkedin.git"
     },
     "npm": {},
-    "typeahead": {},
-    "iron-transitioner" : {
-        "git": "https://github.com/percolatestudio/iron-transitioner.git",
-        "branch": "blaze"
-    }
+    "typeahead": {}
   }
 }

@@ -1,7 +1,7 @@
 Meteor.publish('relations', function(){
 
   if(!this.userId)
-    return [];
+    return this.ready();
 
   var relationsCriteria = { '$or' : [{'clientId': this.userId}, {'vendorId': this.userId} ]};
 
@@ -20,7 +20,7 @@ Meteor.publish('relations', function(){
 Meteor.publish('relation', function(relationId){
 
   if(!this.userId || !relationId || !canViewRelationById(relationId, this.userId))
-    return [];
+    return this.ready();
 
   var relation = getRelation(relationId);
 

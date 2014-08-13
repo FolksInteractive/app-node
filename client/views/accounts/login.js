@@ -30,30 +30,3 @@ AutoForm.hooks({
     }
   }
 });
-
-Template.login_form.rendered = function(){
-  Session.set('login_error', null);
-}
-
-Template.login_form.helpers({
-
-  schema : function(){
-    return getLoginSchema();
-  },
-
-  hasError : function(){
-    return !Session.equals('login_error', null)
-  },
-
-  getError : function(){
-    return Session.get('login_error');
-  },
-
-  setError : function(){
-    Session.set('login_error', "Invalid email or password");
-  },
-
-  clearError : function(){
-    Session.set('login_error', null);    
-  }
-});
