@@ -44,7 +44,7 @@
 }
 
 .tc-message{
-	margin: 10px 30px 50px 30px;
+	margin: 30px 30px 50px 30px;
 
 	&.new{
 		@include animation(tc-message-new-kf 1s cubic-bezier(0.215, 0.61, 0.355, 1));
@@ -57,11 +57,45 @@
 
 	.tc-message-body{
 		min-height: 30px;
+
+		textarea {
+			padding: 25px 20px;
+			font-size: 18px;
+		}
 		
 		p{
-			font-size: 24px;
-			margin-top: 8px;
+			font-size: 20px;
+			margin-top: 20px;
+			padding-top: 5px;
 		}
+	}
+
+	.tc-message-objectives {
+
+		.checkmark {
+			top: -2px;
+
+			&:before {
+				font-size: 14px;
+				padding: 0 10px 0 20px;
+				color: #aaa;
+				
+			}
+		}
+
+		.plus {
+			left: -14px;
+			top: 2px;
+
+			&:before {
+				font-size: 10px;
+				color: $gray;
+			}
+		}
+
+		.title {
+			margin-left: 55px;
+		}	
 	}
 
 	.tc-message-files{

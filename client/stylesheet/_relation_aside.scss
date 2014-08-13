@@ -1,7 +1,8 @@
 .tc-relation-aside{
 	@include hbox-item;
-	background: white;
-	width: 360px;
+	background: #fff;
+	width: 35%;
+	padding: 20px 40px;
 
 	.tc-contact-section{		
 		margin: 24px 0;
@@ -22,7 +23,8 @@
 		}
 	}
 	.tc-contact-title{
-		padding:0 12px;
+		padding:0 50px;
+
 		p{
 			color: $gray-light;
 			line-height : $line-height-small;
@@ -43,21 +45,21 @@
 		margin-bottom:-1px;
 		text-align:center;
 
+		h1{
+			color: $gray;
+			margin-top: 0;
+		}
+		span{
+			color: $gray-light;
+			font-size: $font-size-small;
+		}
+
 		&.active{
 			border-bottom: 2px solid $brand-primary;
 
-			h3{
-				color : $brand-primary;
+			h1, span{
+				color: $brand-primary;
 			}
-		}
-
-		h3{
-			color : $gray;
-			margin-top:0;
-		}
-		span{
-			color : $brand-primary;
-			font-size: $font-size-small;
 		}
 	}
 
@@ -68,14 +70,11 @@
 	}
 
 	.tc-objectives-section{
-		margin: 0 24px 24px 24px;
-
-		.tc-objectives{
-		}
+		margin: 0;
 
 		.tc-objective{
 			border-top: 1px solid $gray-lighter;
-			padding:10px 0;
+			padding: 20px;
 			overflow: hidden;
 
 			.tc-title {
@@ -86,11 +85,21 @@
 			.tc-createdAt {
 				font-size: $font-size-small;
 				color: $gray-light;
+				font-style: italic;
+				padding: 5px 0;
 			}
 
 			.tc-progress {
 				margin: 5px 0 0 0;
 				height:5px;
+				border-radius: 0;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				background: #eee;
+
+				.progress-bar-success {
+					background: #48bd92;
+				}
 			}
 
 			.tc-check{
@@ -98,12 +107,15 @@
 				border: 3px solid $gray-lighter;
 				line-height: 14px;
 				padding:6px;
-				margin: 2px 10px 20px 0;
 				color: $gray-light;
 
 				span{
 					line-height:0;
 				}
+			}
+
+			.tc-info {
+				margin-left: 50px;
 			}
 		}
 	}

@@ -15,16 +15,12 @@
     <div class="tc-overview-section">
       <div class="tc-overview">
         <div class="tc-overview-item active">
-          <h3>000</h3>
+          <h1>0</h1>
           <span>To Do</span>
         </div>
         <div class="tc-overview-item">
-          <h3>000</h3>
+          <h1>0</h1>
           <span>Completed</span>
-        </div>
-        <div class="tc-overview-item">
-          <h3>000</h3>
-          <span>Paid</span>
         </div>
       </div>
     </div>
@@ -33,13 +29,13 @@
       <ul class="tc-objectives list-unstyled">
         {{#each objectives}}
           <li class="tc-objective">
-            <div class="tc-check pull-left img-circle">
+            <div class="tc-check img-circle pull-left">
               <span class="glyphicon glyphicon-ok"></span>
             </div>
             <div class="tc-info">
               <div class="tc-title">{{title}}</div>
               <div class="tc-createdAt">Created on {{date createdAt}}</div>
-              <div class="tc-progress progress-striped progress">
+              <div class="tc-progress progress">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
                 </div>
               </div>
