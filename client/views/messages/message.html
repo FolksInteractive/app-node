@@ -12,7 +12,7 @@
 
     <div class="media-body">
 
-      <div class="tc-message-body">
+      <div class="tc-message-body ">
         <p>{{body}}</p>
       </div>
 
@@ -22,7 +22,8 @@
         <ul class="list-unstyled">          
           {{#each objectives}}
             <li>
-               <img src="/img/icons/icon-target.png" /> {{title}}
+               <div class="pull-left"><span class="glyphicon glyphicon-ok checkmark"></span><span class="glyphicon glyphicon-plus plus"></span></div>
+               <div class="title">{{title}}</div>
             </li>
           {{/each}}
         </ul>
@@ -52,11 +53,11 @@
       {{/if}}
 
 
-      <div class="tc-message-options">
+      <!--<div class="tc-message-options">
         <ul class="list-inline">
           <li><a href class="tc-approve">Approve</a></li>
         </ul>
-      </div>
+      </div>-->
 
       <!-- <div class="tc-comments hidden">
 

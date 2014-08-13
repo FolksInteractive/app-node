@@ -3,20 +3,27 @@
 }
 
 .tc-relation-main{
-  background: url('/img/relation_main_spacer.gif') white no-repeat top left;
+  background: #fff;
   @include hbox-item;
+
+  .tc-splitter {
+    position: fixed;
+    background: url('/img/relation_main_spacer.gif') white no-repeat top left;
+    width: 44px;
+    height: 682px;
+  }
   
   .tc-line{
     position:absolute;
     top: 110px;
     bottom: 0;
-    margin-left: 112px;
+    margin-left: 114px;
     border-left: 2px solid #EEE;
   }
 
   .tc-messages-section{
     position: relative;
-    margin: 48px;
+    margin: 50px;
   }
 }
 
