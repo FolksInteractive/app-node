@@ -45,6 +45,10 @@ Template.relation_invite.rendered = function(){
     // Check in localStorage
     var localConnections = localStorage.getItem('connections');
     try{
+      // Throw error is localConnections to get to the catch
+      if(!localConnections)
+        throw Error("localConnections can't be null");
+
       localConnections =  JSON.parse(localConnections)
       Session.set('connections', localConnections);
     }catch(e){

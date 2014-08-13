@@ -10,13 +10,13 @@
       text-align:center;
       color: $gray-light;
       width: 600px;
-      margin-top: 30%;
+      margin-top: 100px;
       @include animation (fade-in .7s cubic-bezier(0.19, 1, 0.22, 1));
     }
     .tc-form-section{
       @include center-block();
       width: 400px;
-      margin-top:20%;
+      margin-top:100px;
       @include animation (slide-in-top .7s cubic-bezier(0.19, 1, 0.22, 1));
 
       h5{
