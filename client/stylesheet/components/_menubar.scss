@@ -5,14 +5,13 @@
 // Variables 
 // -------------------------
 
-$menubar-compressed-width: 60px;
+$menubar-compressed-width: 100px;
 
 // Basic Elements 
 // -------------------------
 
 // Left Menu
 .tc-side-bar { 
-  
   @include hbox-item;
   color: #fff;
   width:60px;
@@ -21,28 +20,40 @@ $menubar-compressed-width: 60px;
   transition: width .25s;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
-  backface-visibility: hidden;  
+  backface-visibility: hidden; 
+  text-align: center;
+
+  .main-img a img {
+    width: 100%;
+  }
+
+  .tooltip {
+    white-space: nowrap;
+    margin: 0 0 0 22px;
+  }
 
   li{
-    padding:10px 4px;
+    padding: 10px 25px;
 
     a{
-      display:block;
-      border:3px solid transparent;
-      border-radius: 50%;
+      display: block;
       @include transition(opacity .1s linear);
-      overflow:hidden;
-
-      &:hover{
-        @include opacity(.5);
-      }
+      overflow: hidden;
+      border-radius: 50%;
     }
 
     a.tc-invite-link{
       position: relative;
-      padding:23px;
-      border-color:white;
-      color:white;
+      width: 40px;
+      height: 40px;
+      color: #060606;
+      background: #fff;
+      @include opacity(.6);
+
+      &:hover{
+        @include opacity(1);
+      }
+
       span{
         position: absolute;
         left: 50%;
@@ -53,38 +64,54 @@ $menubar-compressed-width: 60px;
     }
 
     &.active{
-      a{
-        border-color: $tc-brand-blue-light;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: '';
+        top: 29px;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-right: 6px solid #fff;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
       }
     }
 
     img{
-      width:100%;
+      width: 100%;
     }
   }
 
   &.compressed{
     width: $menubar-compressed-width;
 
-    .tc-logo a{
-      width: 33px;
-      height: 33px;
-      background : url('../img/logo-clock.png') no-repeat center;
-    } 
+    .tc-logo {
+      position: fixed;
+      width: 100px;
+      text-align: center;
+      bottom: 20px; 
+
+      a{
+        width: 33px;
+        height: 35px;
+        background : url('../img/logo-clock.png') no-repeat center;
+      } 
+    }
   }
 
-  .tc-menu-section{
-    margin-top:20px;
-  }
-  
-  .tooltip{
-    white-space: nowrap;
-  }
+  p {
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 30px 0 0 0;
+    padding-left: 4px;
+    @include opacity(.7);
 
-  .tc-logo {
-    position: absolute;
-    width:100%;
-    text-align: center;
-    bottom: 20px;      
-  }  
+    a {
+      font-size: 10px;
+      color: #fff;
+      padding-left: 4px;
+    }
+  }
 }

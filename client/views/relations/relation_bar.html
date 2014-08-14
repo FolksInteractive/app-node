@@ -3,18 +3,23 @@
 
   <!-- Contact list -->
   <div class="tc-menu-secton">
+    <div class="main-img">
+      <a href="{{pathFor 'relation_invite'}}" rel="tooltip" title="You" data-placement="right"><img src="{{avatar currentUser}}" class="media-object" /></a>
+      <div class="black-border"></div>
+    </div>
     <ul class='list-unstyled'>
-
-      <li>
-        <a href="{{pathFor 'relation_invite'}}" class="tc-invite-link"
-         rel="tooltip" title="Invite new contact" data-placement="right">
-          <span class="glyphicon glyphicon-plus"></span> 
-        </a>
-      </li>
+      <p>Clients <a href="{{pathFor 'relation_invite'}}" class="tc-invite-link"
+         rel="tooltip" title="Add New Client" data-placement="right">
+          <span class="glyphicon glyphicon-plus"></span></a></p>
 
       {{#each relations}}
       {{> relation_bar_item}}
       {{/each}}
+
+      <p>Vendors <a href="{{pathFor 'relation_invite'}}" class="tc-invite-link"
+         rel="tooltip" title="Add New Vendor" data-placement="right">
+          <span class="glyphicon glyphicon-plus"></span></a></p>
+
     </ul>
   </div>
 
