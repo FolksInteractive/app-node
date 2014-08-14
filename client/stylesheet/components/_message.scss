@@ -1,18 +1,4 @@
-.tc-messages-section{
-	.media{
-		overflow: visible;
-		position:relative;
-	}
-	.media-object{
-		position: absolute;
-		top:-10px;
-		left:5px;
-	}
-	.media-body{
-		overflow: visible;
-		margin-left:85px;
-	}
-}
+
 
 @keyframes tc-message-new-kf {
   from { opacity: 0; margin-top: -100px }
@@ -34,13 +20,6 @@
 		line-height: 0;
 	}
 
-	span {
-		display: inline-block;
-		color: $gray-light;
-		padding-left: 16px;
-		font-size: 12px;
-	}
-
 }
 
 .tc-message{
@@ -53,6 +32,14 @@
 	.tc-avatar img{
 		@include square(60px);
 		border: 5px solid white;
+	}
+
+	.tc-time {
+		background: #fff;
+		text-align: center;
+		color: $gray-light;
+		font-size: 12px;
+		margin-top:10px;
 	}
 
 	.tc-message-body{
@@ -155,34 +142,5 @@
 			background-color: $popover-bg;
 			background-clip: padding-box;
 		}
-
-		// .arrow {
-		//   &,
-		//   &:after {
-		//     position: absolute;
-		//     display: block;
-		//     width: 0;
-		//     height: 0;
-		//     border-color: transparent;
-		//     border-style: solid;
-		//   }
-		// }
-		// .arrow {
-		//     top: 6px;
-		//     left: 1px;
-		//   	border-width: $popover-arrow-outer-width;
-		//     border-left-width: 0;
-		//     border-right-color: $input-border; // IE8 fallback
-		//     border-right-color: $input-border;
-
-		//     &:after {
-		// 		content: " ";
-		// 		left: 1px;
-		// 		bottom: -$popover-arrow-width;
-		// 		border-width: $popover-arrow-width;
-		// 		border-left-width: 0;
-		// 		border-right-color: $popover-arrow-color;
-		// 	}
-		// }
 	}
 }

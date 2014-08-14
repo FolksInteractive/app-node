@@ -1,12 +1,18 @@
 <template name="relation_discussion">
-<div class="tc-line"></div>
+  
+  
+<div class="tc-line"></div> 
 
-<div class="tc-messages-section"> 
-  
+<div class="tc-posting-section"> 
   {{> message_new}}
+</div>
+
+<div class="tc-timeline-section">
   
-  {{#each messages}}
-    {{> message}}
+  {{#each timeline}}
+
+    {{> message_group}}
+
   {{/each}}
 </div>
 </template>

@@ -9,13 +9,34 @@
       position:absolute;
       top: 110px;
       bottom: 0;
-      margin-left: 112px;
-      border-left: 2px solid #EEE;
+      left: 107px;
+      width: 2px;
+      background-color: $gray-lighter;
     }
 
-    .tc-messages-section{
+    .tc-posting-section{
       position: relative;
       margin: 48px;
+    }
+
+    .tc-timeline-section{
+
+      position: absolute;
+      top: 300px;
+      left: 48px;
+      right:0px;
+      bottom:0;
+      overflow: hidden;
+
+      .media{
+        overflow: visible;
+        position:relative;
+      }
+      .media-body{
+        overflow: visible;
+        margin-left:85px;
+        min-height: 90px;
+      }
     }
   }
 

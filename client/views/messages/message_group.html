@@ -1,0 +1,10 @@
+<template name="message_group">
+
+    <div class="tc-date">
+      <h3 class="tc-day"> {{date}} </h3>
+    </div>  
+
+    {{#each messages}}
+      {{> message}}
+    {{/each}}
+</template>
