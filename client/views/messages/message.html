@@ -1,13 +1,16 @@
 <template name="message">
 
-  <div class="tc-date main-date">
-    <h3 class="tc-day"> 08/06</h3>
-    <span class="tc-time"> @18:52</span>
-  </div>   
-
   <div class="tc-message media {{new}}">
-    <div class="tc-avatar media-object">
-      <img src="{{avatar authorId}}" class="img-circle" />
+    <div class="media-object pull-left">
+      
+      <div class="tc-avatar">
+        <img src="{{avatar authorId}}" class="img-circle" />
+      </div>
+
+      <div class="tc-time">
+        @{{time}}
+      </div>
+
     </div>
 
     <div class="media-body">
@@ -19,7 +22,7 @@
 
       {{# if isNotEmpty objectives}}
       <div class="tc-message-objectives tc-pill-holder">
-        <ul class="list-unstyled">          
+        <ul class="list-unstyled">
           {{#each objectives}}
             <li>
                <div class="pull-left"><span class="glyphicon glyphicon-ok checkmark"></span><span class="glyphicon glyphicon-plus plus"></span></div>
