@@ -17,5 +17,13 @@ Template.message.helpers({
     var diff = now.diff(createdAt);
 
     return diff < 5000 ? 'new' : '';
-  }  
+  },
+
+  show : function(){
+    return DiscussionFilter.match(this) ? 'tc-show' : 'tc-hide';
+  },
+
+  height : function(){
+    return $("#"+this._id).height()+"px";
+  }
 })

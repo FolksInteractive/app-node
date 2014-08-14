@@ -1,6 +1,7 @@
 <template name="message">
 
-  <div class="tc-message media {{new}}">
+  <!-- We need to set a max-height for the filtering animation -->
+  <div id="{{_id}}" class="tc-message {{show}} media {{new}}" style="max-height:{{height}}">
     <div class="media-object pull-left">
       
       <div class="tc-avatar">

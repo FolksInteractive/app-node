@@ -22,6 +22,6 @@ Template.relation_aside.events({
   'click .tc-objectives li' : function(e){
     e.preventDefault();
 
-    DiscussionCriterias.objectives = {'$in' : [this._id]}
+    DiscussionFilter.criterias.objectiveId = this._id;
   }
 });
