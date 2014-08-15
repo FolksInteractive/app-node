@@ -1,7 +1,4 @@
 Template.relation_discussion.rendered = function(){
-  $('.scrollable-wrapper').perfectScrollbar();
-
-
   Deps.autorun(function(){
     console.log(DiscussionFilter.criterias)
   })
