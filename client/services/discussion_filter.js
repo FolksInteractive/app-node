@@ -31,8 +31,6 @@ Deps.autorun(function(){
   if($timeline.length == 0) return;
 
   $('.tc-timeline-section').isotope({
-    itemSelector: '.tc-message',
-    layoutMode: 'vertical',
     filter: function(){
 
       var message = Messages.findOne(this.id);

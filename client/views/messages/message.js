@@ -1,9 +1,9 @@
 Template.message.rendered = function(){
   $('.scrollable-wrapper').perfectScrollbar('update');
-  // $('.tc-timeline-section').isotope({
-  //   itemSelector: '.tc-message',
-  //   layoutMode: 'vertical'
-  // });
+  $('.tc-timeline-section').isotope({
+    itemSelector: '.tc-message',
+    layoutMode: 'vertical'
+  });
 }
 
 Template.message.helpers({
