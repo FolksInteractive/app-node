@@ -4,7 +4,7 @@
 
 // Variables 
 // -------------------------
-
+$menubar-full-width: 200px;
 $menubar-compressed-width: 100px;
 
 // Basic Elements 
@@ -13,15 +13,32 @@ $menubar-compressed-width: 100px;
 // Left Menu
 .tc-side-bar { 
   @include hbox-item;
+  text-align: center;
   color: #fff;
-  width:60px;
   z-index: 1000;
-  -webkit-transition: width .25s;
-  transition: width .25s;
+  
+  @include transition(width .25s);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden; 
-  text-align: center;
+
+
+  &.compressed{
+    width: $menubar-compressed-width;
+
+    .tc-logo {
+      position: fixed;
+      width: 100px;
+      text-align: center;
+      bottom: 20px; 
+
+      a{
+        width: 33px;
+        height: 35px;
+        background : url('../img/logo-clock.png') no-repeat center;
+      } 
+    }
+  }
 
   .main-img a img {
     width: 100%;
@@ -81,23 +98,6 @@ $menubar-compressed-width: 100px;
 
     img{
       width: 100%;
-    }
-  }
-
-  &.compressed{
-    width: $menubar-compressed-width;
-
-    .tc-logo {
-      position: fixed;
-      width: 100px;
-      text-align: center;
-      bottom: 20px; 
-
-      a{
-        width: 33px;
-        height: 35px;
-        background : url('../img/logo-clock.png') no-repeat center;
-      } 
     }
   }
 

@@ -1,5 +1,11 @@
 Template.relation_discussion.rendered = function(){
-  $('.tc-timeline-section').perfectScrollbar();
+  $('.scrollable-wrapper').perfectScrollbar();
+
+
+  Deps.autorun(function(){
+    console.log(DiscussionFilter.criterias)
+  })
+
 }
 
 Template.relation_discussion.helpers({
@@ -19,4 +25,4 @@ Template.relation_discussion.helpers({
     return timeline;
 
   }
-})
+});

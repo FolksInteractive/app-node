@@ -1,7 +1,3 @@
-Template.relation_aside.rendered = function(){
-  $('.tc-relation-aside .tc-objectives-section').perfectScrollbar();
-}
-
 Template.relation_aside.helpers({
   'user' : function(){
     return Meteor.user();

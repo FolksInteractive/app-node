@@ -21,19 +21,13 @@
       background-color: $gray-lighter;
     }
 
-    .tc-posting-section{
+    .tc-posting-section,
+    .tc-timeline-section{
       position: relative;
       margin: 48px;
     }
 
     .tc-timeline-section{
-
-      position: absolute;
-      top: 286px;
-      left: 48px;
-      right:0px;
-      bottom:0;
-      overflow: hidden;
 
       .media{
         overflow: hidden;

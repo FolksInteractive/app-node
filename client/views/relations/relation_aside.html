@@ -1,48 +1,50 @@
 <template name="relation_aside">
   <div class="tc-relation-aside">
-    <div class="tc-contact-section">
-      <div class="tc-contact-avatar">
-        <img src="{{avatar contact}}" class="img-circle" />
-      </div>
-      <div class="tc-contact-name">
-        <h3>{{fullname contact}}</h3>
-      </div>
-      <div class="tc-contact-title">
-        <p>Gestionnaire de projets chez Flawless Learning Solutions Inc.</p>
-      </div>
-    </div>
-
-    <div class="tc-overview-section">
-      <div class="tc-overview">
-        <div class="tc-overview-item active">
-          <h1>0</h1>
-          <span>To Do</span>
+    <div class="scrollable-wrapper">
+      <div class="tc-contact-section">
+        <div class="tc-contact-avatar">
+          <img src="{{avatar contact}}" class="img-circle" />
         </div>
-        <div class="tc-overview-item">
-          <h1>0</h1>
-          <span>Completed</span>
+        <div class="tc-contact-name">
+          <h3>{{fullname contact}}</h3>
+        </div>
+        <div class="tc-contact-title">
+          <p>Gestionnaire de projets chez Flawless Learning Solutions Inc.</p>
         </div>
       </div>
-    </div>
 
-    <div class="tc-objectives-section">
-      <ul class="tc-objectives list-unstyled">
-        {{#each objectives}}
-          <li>
-            <div class="tc-check img-circle pull-left">
-              <span class="glyphicon glyphicon-ok"></span>
-            </div>
-            <div class="tc-info">
-              <div class="tc-title">{{title}}</div>
-              <div class="tc-createdAt">Created on {{date createdAt}}</div>
-              <div class="tc-progress progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+      <div class="tc-overview-section">
+        <div class="tc-overview">
+          <div class="tc-overview-item active">
+            <h1>0</h1>
+            <span>To Do</span>
+          </div>
+          <div class="tc-overview-item">
+            <h1>0</h1>
+            <span>Completed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tc-objectives-section">
+        <ul class="tc-objectives list-unstyled">
+          {{#each objectives}}
+            <li>
+              <div class="tc-check img-circle pull-left">
+                <span class="glyphicon glyphicon-ok"></span>
+              </div>
+              <div class="tc-info">
+                <div class="tc-title">{{title}}</div>
+                <div class="tc-createdAt">Created on {{date createdAt}}</div>
+                <div class="tc-progress progress">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-        {{/each}}
-      </ul>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
   </div>
 </template>
