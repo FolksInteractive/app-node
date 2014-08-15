@@ -1,8 +1,7 @@
 Template.relation_discussion.rendered = function(){
-  Deps.autorun(function(){
-    console.log(DiscussionFilter.criterias)
+  Meteor.defer(function(){
+    console.log($('.tc-timeline-section').children().length);
   })
-
 }
 
 Template.relation_discussion.helpers({

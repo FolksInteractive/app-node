@@ -18,6 +18,14 @@ Template.relation_aside.events({
   'click .tc-objectives li' : function(e){
     e.preventDefault();
 
+    console.log($('.tc-timeline-section').children().length);
+
+    // $('.tc-timeline-section').isotope({
+    //   filter: function(){
+    //     console.log(this);
+    //   }
+    // });
+
     DiscussionFilter.criterias.objectiveId = this._id;
   }
 });

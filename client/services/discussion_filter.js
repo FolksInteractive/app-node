@@ -22,3 +22,22 @@ _DiscussionFilter.prototype.match = function(message){
 }
 
 DiscussionFilter = new _DiscussionFilter();
+
+Deps.autorun(function(){
+  DiscussionFilter.criterias.objectiveId;
+
+  $timeline = $(".tc-timeline-section");
+
+  if($timeline.length == 0) return;
+
+  $('.tc-timeline-section').isotope({
+    itemSelector: '.tc-message',
+    layoutMode: 'vertical',
+    filter: function(){
+
+      var message = Messages.findOne(this.id);
+
+      return DiscussionFilter.match(message);
+    }
+  });
+})
