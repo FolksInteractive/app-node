@@ -16,7 +16,8 @@
         "branch": "master"
       },
       "npm": {},
-      "typeahead": {}
+      "typeahead": {},
+      "reactive-extra": {}
     },
     "packages": {
       "sass": {
@@ -36,8 +37,8 @@
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.6.0",
-        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+        "tag": "v2.8.1",
+        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
       },
       "livestamp": {
         "git": "https://github.com/colllin/meteor-livestamp.git",
@@ -78,6 +79,11 @@
         "git": "https://github.com/sergeyt/meteor-typeahead.git",
         "tag": "v0.0.11",
         "commit": "b97b4a92edeceb8f76aa8e6eb0f71252b34d4de3"
+      },
+      "reactive-extra": {
+        "git": "https://github.com/boekkooi/reactive-extra.git",
+        "tag": "v0.1.0",
+        "commit": "1b9748024538903d931253146f2901ca74a5efbc"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

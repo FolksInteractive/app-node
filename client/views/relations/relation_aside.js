@@ -3,15 +3,25 @@ Template.relation_aside.rendered = function(){
 }
 
 Template.relation_aside.helpers({
-  user : function(){
+  'user' : function(){
     return Meteor.user();
   },
 
-  objectives : function(){
+  'objectives' : function(){
     return getObjectives();
   },
 
-  contact : function(){
+  'contact' : function(){
     return getContact(Session.get('currentRelationId'))
-  }
+  },
+
 })
+
+
+Template.relation_aside.events({
+  'click .tc-objectives li' : function(e){
+    e.preventDefault();
+
+    DiscussionCriterias.objectives = {'$in' : [this._id]}
+  }
+});

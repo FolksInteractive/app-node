@@ -10,9 +10,10 @@
     "underscore-string-latest": {},
     "select2": {},
     "accounts-linkedin": {
-        "git": "https://github.com/fpoirier1/meteor-accounts-linkedin.git"
+      "git": "https://github.com/fpoirier1/meteor-accounts-linkedin.git"
     },
     "npm": {},
-    "typeahead": {}
+    "typeahead": {},
+    "reactive-extra": {}
   }
 }
