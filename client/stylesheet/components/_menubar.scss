@@ -94,7 +94,7 @@ $menubar-compressed-width: 70px;
 
     .tc-logo {
       position: fixed;
-      width: 100px;
+      width: $menubar-compressed-width;
       text-align: center;
       bottom: 20px; 
 

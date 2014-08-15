@@ -81,9 +81,9 @@
 	.tc-objectives-section{
 		position: absolute;
 		top: 165px; 
-		bottom:0; 
-		left:0; 
-		right:0;
+		bottom: 5px; 
+		left: 0; 
+		right: 0;
 		overflow: hidden;
 
 		ul{
@@ -116,7 +116,7 @@
 				background: #eee;
 
 				.progress-bar-success {
-					background: #48bd92;
+					background: $green-blue;
 				}
 			}
 
@@ -130,6 +130,12 @@
 				span{
 					line-height:0;
 				}
+			}
+
+			.tc-check-completed {
+				border: 3px solid $green-blue;
+				background: $green-blue;
+				color: #fff;
 			}
 
 			.tc-info {
