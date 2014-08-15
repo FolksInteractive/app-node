@@ -4,61 +4,70 @@
 	width: 35%;
 	padding: 20px 40px;
 
-	.tc-contact-section{		
-		margin: 24px 0;
-		text-align: center;
+	.tc-contact-section{	
+		display: table;	
+		margin: 10px;
 
-	}
-	
-	.tc-contact-avatar{
-		img{
-			border: 5px solid $gray-lighter;
-			@include square(100px);
+		.tc-contact-avatar{
+			width: 100px;
+			vertical-align: top;
+
+			img{
+				@include square(100px);
+				border-radius: 8px;
+			}
+		}
+
+		.tc-contact-infos {
+			display: table-cell;
+			vertical-align: middle;
+			padding-left: 15px;
+
+			.tc-contact-name{
+
+				h3{
+					color: $gray; 
+					margin: 0;
+					padding-bottom: 8px;
+				}
+			}
+			.tc-contact-title{
+
+				p{
+					color: $gray-light;
+					line-height : $line-height-small;
+					margin: 0;
+				}
+			}
 		}
 	}
-	.tc-contact-name{
-		h3{
-			margin-top:10px;
-			color: $gray; 
-		}
-	}
-	.tc-contact-title{
-		padding:0 50px;
-
-		p{
-			color: $gray-light;
-			line-height : $line-height-small;
-		}
-	}
-
 
 	.tc-overview-section{			
-		margin: 24px 0 0 0;
-		text-align : center;
+		margin: 10px 0 0 0;
+		text-align : right;
 	}
 	.tc-overview{
-	}
-	.tc-overview-item{
-		display: inline-block;
-		vertical-align: top;
-		padding: 0 20px 14px 20px;
-		margin-bottom:-1px;
-		text-align:center;
+	
+		.tc-overview-item{
+			display: inline-block;
 
-		h1{
-			color: $gray;
-			margin-top: 0;
-		}
-		span{
-			color: $gray-light;
-			font-size: $font-size-small;
-		}
+			a{
+				color: $gray-light;
+				font-size: $font-size-small;
+				padding: 3px 0 0 15px
+			}
 
-		&.active{
-			border-bottom: 2px solid $brand-primary;
+			a:hover {
+				text-decoration: none;
+				color: $gray;
+			}
 
-			h1, span{
-				color: $brand-primary;
+			&.active{
+
+				a {
+					color: $brand-primary;
+					font-weight: bold;
+				}
 			}
 		}
 	}
@@ -71,13 +80,14 @@
 
 	.tc-objectives-section{
 		position: absolute;
-		top:340px; 
+		top: 165px; 
 		bottom:0; 
 		left:0; 
 		right:0;
 		overflow: hidden;
 
 		ul{
+			padding: 0 30px;
 		}
 
 		li{
