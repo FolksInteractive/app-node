@@ -1,24 +1,29 @@
 Template.relation_discussion.rendered = function(){
-  Meteor.defer(function(){
-    console.log($('.tc-timeline-section').children().length);
-  })
+  $('.tc-timeline-section').mixItUp({
+      animation : {
+        duration: 400,
+        effects: 'fade translateZ(-360px) stagger(34ms)',
+        easing: 'ease'
+      },
+      layout: {
+        display: 'block'
+      },
+      callbacks: {
+        onMixEnd: function(state){
+          $('.tc-timeline-section')
+            .parent('scrollable-wrapper')
+            .perfectScrollbar('update');
+        }
+      }
+  });
 }
 
 Template.relation_discussion.helpers({
   timeline : function(){
-    var messages = getMessagesByRelation(Session.get('currentRelationId'), {
+    console.log('timeline')
+    return getMessagesByRelation(Session.get('currentRelationId'), {
       sort: {createdAt: -1}
     }).fetch();
-
-    // Grouping message by day
-    var timeline = _.groupBy(messages, function(message){
-      return moment(message.createdAt).format("YYYY-MM-DD")
-    });
-    
-    // Convert object to array ([0] = YYYY-MM-DD and [1] = messages)
-    timeline = _.pairs(timeline);
-
-    return timeline;
 
   }
 });

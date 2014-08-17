@@ -30,12 +30,21 @@ Deps.autorun(function(){
 
   if($timeline.length == 0) return;
 
-  $('.tc-timeline-section').isotope({
-    filter: function(){
+  if(!$timeline.mixItUp('isLoaded'))
+    return;
 
+  $show = $timeline.find('.tc-message').filter(function(item){
+      console.log(this)
       var message = Messages.findOne(this.id);
 
       return DiscussionFilter.match(message);
-    }
   });
+
+  //$show.show();
+
+  $timeline.mixItUp('filter', $show);
+
+  $timeline.parent('.scrollable-wrapper').animate({  
+        scrollTop:0  
+    }, 1000);  
 })

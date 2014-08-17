@@ -9,24 +9,12 @@
   to { opacity: 1; margin-top: 30px }
 }
 
-.tc-date {
-	background: #fff;
-	margin-left: 34px;
-
-	h3 {
-		font-weight: bold;
-		display: inline-block;
-		padding: 0 0 20px 0;
-		line-height: 0;
-	}
-
-}
 
 .tc-message{
 	margin: 30px 30px 50px 30px;
-
-	&.new{
-		@include animation(tc-message-new-kf 1s cubic-bezier(0.215, 0.61, 0.355, 1));
+	
+	&.mix{
+		display:none;
 	}
 
 	.tc-avatar img{

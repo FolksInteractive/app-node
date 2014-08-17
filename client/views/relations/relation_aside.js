@@ -20,12 +20,6 @@ Template.relation_aside.events({
 
     console.log($('.tc-timeline-section').children().length);
 
-    // $('.tc-timeline-section').isotope({
-    //   filter: function(){
-    //     console.log(this);
-    //   }
-    // });
-
     DiscussionFilter.criterias.objectiveId = this._id;
   }
 });

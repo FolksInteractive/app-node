@@ -1,7 +1,7 @@
 <template name="message">
 
   <!-- We need to set a max-height for the filtering animation -->
-  <div id="{{_id}}" class="tc-message media {{new}}"
+  <div id="{{_id}}" class="tc-message mix media"
     data-objective="{{objective_attr}}">
     <div class="media-object pull-left">
       
@@ -23,7 +23,7 @@
 
 
       {{# if isNotEmpty objectives}}
-      <div class="tc-message-objectives tc-pill-holder">
+      <div class="tc-message-objectives">
         <ul class="list-unstyled">
           {{#each objectives}}
             <li>
