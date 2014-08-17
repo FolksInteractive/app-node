@@ -28,6 +28,7 @@
 	right: 0;
 	border-radius: 4px;
 	padding: 10px 15px;
+	border: 1px solid #dededf;
 
 	&.new{
 		@include animation(tc-message-new-kf 1s cubic-bezier(0.215, 0.61, 0.355, 1));
