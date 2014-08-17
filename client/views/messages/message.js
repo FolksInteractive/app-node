@@ -8,7 +8,7 @@ Template.message.rendered = function(){
 
 Template.message.helpers({
   'time' : function(){
-    return moment(this.createdAt).format("HH:mm");
+    return moment(this.createdAt).fromNow();
   },
 
   objectives : function(){

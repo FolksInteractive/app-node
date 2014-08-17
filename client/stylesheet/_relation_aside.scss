@@ -18,7 +18,7 @@
 
 	.tc-contact-section{	
 		display: table;	
-		margin: 10px;
+		margin: 10px 10px 0 10px;
 
 		.tc-contact-avatar{
 			width: 100px;
@@ -55,8 +55,9 @@
 	}
 
 	.tc-overview-section{			
-		margin: 10px 20px;
-		text-align : right;
+		padding: 0 20px 10px 20px;
+		text-align: right;
+		border-bottom: 1px solid#dededf;
 	
 		.tc-overview{
 		
@@ -92,7 +93,7 @@
 	}
 
 	.tc-objectives-section{
-		padding-top: 160px;
+		padding-top: 149px;
 
 		ul{
 			padding: 0 30px;
@@ -130,10 +131,10 @@
 
 			.tc-check{
 				border-radius : 50%;
-				border: 3px solid $gray-lighter;
 				line-height: 14px;
 				padding:6px;
-				color: $gray-light;
+				color: #fff;
+				background: #ccc;
 
 				span{
 					line-height:0;
@@ -141,13 +142,12 @@
 			}
 
 			.tc-check-completed {
-				border: 3px solid $green-blue;
 				background: $green-blue;
 				color: #fff;
 			}
 
 			.tc-info {
-				margin-left: 50px;
+				margin-left: 40px;
 			}
 		}
 	}

@@ -23,7 +23,11 @@
 }
 
 .tc-message{
-	margin: 30px 30px 50px 30px;
+	margin: 10px 30px;
+	background: #fff;
+	right: 0;
+	border-radius: 4px;
+	padding: 10px 15px;
 
 	&.new{
 		@include animation(tc-message-new-kf 1s cubic-bezier(0.215, 0.61, 0.355, 1));
@@ -36,14 +40,13 @@
 
 	.tc-time {
 		background: #fff;
-		text-align: center;
+		text-align: left;
 		color: $gray-light;
 		font-size: 12px;
-		margin-top:10px;
+		padding-top: 12px;
 	}
 
 	.tc-message-body{
-		min-height: 30px;
 
 		textarea {
 			padding: 25px 20px;
@@ -51,9 +54,7 @@
 		}
 		
 		p{
-			font-size: 20px;
-			margin-top: 20px;
-			padding-top: 15px;
+			font-size: 18px;
 		}
 	}
 

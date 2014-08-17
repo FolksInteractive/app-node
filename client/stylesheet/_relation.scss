@@ -2,7 +2,7 @@
   @include hbox;
 
   .tc-relation-main{
-    background: #fff;
+    background: #eee;
     @include hbox-item;
 
     .tc-splitter {
@@ -11,21 +11,13 @@
       width: 44px;
       height: 682px;
       z-index: 20;
-    }
-    
-    .tc-line{
-      position:absolute;
-      top: 110px;
-      bottom: 0;
-      left: 107px;
-      width: 2px;
-      background-color: $gray-lighter;
+      display: none;
     }
 
     .tc-posting-section,
     .tc-timeline-section{
       position: relative;
-      margin: 48px;
+      margin: 30px;
     }
 
     .tc-timeline-section{
@@ -36,8 +28,7 @@
       }
       .media-body{
         overflow: visible;
-        margin-left:85px;
-        min-height: 90px;
+        margin-left: 80px;
       }
     }
   }
