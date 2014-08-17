@@ -9,16 +9,22 @@ _DiscussionFilter = function(){
 _DiscussionFilter.prototype.match = function(message){
  
   // Test match for selected objective
-  if(this.criterias.objectiveId){
-    if(!message.objectives)
-      return false;
 
-    // Check if message container objectivesId
-    if(!_.contains(message.objectives, this.criterias.objectiveId))
-      return false;
+  
+  if(this.criterias.objectiveId){
+    // For objective message type check in the list
+    if(message.objectives){
+      if(_.contains(message.objectives, this.criterias.objectiveId))
+        return true;
+
+    // For progress message type check the objective reference
+    }else if(message.objective){
+      if(message.objective == this.criterias.objectiveId)
+        return true;
+    }
   }
 
-  return true;
+  return false;
 }
 
 DiscussionFilter = new _DiscussionFilter();
@@ -34,17 +40,14 @@ Deps.autorun(function(){
     return;
 
   $show = $timeline.find('.tc-message').filter(function(item){
-      console.log(this)
       var message = Messages.findOne(this.id);
 
       return DiscussionFilter.match(message);
   });
 
-  //$show.show();
-
   $timeline.mixItUp('filter', $show);
 
   $timeline.parent('.scrollable-wrapper').animate({  
         scrollTop:0  
-    }, 1000);  
+    }, 'slow');  
 })

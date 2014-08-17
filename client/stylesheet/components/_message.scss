@@ -11,12 +11,16 @@
 
 
 .tc-message{
-	margin: 30px 30px 50px 30px;
+	margin: 10px 30px;
+	background: #fff;
+	border-radius: 4px;
+	padding: 10px 15px;
+	border: 1px solid #dededf;
 	
 	&.mix{
 		display:none;
 	}
-
+	
 	.tc-avatar img{
 		@include square(60px);
 		border: 5px solid white;
@@ -24,14 +28,13 @@
 
 	.tc-time {
 		background: #fff;
-		text-align: center;
+		text-align: left;
 		color: $gray-light;
 		font-size: 12px;
-		margin-top:10px;
+		padding-top: 12px;
 	}
 
 	.tc-message-body{
-		min-height: 30px;
 
 		textarea {
 			padding: 25px 20px;
@@ -39,9 +42,7 @@
 		}
 		
 		p{
-			font-size: 20px;
-			margin-top: 20px;
-			padding-top: 15px;
+			font-size: 18px;
 		}
 	}
 
