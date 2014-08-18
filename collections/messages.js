@@ -61,7 +61,7 @@ Meteor.methods({
     if(MessageTypes.PROGRESS === params.type){
       check(params.progress, Object);
       check(params.progress.objective, String);
-      check(params.progress.value, String);
+      check(params.progress.value, Number);
 
       // Update objective progress
       Objectives.update(params.progress.objective, {

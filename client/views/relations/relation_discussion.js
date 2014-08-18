@@ -5,13 +5,16 @@ Template.relation_discussion.rendered = function(){
         effects: 'fade translateZ(-360px) stagger(34ms)',
         easing: 'ease'
       },
+      controls :{
+        enable: false
+      },
       layout: {
         display: 'block'
       },
       callbacks: {
         onMixEnd: function(state){
           $('.tc-timeline-section')
-            .parent('scrollable-wrapper')
+            .parent('.scrollable-wrapper')
             .perfectScrollbar('update');
         }
       }

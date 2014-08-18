@@ -105,6 +105,10 @@
 			padding: 20px;
 			overflow: hidden;
 
+			&.mix{
+				display:none;
+			}
+
 			.tc-title {
 				font-size: $font-size-base;
 				color: $gray;

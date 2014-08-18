@@ -84,7 +84,7 @@ Template.message_new.events({
     if(MessageTypes.PROGRESS == params.type){
       params.progress = {
         objective : _.trim($form.find('select[name=progressObjective]').val()),
-        value : _.trim($form.find('select[name=progressValue]').val())
+        value : _.toNumber(_.trim($form.find('select[name=progressValue]').val()))
       }
 
       // Stop everything if no objective or value is specified
