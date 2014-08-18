@@ -11,10 +11,9 @@
 
 
 .tc-message{
-	margin: 10px 30px;
 	background: #fff;
 	border-radius: 4px;
-	padding: 10px 15px;
+	padding: 18px 20px 10px 20px;
 	border: 1px solid #dededf;
 	
 	&.mix{
@@ -22,8 +21,8 @@
 	}
 	
 	.tc-avatar img{
-		@include square(60px);
-		border: 5px solid white;
+		@include square(40px);
+		border-radius: 6px;
 	}
 
 	.tc-time {
@@ -31,7 +30,6 @@
 		text-align: left;
 		color: $gray-light;
 		font-size: 12px;
-		padding-top: 12px;
 	}
 
 	.tc-message-body{

@@ -5,7 +5,7 @@
 // Variables 
 // -------------------------
 
-$menubar-compressed-width: 70px;
+$menubar-compressed-width: 220px;
 
 // Basic Elements 
 // -------------------------
@@ -24,11 +24,29 @@ $menubar-compressed-width: 70px;
   text-align: center;
 
   .main-img {
-    padding: 10px;
+    padding: 12px;
+    background: rgba(0, 0, 0, .5);
+    display: table;
+    width: 100%;
 
-    a img {
-      width: 100%;
-      border-radius: 6px;
+    a:hover {
+      text-decoration: none;
+    }
+
+    .avatar {
+      display: table-cell;
+      padding-right: 15px;
+
+      img {
+        border-radius: 4px;
+        width: 40px;
+      }
+    }
+
+    .name {
+      display: table-cell;
+      vertical-align: middle;
+      color: #fff;
     }
   }
 
@@ -85,7 +103,8 @@ $menubar-compressed-width: 70px;
     }
 
     img{
-      width: 100%;
+      width: 40px;
+      border-radius: 4px;
     }
   }
 
