@@ -1,7 +1,10 @@
-<template name="message_new_objective">
+<template name="message_edit_objective">
+
+  {{> message_edit_discuss}}
+
   <div class="tc-message-objectives">
     
-    {{> message_new_objective_line}}
+    {{> message_edit_objective_line}}
 
     <div class="form-group">
       <button type="button" id="addNewObjectiveBtn" class="btn btn-default btn-xs">
@@ -11,8 +14,8 @@
   </div>
 </template>
 
-<template name="message_new_objective_line">
-  <div class="tc-new-objective form-group">
+<template name="message_edit_objective_line">
+  <div class="tc-edit-objective form-group">
       <div class="input-group">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-ok"></span>

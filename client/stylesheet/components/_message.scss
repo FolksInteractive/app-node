@@ -25,19 +25,15 @@
 		border-radius: 6px;
 	}
 
-	.tc-time {
+	.tc-message-header {
 		background: #fff;
 		text-align: left;
 		color: $gray-light;
 		font-size: 12px;
+		margin-bottom: 10px
 	}
 
 	.tc-message-body{
-
-		textarea {
-			padding: 25px 20px;
-			font-size: 18px;
-		}
 		
 		p{
 			font-size: 18px;

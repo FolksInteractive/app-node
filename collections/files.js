@@ -23,13 +23,15 @@ Meteor.methods({
     
     var file = getFile(fileId);
 
+    // Must be loggedIn
+    if(!this.userId)
+      throw new Meteor.Error(403)
+    
     if(!canEditRelationById(file.relationId, this.userId))
       throw new Meteor.Error(403, "Access denied this relation");
-
-    // If it is not a file in draft
-    if(file.messageId)
-      Message.update(messageId, {'$pull' : {'files' : file._id}});
-
+    
     Files.remove(file._id)
+
+    Message.update(messageId, {'$pull' : {'files' : file._id}});
   }
 })

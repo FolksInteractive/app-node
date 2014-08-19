@@ -1,0 +1,12 @@
+<template name="message_edit">
+  <form novalidate>
+    {{> UI.dynamic template=message_template}}
+
+    <div class="form-group text-right">
+
+      <button type="button" class='tc-discard btn btn-danger'> Discard</button>
+
+      <button type="submit" class='btn btn-primary'> Post</button>
+    </div>
+  </form>
+</template>

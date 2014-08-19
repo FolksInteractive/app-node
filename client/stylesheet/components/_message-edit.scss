@@ -1,0 +1,61 @@
+.tc-message-draft{
+
+	.tc-avatar img{
+		border: 3px solid $gray-lighter;
+	}
+
+	.tc-edit-objective{
+		position: relative;
+
+		.tc-remove{
+			position: absolute;
+			top: -2px;
+			right: 0;
+			display: none;
+			width: 34px;
+			height: 34px;
+			line-height: 0;
+			text-align: center;
+			color: $gray-light;
+			border-left:0;
+			z-index:2;
+		}
+
+		&:hover{
+			.tc-remove{
+				display:block;
+				color: $brand-danger;
+			}
+		}
+	}
+
+	.tc-message-files{
+		color: $gray-light;
+		
+		ul{
+			margin-bottom: 0;
+		}
+		li{
+			padding: 5px 10px;
+
+			.tc-remove{
+				padding-top:2px;
+				color: $gray-light;
+			}
+		}
+		
+		li:hover{
+			.tc-remove{
+				color: $brand-danger;
+			}
+		}
+
+		.tc-upload-progress{
+			height : 10px;
+			width: 90px;
+			margin-top: 5px;
+			margin-bottom:0;
+		}
+
+	}
+}

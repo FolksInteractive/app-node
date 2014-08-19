@@ -16,7 +16,7 @@ Meteor.methods({
 
     // Must be loggedIn
     if(!this.userId)
-      return;
+      throw new Meteor.Error(403)
 
     var user = getUser(this.userId);
 

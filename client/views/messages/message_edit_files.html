@@ -1,0 +1,37 @@
+<template name="message_edit_files">
+<div class="form-group">
+  <div class="btn-group">
+    <span class="btn-file btn btn-default">
+      <span class="glyphicon glyphicon-picture"></span> Add image
+      <input type="file" multiple=""/>
+    </span>
+
+    <span class="btn-file btn btn-default">
+      <span class="glyphicon glyphicon-paperclip"></span> Add file
+      <input type="file" multiple="" />
+    </span>
+  </div>
+</div>
+
+<div class="tc-message-files form-group">
+  <ul class="list-unstyled">
+    {{#each files}}
+      <li>
+        {{# if isUploaded }}
+        <a href="#" class="tc-remove pull-right">
+          <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        {{/ if}}
+
+        {{# unless isUploaded}}
+        <div class="tc-upload-progress progress progress-striped active pull-right">
+          <div class="progress-bar progress-bar-warning"  role="progressbar"></div>
+        </div>
+        {{/unless}}
+
+        <span class="glyphicon glyphicon-file"></span> {{name}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+</template>

@@ -4,7 +4,7 @@
   .tc-relation-main{
     background: #eee;
     @include hbox-item;
-
+    
     .tc-posting-section,
     .tc-timeline-section{
       position: relative;
