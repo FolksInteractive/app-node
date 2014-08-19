@@ -1,7 +1,5 @@
 <template name="message">
-
-  <!-- We need to set a max-height for the filtering animation -->
-  <div id="{{_id}}" class="tc-message mix media"
+  <div id="{{_id}}" class="tc-message {{#if draft}}tc-message-draft{{/if}} mix media"
     data-objective="{{objective_attr}}">
     <div class="media-object pull-left">
       
@@ -12,85 +10,15 @@
     </div>
 
     <div class="media-body">
-
-      <div class="tc-time">
-        {{fullname authorId}} - {{time}}
+      <div class="tc-message-header media-header">
+        {{fullname authorId}} - <span class="tc-time">{{time}}</span>
       </div>
 
-      <div class="tc-message-body ">
-        <p>{{body}}</p>
-      </div>
-
-
-      {{# if isNotEmpty objectives}}
-      <div class="tc-message-objectives">
-        <ul class="list-unstyled">
-          {{#each objectives}}
-            <li>
-               <div class="pull-left"><span class="glyphicon glyphicon-ok checkmark"></span><span class="glyphicon glyphicon-plus plus"></span></div>
-               <div class="title">{{title}}</div>
-            </li>
-          {{/each}}
-        </ul>
-      </div>
+      {{#if draft}}
+        {{> message_edit}}
+      {{else}}
+        {{> message_read}}
       {{/if}}
-
-
-      {{# if isNotEmpty files}}
-      <div class="tc-message-files tc-pill-holder">
-        <ul class="list-unstyled">          
-          {{#each files}}
-            <li>
-              <a href="{{url}}">
-                {{#if isImage}}
-                  <img src="{{url}}" />
-                {{/if}}
-
-                {{#unless isImage}}
-                  <div class="tc-icon-pdf"></div>
-                  <div class="name">{{name}}<div class="size">188kb</div></div>
-                {{/unless}}
-              </a>
-            </li>
-          {{/each}}
-        </ul>
-      </div>
-      {{/if}}
-
-
-      <!--<div class="tc-message-options">
-        <ul class="list-inline">
-          <li><a href class="tc-approve">Approve</a></li>
-        </ul>
-      </div>-->
-
-      <!-- <div class="tc-comments hidden">
-
-        <div class="tc-message media" ng-repeat="comment in message.comments">
-          <div class="tc-avatar pull-left">
-            <img src="/img/avatar.png" class="media-object img-circle" />
-          </div>
-          <div class="tc-message-body media-body">
-            <div class="tc-message-heading media-heading small">
-              <a class="tc-username">Francis Poirier </a>
-              <span class="tc-bullet" aria-hidden="true"> • </span>
-              <span class="tc-timeago"> {{comment.createdAt|timeago}}</span>
-            </div>
-            <p>{{message.body}}</p>
-          </div>
-        </div>
-
-
-        <div class="tc-new-comment tc-message media">
-          <div class="tc-avatar pull-left">
-            <img src="/img/avatar.png" class="media-object img-circle" />
-          </div>
-          <div class="tc-message-body media-body">
-            <div class="arrow"></div>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>

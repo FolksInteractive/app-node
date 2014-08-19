@@ -7,81 +7,145 @@ MessageTypes = {
 }
 
 Meteor.methods({
-  'post_message' : function(params){
-    // Makes sure we have all the necessary params
-    check(params, Object);
-    check(params.relationId, String);
-    check(params.body, String);
-    check(params.type, String);
+  'discard_message': function(params){
+    check(params, {
+      'messageId': String
+    });
 
     // Must be loggedIn
     if(!this.userId)
-      return;
+      throw new Meteor.Error(403)
+
+    var message = Messages.findOne(params.messageId);
+
+    if(!message)
+      throw new Meteor.Error(403)
+
+    if(!message.draft)
+      throw new Meteor.Error(403, "User cannot discard a non-drafted message.");
+
+
+    if(message.authorId != this.userId)
+      throw new Meteor.Error(403, "User doesn't have the rights to discard this message.");
+
+    Messages.remove(message._id);
+    Files.remove({'messageId': message._id});
+    Objectives.remove({'messageId': message._id});
+
+  },
+
+
+
+
+  'draft_message': function(params){
+    check(params, {
+      'relationId' : Match.Where(function (id) {
+        check(id, String);
+        return !!Relations.findOne(id);
+      }),
+      'type' : Match.Where(function (type) {
+        check(type, String);
+        return isValidMessageType(type);
+      })
+    })
+
+    // Must be loggedIn
+    if(!this.userId)
+      throw new Meteor.Error(403)
 
     // Makes sure user can post
     if(!canPostMessageInRelationById(params.relationId, this.userId))
       throw new Meteor.Error(403, "User doesn't have the rights to post message in this relation");
 
-    // Makes sure it is a valid message type
-    if(!_.contains(MessageTypes,params.type))
-      throw new Meteor.Error(500, "Invalid message type");
+    params = _.extend(params, {
+      'authorId' : this.userId,
+      'draft' : true,
+      'draftedAt' : new Date()
+    })
+
+    return Messages.insert(params);
+
+  },
+
+
+
+
+  'post_message' : function(params){
+    check(params, {
+      'messageId' : String,
+      'body' : String,
+      // Message Type Objective Params
+      'objectives' : Match.Optional([String]),
+      // Message Type Progress Param
+      'progress' : Match.Optional({
+        'objectiveId' : String,
+        'value' : Number
+      })
+    })
+
+    // Must be loggedIn
+    if(!this.userId)
+      throw new Meteor.Error(403)
+
+    // Looking for a draft message created by the user
+    var message = Messages.findOne({
+      '_id' : params.messageId,
+      'authorId' : this.userId,
+      'draft' : true
+    });
+
+    if(!message)
+      throw new Meteor.Error(403, "Can't find draft message.");
+
 
     // Insert default message first
-    var insertParams = _.pick(params, 'relationId', 'body', 'type', 'files');
+    var insertParams = _.pick(params, 'body');
     insertParams = _.extend(params, {
-      'authorId' : this.userId,
-      'createdAt' : new Date()
+      'draft' : false,
+      'postedAt' : new Date()
     });
-    messageId = Messages.insert(insertParams)
+
+    Messages.update(message._id, {'$set' : insertParams});
+
     //
     //
     // For Objective Message
     //
-    if(MessageTypes.OBJECTIVE === params.type){
-      check(params.objectives, Array);
+    if(MessageTypes.OBJECTIVE === message.type){
 
       // Insert Objectives and remember their ids
-      var objectivesIds = _.map(params.objectives, function(titleParam){
+      var objectivesIds = _.map(params.objectives, function(title){
         return Objectives.insert({
-          'messageId' : messageId,
-          'title' : titleParam,
-          'completed' : 0,
+          'messageId' : message._id,
+          'title' : title,
           'progress' : 0,
           'createdAt' : new Date(),
-          'relationId' : params.relationId 
+          'relationId' : message.relationId 
         })
       });
       // Update message to specify objectives
-      Messages.update(messageId, {'$set':{'objectives' : objectivesIds}})
+      Messages.update(message._id, {'$set':{'objectives' : objectivesIds}})
     }
     //
     //
     // For Progress Message
     //
-    if(MessageTypes.PROGRESS === params.type){
-      check(params.progress, Object);
-      check(params.progress.objective, String);
-      check(params.progress.value, Number);
+    if(MessageTypes.PROGRESS === message.type){
 
       // Update objective progress
-      Objectives.update(params.progress.objective, {
+      Objectives.update(params.progress.objectiveId, {
         '$set':{
           'progress': params.progress.value
       }});  
 
-      // Update message to specify objectives
-      Messages.update(messageId, {
+      // Update message with progress data
+      Messages.update(message._id, {
         '$set':{
-          'objective' : params.progress.objective, 
+          'objectiveId' : params.progress.objectiveId, 
           'progress': params.progress.value
       }});      
     }
 
-    // Update files to remove draft mode to files
-    _.each(params.files, function(fileId){
-      Files.update(fileId, {'$set' : {'draft':false}});
-    });
-
-    return messageId;
+    return message._id;
   } 
 })

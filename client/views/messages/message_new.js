@@ -135,5 +135,5 @@ Template.message_new.events({
           Session.set('newMessageFiles', newMessageFiles);
       });
     });
-  }
+  },
 });

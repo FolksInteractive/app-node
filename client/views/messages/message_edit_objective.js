@@ -1,10 +1,10 @@
-Template.message_new_objective.helpers({
+Template.message_edit_objective.helpers({
   objectives : function(){
     return getNewObjectives();
   },
 });
 
-Template.message_new_objective.events({
+Template.message_edit_objective.events({
   'click #addNewObjectiveBtn' : function(e, template){
     var list = $('.tc-new-message .tc-message-objectives');
     var newLine = UI.render(Template.message_new_objective_line);
@@ -12,7 +12,7 @@ Template.message_new_objective.events({
   },
 
   // Remove an objective line
-  'click .tc-new-objective .tc-remove' : function(e){
+  'click .tc-edit-objective .tc-remove' : function(e){
     $(e.target).parents('.tc-new-objective').remove();
   }
 })

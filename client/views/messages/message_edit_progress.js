@@ -1,4 +1,4 @@
-Template.message_new_progress.rendered = function(){
+Template.message_edit_progress.rendered = function(){
   $('select[name=progressObjective]').select2();
   
   $('select[name=progressValue]').select2({
@@ -6,7 +6,7 @@ Template.message_new_progress.rendered = function(){
   });
 }
 
-Template.message_new_progress.helpers({
+Template.message_edit_progress.helpers({
   objectives : function(){
     return getObjectives();
   },

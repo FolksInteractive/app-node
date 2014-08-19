@@ -23,10 +23,11 @@ Template.relation_discussion.rendered = function(){
 
 Template.relation_discussion.helpers({
   timeline : function(){
-    console.log('timeline')
     return getMessagesByRelation(Session.get('currentRelationId'), {
-      sort: {createdAt: -1}
+      'sort': {
+        'draftedAt': -1, 
+        'postedAt': -1
+      }
     }).fetch();
-
   }
 });

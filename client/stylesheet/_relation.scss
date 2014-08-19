@@ -4,6 +4,25 @@
   .tc-relation-main{
     background: #eee;
     @include hbox-item;
+    
+    .modal-backdrop,
+    .modal{
+      position: absolute;
+      overflow:hidden;
+    }
+
+    .modal-backdrop{
+      background: white;
+      @include opacity(0.9);
+    }
+
+    .modal{
+      .modal-content{
+        @include box-shadow(none);
+        border: 0;
+        outline: 0;
+      }
+    }
 
     .tc-posting-section,
     .tc-timeline-section{
