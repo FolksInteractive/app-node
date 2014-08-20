@@ -8,8 +8,21 @@ Template.message_edit.events({
   'click .tc-discard' : function(e){
     e.preventDefault();
 
-    console.log(e);
-    Meteor.call('discard_message', {'messageId' : this._id}, function(err){
+    // Remove the discarded post by filtering it out
+    // Remember the current Filter
+    // Apply new filter to pull out the discarded item
+    // When filtering is finish, revert back to previous filter
+    var $current = $(e.target).parents('.tc-message');
+    var $timeline = $(".tc-timeline-section");
+    var state = $timeline.mixItUp('getState');
+    var previousFilter = state.activeFilter;
+    $show = state.$show.not($current);
+    $timeline.mixItUp('filter', $show, function(){
+      $current.remove();
+      $timeline.mixItUp('filter', previousFilter);
+    });
+
+    Meteor.call('discard_message', {'messageId' : this._id, 'wait' : 1000}, function(err){
       if(err)
         console.log(err);
     })
