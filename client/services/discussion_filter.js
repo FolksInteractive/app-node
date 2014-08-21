@@ -18,8 +18,8 @@ _DiscussionFilter.prototype.match = function(message){
         return true;
 
     // For progress message type check the objective reference
-    }else if(message.objective){
-      if(message.objective == this.criterias.objectiveId)
+    }else if(message.objectiveId){
+      if(message.objectiveId == this.criterias.objectiveId)
         return true;
     }
   }
