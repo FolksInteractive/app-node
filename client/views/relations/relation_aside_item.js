@@ -8,6 +8,11 @@ Template.relation_aside_item.helpers({
   },
 
   'completed' : function(){
+    Meteor.defer(function(){
+      var $objectives = $('.tc-relation-aside .tc-objectives');
+      var filter = $objectives.mixItUp('getState').activeFilter;
+      $objectives.mixItUp('forceRefresh');
+    })
     return this.progress >= 100;
   }
 })
