@@ -32,9 +32,7 @@
 
 <template name="relation_bar_item">
   <li class="{{active}}">
-    <a href="{{pathFor 'relation' relationId=_id}}" 
-    rel="tooltip" title="{{fullname contact}}" data-placement="right">
-      <img class="avatar" src="{{avatar contact}}" />
+    <a href="{{pathFor 'relation' relationId=_id}}" title="{{fullname contact}}"><div class="avatar"><img src="{{avatar contact}}" class="media-object" /></div><div class="name">{{fullname contact}}</div>
     </a>
   </li>
 </template>

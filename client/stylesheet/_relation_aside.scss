@@ -97,13 +97,27 @@
 		padding-top: 149px;
 
 		ul{
+			margin-top: 2px;
 			padding: 0 30px;
 		}
 
 		li{
-			border-top: 1px solid $gray-lighter;
 			padding: 20px;
 			overflow: hidden;
+			position: relative;
+			border-top: 1px solid #dededf;
+			border-left: 1px solid transparent;
+			border-right: 1px solid transparent;
+
+			&:hover {
+				background: #fff;
+				border: 1px solid #dededf;
+				border-radius: 6px;
+
+				& + li {
+			      border-top: none;
+			    }
+			}
 
 			&.mix{
 				display:none;
@@ -135,6 +149,7 @@
 			}
 
 			.tc-check{
+				position: relative;
 				border-radius : 50%;
 				line-height: 14px;
 				padding:6px;
@@ -152,8 +167,19 @@
 			}
 
 			.tc-info {
+				position: relative;
 				margin-left: 40px;
 			}
+		}
+
+		.active {
+			background: #f6f8f8;
+			border: 1px solid #dededf;
+			border-radius: 6px;
+
+			& + li {
+		      border-top: none;
+		  }
 		}
 	}
 }

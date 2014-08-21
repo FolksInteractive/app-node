@@ -55,14 +55,48 @@ $menubar-compressed-width: 220px;
     margin: 0 0 0 22px;
   }
 
+  p {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 30px 0 5px 15px;
+    @include opacity(.7);
+
+    a {
+      font-size: 10px;
+      color: #fff;
+      padding-left: 4px;
+    }
+  }
+
   li{
-    padding: 5px 15px;
+    text-align: left;
+
+    .avatar {
+      display: table-cell;
+      padding-right: 15px;
+
+      img {
+        border-radius: 4px;
+        width: 30px;
+      }
+    }
+    
+    .name {
+      display: table-cell;
+      vertical-align: middle;
+      color: #fff;
+    }
 
     a{
       display: block;
       @include transition(opacity .1s linear);
-      overflow: hidden;
-      border-radius: 50%;
+      padding: 10px 20px;
+
+      &:hover {
+        text-decoration: none;
+        background: $tc-blue-hover-bg;
+      }
     }
 
     a.tc-invite-link{
@@ -88,6 +122,7 @@ $menubar-compressed-width: 220px;
 
     &.active{
       position: relative;
+      background: rgba(255,255,255,0.1);
 
       &:before {
         position: absolute;
@@ -122,19 +157,6 @@ $menubar-compressed-width: 220px;
         height: 35px;
         background : url('../img/logo-clock.png') no-repeat center;
       } 
-    }
-  }
-
-  p {
-    text-transform: uppercase;
-    font-size: 10px;
-    margin: 20px 0 0 0;
-    @include opacity(.7);
-
-    a {
-      font-size: 10px;
-      color: #fff;
-      padding-left: 4px;
     }
   }
 }
