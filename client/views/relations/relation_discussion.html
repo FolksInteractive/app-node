@@ -1,13 +1,10 @@
 <template name="relation_discussion">
-  
+
 <div class="scrollable-wrapper">
-
   <div class="tc-posting-section"> 
-    {{> message_bar}}
+	{{> message_bar}}
   </div>
-
   <div class="tc-timeline-section">
-    
     {{#each timeline}}
         {{> message}}
     {{/each}}
