@@ -8,12 +8,12 @@
 
 // BOOTSTRAP Variables & Mixins
 @import "packages/bootstrap3-sass/assets/stylesheets/bootstrap/variables";
+@import "packages/bootstrap3-sass/assets/stylesheets/bootstrap/mixins";
 
 // Styling the BASIC graphical elements
 @import "base/base";
 
 @import "packages/bootstrap3-sass/bootstrap";
-
 
 // the COMPONENTS are each individuals pieces of the app
 //@import "vendor/select2-bootstrap3.css";

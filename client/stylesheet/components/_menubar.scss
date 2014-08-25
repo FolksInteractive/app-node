@@ -16,11 +16,8 @@ $menubar-compressed-width: 220px;
   color: #fff;
   width:60px;
   z-index: 1000;
-  -webkit-transition: width .25s;
-  transition: width .25s;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  backface-visibility: hidden; 
+  @include transition(width .25s);
+  @include backface-visibility(hidden);
   text-align: center;
 
   .main-img {

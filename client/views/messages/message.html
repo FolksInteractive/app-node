@@ -1,12 +1,10 @@
 <template name="message">
-  <div id="{{_id}}" class="tc-message {{#if draft}}tc-message-draft{{/if}} mix media"
-    data-objective="{{objective_attr}}">
-    <div class="media-object pull-left">
-      
+  <div id="{{_id}}" class="tc-message {{#if draft}}tc-message-draft{{/if}} media" style="{{delay}}">
+
+    <div class="media-object pull-left">      
       <div class="tc-avatar">
         <img src="{{avatar authorId}}" />
       </div>
-
     </div>
 
     <div class="media-body">

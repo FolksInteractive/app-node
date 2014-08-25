@@ -1,33 +1,43 @@
 Template.relation_discussion.rendered = function(){
-  $('.tc-timeline-section').mixItUp({
-      animation : {
-        duration: 400,
-        effects: 'fade translateZ(-360px) stagger(34ms)',
-        easing: 'ease'
-      },
-      controls :{
-        enable: false
-      },
-      layout: {
-        display: 'block'
-      },
-      callbacks: {
-        onMixEnd: function(state){
-          $('.tc-timeline-section')
-            .parent('.scrollable-wrapper')
-            .perfectScrollbar('update');
-        }
-      }
-  });
 }
 
 Template.relation_discussion.helpers({
-  timeline : function(){
-    return getMessagesByRelation(Session.get('currentRelationId'), {
+  discussion : function(){
+    var query = {
+      '$or' : [],
+      'relationId' : Session.get('currentRelationId')
+    };
+
+    // filter by objective id
+    if(Session.get('selectedObjectiveId')){
+      query.$or.push({ 
+        'objectiveId' : Session.get('selectedObjectiveId') 
+      });
+      query.$or.push({
+        'objectives' : {
+          '$in' : [Session.get('selectedObjectiveId')]
+        }
+      });
+    }
+
+    // $or must be nonempty array
+    if(_.isEmpty(query.$or)){
+      delete query.$or;
+    }else{
+      query.$or.push({'draft' : true})
+    }
+
+    console.log(query);
+
+    return getMessages(query, {
       'sort': {
         'draftedAt': -1, 
         'postedAt': -1
       }
-    }).fetch();
+    })
+    .map(function(doc, index, cursor) {
+      var i = _.extend(doc, {index: index});
+      return i;
+    });
   }
 });

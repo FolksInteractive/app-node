@@ -20,19 +20,27 @@
 
         <div class="tc-overview-section">
           <div class="tc-overview">
-            <div class="tc-overview-item active" data-filter=".pending">
-                <a href="#">{{count_pending}} To Do</a>
-            </div>
-            <div class="tc-overview-item" data-filter=".completed">
-                <a href="#">{{count_completed}} Completed</a>
-            </div>
+            <ul class="nav">
+              <li class="active">
+                <a href="#asidePending" role="tab" data-toggle="pill">{{count_pending}} To Do</a>
+              </li>
+              <li>
+                <a href="#asideCompleted" role="tab" data-toggle="pill">{{count_completed}} Completed</a></li>
+            </ul>
           </div>
         </div>
       </div>
 
       <div class="tc-objectives-section">
-        <ul class="tc-objectives list-unstyled">
-          {{#each objectives}}
+        <ul id="asideCompleted" class="tc-objectives tab-pane fade list-unstyled">
+          {{#each objectives_completed}}          
+            {{> relation_aside_item}}
+          {{/each}}
+        </ul>
+
+
+        <ul id="asidePending" class="tc-objectives tab-pane fade in active list-unstyled">
+          {{#each objectives_pending}}
             {{> relation_aside_item}}
           {{/each}}
         </ul>

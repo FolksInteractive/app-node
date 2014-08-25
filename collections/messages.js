@@ -29,20 +29,9 @@ Meteor.methods({
     if(message.authorId != this.userId)
       throw new Meteor.Error(403, "User doesn't have the rights to discard this message.");
 
-    var confirmDiscard = function(){
-      Messages.remove(message._id);
-      Files.remove({'messageId': message._id});
-      Objectives.remove({'messageId': message._id});
-    }
-
-    var wait = params.wait || 0;
-    if(!this.isSimulation && wait > 0){ 
-      Meteor.setTimeout(confirmDiscard, wait);
-    }else if( wait == 0){
-      confirmDiscard();
-    }else{
-      // No latency compensation to let animation happening
-    }
+    Messages.remove(message._id);
+    Files.remove({'messageId': message._id});
+    Objectives.remove({'messageId': message._id});
 
   },
 
