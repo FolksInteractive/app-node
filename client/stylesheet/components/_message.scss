@@ -77,6 +77,24 @@
 		}	
 	}
 
+	.tc-message-progress {
+		margin: 10px 0;
+		border-left: 3px solid #48bd92;
+		padding-left: 20px;
+		
+		h3 {
+			color: #48bd92;
+			font-size: 20px;
+			padding-top: 10px;
+		}
+		p {
+			font-style: italic;
+			font-size: 13px;
+			padding-bottom: 10px;
+			color: #999;
+		}
+	}
+
 	.tc-message-files{
 		img {
 			display: block;
@@ -106,19 +124,22 @@
 		}
 	}
 
+	.tc-message-body {
+
+		 .form-control {
+				border: none;
+				box-shadow: none;
+				font-size: 18px;
+				padding: 0;
+		}
+	}
+
 	.tc-comments{
 		border-top : 1px solid $gray-lighter;
 
 		.tc-message{
 			font-size: $font-size-base;
 			margin: 15px;
-		}
-
-
-		.tc-avatar img{
-			width: 30px;
-			height: 30px;
-			border: 0;
 		}
 
 		.tc-message-body{

@@ -1,6 +1,6 @@
 if(Meteor.users.find().count() === 0){
   var clientId = Accounts.createUser({
-    'email' : 'alexlm@timecrumbs.com',
+    'email' : 'alexlm@flsolutions.ca',
     'password' : 'alexlm',
     'profile' : {
       'firstname' : 'Alex',
