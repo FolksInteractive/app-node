@@ -1,6 +1,8 @@
 Files = new FS.Collection("files", {
   stores: [
-    new FS.Store.FileSystem("files", {})
+    new FS.Store.FileSystem("files", {
+      'path' : '/app-storage'
+    })
   ],
 });
 
