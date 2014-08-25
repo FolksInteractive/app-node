@@ -1,5 +1,4 @@
 Template.relation_aside_item.rendered = function(){
-  $('.tc-relation-aside .tc-objectives').mixItUp('append', this.$);
 }
 
 Template.relation_aside_item.helpers({
@@ -7,12 +6,19 @@ Template.relation_aside_item.helpers({
     return this.progress < 100 ? 'pending' : 'completed';
   },
 
-  'completed' : function(){
-    Meteor.defer(function(){
-      var $objectives = $('.tc-relation-aside .tc-objectives');
-      var filter = $objectives.mixItUp('getState').activeFilter;
-      $objectives.mixItUp('forceRefresh');
-    })
+  'active_state' : function(){
+    return Session.equals('selectedObjectiveId', this._id) ? 'active' : '';
+  },
+
+  'completed' : function()  {
     return this.progress >= 100;
-  }
+  },
 })
+
+Template.relation_aside_item.events({
+  'click li' : function(e){
+    e.preventDefault();
+
+    Session.set('selectedObjectiveId', this._id);
+  },
+});

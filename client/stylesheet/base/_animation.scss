@@ -21,3 +21,18 @@
     opacity: 0
   }
 }
+
+@-webkit-keyframes scale-in {
+  from {
+    @include opacity(0);
+    @include translate(0, -50px);
+
+  }
+}
+
+@keyframes scale-in {
+  from {
+    @include opacity(0);
+    @include translate(0, -50px);
+  }
+}

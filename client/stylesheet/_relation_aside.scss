@@ -62,7 +62,7 @@
 	
 		.tc-overview{
 		
-			.tc-overview-item{
+			.nav > li{
 				display: inline-block;
 
 				a{
@@ -74,6 +74,7 @@
 				a:hover {
 					text-decoration: none;
 					color: $gray;
+					background: transparent;
 				}
 
 				&.active{
@@ -109,11 +110,17 @@
 			&:hover {
 				background: #fff;
 			}
+			
+			&.active {
+				background: #f6f8f8;
+				border: 1px solid #dededf;
+				border-radius: 6px;
 
-			&.mix{
-				display:none;
+				& + li {
+			      border-top: none;
+			  }
 			}
-
+			
 			.tc-title {
 				font-size: $font-size-base;
 				color: $gray;
@@ -163,14 +170,5 @@
 			}
 		}
 
-		.active {
-			background: #f6f8f8;
-			border: 1px solid #dededf;
-			border-radius: 6px;
-
-			& + li {
-		      border-top: none;
-		  }
-		}
 	}
 }

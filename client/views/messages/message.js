@@ -1,9 +1,12 @@
 Template.message.rendered = function(){
-  $('.tc-timeline-section').mixItUp('append', this.$);
 }
 
 Template.message.helpers({
   'time' : function(){
     return moment(this.createdAt).fromNow();
   },
+  'delay' : function(){
+    var animationDelay = 'animation-delay: '+(this.index*50)+'ms'
+    return '-webkit-'+animationDelay+'; '+animationDelay;
+  }
 })
