@@ -25,15 +25,10 @@
 
 .tc-message{
 	padding: 20px;
-	@include translate3d(0, 0, 360px);
+	
 	@include transition(all 400ms ease 0s);
 	@include animation(scale-in 400ms ease);
-	// @include backface-visibility(hidden);
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	
+
 	.tc-avatar img{
 		@include square(40px);
 		border-radius: 6px;

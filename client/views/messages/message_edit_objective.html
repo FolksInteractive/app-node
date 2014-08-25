@@ -1,6 +1,8 @@
 <template name="message_edit_objective">
 
-  {{> message_edit_discuss}}
+  <div class="tc-message-body form-group">
+    <textarea class="form-control" placeholder="Write a message..."></textarea>
+  </div>
 
   <div class="tc-message-objectives">
     
@@ -12,6 +14,8 @@
       </button>
     </div>
   </div>
+  
+  {{> message_edit_files}}
 </template>
 
 <template name="message_edit_objective_line">

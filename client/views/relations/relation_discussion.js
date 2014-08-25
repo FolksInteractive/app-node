@@ -27,8 +27,6 @@ Template.relation_discussion.helpers({
       query.$or.push({'draft' : true})
     }
 
-    console.log(query);
-
     return getMessages(query, {
       'sort': {
         'draftedAt': -1, 
