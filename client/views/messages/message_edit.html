@@ -2,11 +2,25 @@
   <form novalidate>
     {{> UI.dynamic template=message_template}}
 
-    <div class="form-group text-right">
+    <div class="tc-message-control-bar">
+	    <div class="form-group form-files">
+		  <div class="btn-group">
+		    <span class="btn-file btn btn-default">
+		      <span class="glyphicon glyphicon-picture"></span>
+		      <input type="file" multiple=""/>
+		    </span>
 
-      <button type="button" class='tc-discard btn btn-danger'> Discard</button>
+		    <span class="btn-file btn btn-default">
+		      <span class="glyphicon glyphicon-paperclip"></span>
+		      <input type="file" multiple="" />
+		    </span>
+		  </div>
+		</div>
 
-      <button type="submit" class='btn btn-primary'> Post</button>
-    </div>
+	    <div class="form-group text-right">
+	      <button type="submit" class='btn btn-primary'> Post</button>
+	      <button type="button" class='tc-discard btn btn-default'> Cancel</button>
+	    </div>
+	</div>
   </form>
 </template>
