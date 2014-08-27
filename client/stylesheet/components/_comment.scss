@@ -1,36 +1,59 @@
-.tc-comments{
-  border-top : 1px solid $gray-lighter;
+.tc-comments-section {
+  margin-top: 10px;
 
-  .tc-comment{
+  .tc-comments{
+    padding: 20px 20px 0 20px;
+    margin-bottom: 0;
+    border-top : 1px dotted $gray-lighter;
 
-    @include animation(scale-in 400ms ease);
+    .tc-comment{
 
-    font-size: $font-size-base;
-    margin: 15px;
-  }
+      @include animation(scale-in 400ms ease);
+      font-size: 14px;
 
-  .tc-avatar img{
-    @include square(30px);
-    border-radius: 6px;
-  }
+      .tc-comment-heading {
+        margin: 0;
+        color: $gray-light;
+        font-size: $font-size-small;
+      }
 
-  .tc-comment-body{
-    p{
-      font-size: $font-size-base;
+      .media {
+        margin-top: 5px;
+      }
+
+      .tc-comment-body p {
+        font-size: 14px;
+        margin: 0;
+      }
+    }
+
+    .tc-avatar {
+      margin-right: 20px;
+
+      img {
+        @include square(30px);
+        border-radius: 4px;
+      }
     }
   }
-}
-.tc-new-comment{
+  .tc-new-comment{
 
-  .tc-avatar img{
-    @include square(30px);
-    border-radius: 6px;
-  }
-  
-  .tc-comment-body{
-    position:relative;
-    // padding-left: $popover-arrow-outer-width;
-    background-color: $popover-bg;
-    background-clip: padding-box;
+    .tc-avatar img{
+      @include square(30px);
+      border-radius: 4px;
+    }
+    
+    .tc-comment-body{
+      position:relative;
+      // padding-left: $popover-arrow-outer-width;
+      background-color: $popover-bg;
+      background-clip: padding-box;
+
+      .tc-comment-form {
+        box-shadow: none;
+        border-radius: 0;
+        border: 1px solid #dededf;
+      }
+    }
   }
 }
