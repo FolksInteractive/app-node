@@ -5,7 +5,15 @@ Template.message_comments.rendered = function(){
 Template.message_comments.helpers({
 
   'comments' : function(){
-    return getCommentsByMessage(this);
+    return getCommentsByMessage(this)
+    .map(function(doc, index, cursor) {
+      var i = _.extend(doc, {index: index});
+      return i;
+    });
+  },
+
+  'createdAt' : function(){    
+    return moment(this.createdAt).fromNow();
   }
 });
 

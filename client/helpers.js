@@ -19,6 +19,8 @@ UI.registerHelper('date', function(date){
   return moment(date).format('MMMM Do YY');
 });
 
+
+
 UI.registerHelper('isEmpty', function(array){
   return array.length == 0;
 })

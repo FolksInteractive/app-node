@@ -2,6 +2,9 @@
   border-top : 1px solid $gray-lighter;
 
   .tc-comment{
+
+    @include animation(scale-in 400ms ease);
+
     font-size: $font-size-base;
     margin: 15px;
   }
