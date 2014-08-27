@@ -17,6 +17,10 @@
       {{else}}
         {{> message_read}}
       {{/if}}
+
+      {{#unless draft}}
+        {{> message_comments}}
+      {{/unless}}
     </div>
   </div>
 </template>

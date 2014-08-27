@@ -1,0 +1,33 @@
+.tc-comments{
+  border-top : 1px solid $gray-lighter;
+
+  .tc-comment{
+    font-size: $font-size-base;
+    margin: 15px;
+  }
+
+  .tc-avatar img{
+    @include square(30px);
+    border-radius: 6px;
+  }
+
+  .tc-comment-body{
+    p{
+      font-size: $font-size-base;
+    }
+  }
+}
+.tc-new-comment{
+
+  .tc-avatar img{
+    @include square(30px);
+    border-radius: 6px;
+  }
+  
+  .tc-comment-body{
+    position:relative;
+    // padding-left: $popover-arrow-outer-width;
+    background-color: $popover-bg;
+    background-clip: padding-box;
+  }
+}

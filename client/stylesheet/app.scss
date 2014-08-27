@@ -12,12 +12,26 @@
 
 // Styling the BASIC graphical elements
 @import "base/base";
+@import "base/animation";
+@import "base/colors";
+@import "base/mixins";
+@import "base/typography";
+@import "base/forms";
+@import "base/icons";
+@import "base/menu";
+
 
 @import "packages/bootstrap3-sass/bootstrap";
 
 // the COMPONENTS are each individuals pieces of the app
 //@import "vendor/select2-bootstrap3.css";
-@import "components/components";
+@import "components/comment";
+@import "components/message";
+@import "components/message-edit";
+@import "components/menubar";
+@import "components/progress-bars";
+@import "components/scrollable";
+@import "components/transitions";
 
 // The LAYOUTS builds the structure
 @import "layouts";

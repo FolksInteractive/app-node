@@ -23,10 +23,28 @@ Meteor.publish('relation', function(relationId){
     return this.ready();
 
   var relation = getRelation(relationId);
+  var messagesCursor = Messages.find({
+    'relationId' : relationId, 
+    '$or': [
+      {'draft': false},
+      {'$and':[{
+        'draft':true, 
+        'authorId':this.userId
+      }]}
+    ]      
+  });
+
+  var messagesId = _.pluck(messagesCursor.fetch(), '_id');
 
   var publications = [
     Relations.find({'_id' :relationId}),
-    Messages.find({'relationId' : relationId}),
+    // Publish published message and the draft one which the user is the author
+    messagesCursor,
+    Comments.find({
+      'messageId' : {
+        '$in' : messagesId
+      }
+    }),
     Meteor.users.find({'_id': {'$in':[relation.clientId, relation.vendorId]}}),
     Files.find({'relationId' : relationId}),
     Objectives.find({'relationId' : relationId})

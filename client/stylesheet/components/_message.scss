@@ -29,9 +29,13 @@
 	@include transition(all 400ms ease 0s);
 	@include animation(scale-in 400ms ease);
 
-	.tc-avatar img{
-		@include square(40px);
-		border-radius: 6px;
+	& > .media-object{
+		margin-right:20px;
+
+		.tc-avatar img{
+			@include square(40px);
+			border-radius: 6px;
+		}
 	}
 
 	.tc-message-header {
@@ -130,29 +134,6 @@
 				box-shadow: none;
 				font-size: 18px;
 				padding: 0;
-		}
-	}
-
-	.tc-comments{
-		border-top : 1px solid $gray-lighter;
-
-		.tc-message{
-			font-size: $font-size-base;
-			margin: 15px;
-		}
-
-		.tc-message-body{
-			p{
-				font-size: $font-size-base;
-			}
-		}
-	}
-	.tc-new-comment{
-		.tc-message-body{
-			position:relative;
-			// padding-left: $popover-arrow-outer-width;
-			background-color: $popover-bg;
-			background-clip: padding-box;
 		}
 	}
 }

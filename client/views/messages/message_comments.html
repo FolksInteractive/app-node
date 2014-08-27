@@ -1,0 +1,37 @@
+<template name="message_comments">
+  <div class="tc-comments-section">
+    <ul class="tc-comments list-unstyled">
+      {{#each comments}}
+      <li class="tc-comment media">
+        <div class="tc-avatar pull-left">
+          <img src="{{avatar userId}}" class="media-object img-circle" />
+        </div>
+        <div class="tc-message-body media-body">
+          <div class="tc-message-heading media-heading small">
+            <a class="tc-username">{{fullname userId}}</a>
+            <span class="tc-bullet" aria-hidden="true"> • </span>
+            <span class="tc-timeago"> {{createdAt}}</span>
+          </div>
+          <p>{{body}}</p>
+        </div>
+      </li>
+      {{/each}}
+
+      <li class="tc-new-comment tc-comment media">
+        <div class="tc-avatar pull-left">
+          <img src="{{avatar currentUser}}" class="media-object img-circle" />
+        </div>
+
+        <div class="tc-comment-body media-body">
+          <form  novalidate>
+
+            <div class="form-group">
+              <input type="text" class="form-control" />
+            </div>
+
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
