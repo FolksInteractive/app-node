@@ -14,6 +14,7 @@
     },
     "npm": {},
     "typeahead": {},
-    "reactive-extra": {}
+    "reactive-extra": {},
+    "user-status": {}
   }
 }

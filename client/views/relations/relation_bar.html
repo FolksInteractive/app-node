@@ -3,8 +3,14 @@
 
   <!-- Contact list -->
   <div class="tc-menu-secton">
-    <div class="main-img">
-      <a href="{{pathFor 'relation_invite'}}"><div class="avatar"><img src="{{avatar currentUser}}" class="media-object" /></div><div class="name">{{fullname currentUser}}</div></a>
+    <div class="tc-current-user">
+      <a href="{{pathFor 'relation_invite'}}">
+        <div class="tc-avatar">
+          <div class="tc-status {{status}}"></div>
+          <img src="{{avatar currentUser}}" />
+        </div>
+        <div class="tc-name">{{fullname currentUser}}</div>
+      </a>
       <div class="black-border"></div>
     </div>
     <ul class='list-unstyled'>
@@ -32,7 +38,13 @@
 
 <template name="relation_bar_item">
   <li class="{{active}}">
-    <a href="{{pathFor 'relation' relationId=_id}}" title="{{fullname contact}}"><div class="avatar"><img src="{{avatar contact}}" class="media-object" /></div><div class="name">{{fullname contact}}</div>
+    <a href="{{pathFor 'relation' relationId=_id}}" 
+      title="{{fullname contact}}">
+      <div class="tc-avatar">
+        <div class="tc-status {{status}}"></div>
+        <img src="{{avatar contact}}"/>
+      </div>
+      <div class="tc-name">{{fullname contact}}</div>
     </a>
   </li>
 </template>

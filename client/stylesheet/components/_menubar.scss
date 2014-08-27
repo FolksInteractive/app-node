@@ -20,28 +20,33 @@ $menubar-compressed-width: 220px;
   @include backface-visibility(hidden);
   text-align: center;
 
-  .main-img {
+  .tc-current-user {
     padding: 12px;
     background: rgba(0, 0, 0, .5);
-    display: table;
-    width: 100%;
 
     a:hover {
       text-decoration: none;
     }
 
-    .avatar {
+    .tc-avatar {
+      position: relative;
       display: table-cell;
-      padding-right: 15px;
 
       img {
         border-radius: 4px;
         width: 40px;
       }
+
+      .tc-status {
+        // Styling must be made in _status.scss component 
+        bottom:-2px;
+        right:-2px;
+      }
     }
 
-    .name {
+    .tc-name {
       display: table-cell;
+      padding-left: 15px;
       vertical-align: middle;
       color: #fff;
       font-size: 13px;
@@ -70,21 +75,28 @@ $menubar-compressed-width: 220px;
   li{
     text-align: left;
 
-    .avatar {
+    .tc-avatar {
+      position : relative;
       display: table-cell;
-      padding-right: 15px;
 
       img {
         border-radius: 4px;
         width: 30px;
       }
+
+      .tc-status {
+        // Styling must be made in _status.scss component 
+        bottom:-2px;
+        right:-2px;
+      }
     }
     
-    .name {
+    .tc-name {
       display: table-cell;
       vertical-align: middle;
       color: #fff;
       font-size: 13px;
+      padding-left: 15px;
     }
 
     a{

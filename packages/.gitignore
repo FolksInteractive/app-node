@@ -48,3 +48,6 @@
 /iron-core
 /iron-dynamic-template
 /reactive-extra
+/user-status
+/timesync
+/collectionfs
