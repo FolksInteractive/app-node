@@ -3,25 +3,24 @@
 
   .tc-comment{
     font-size: $font-size-base;
-    margin: 15px;
   }
 
   .tc-avatar img{
-    @include square(30px);
-    border-radius: 6px;
+    @include square(34px);
+    border-radius: 4px;
   }
 
   .tc-comment-body{
     p{
-      font-size: $font-size-base;
+      font-size: 14px;
     }
   }
 }
 .tc-new-comment{
 
   .tc-avatar img{
-    @include square(30px);
-    border-radius: 6px;
+    @include square(34px);
+    border-radius: 4px;
   }
   
   .tc-comment-body{
