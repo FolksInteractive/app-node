@@ -8,7 +8,11 @@
     .tc-posting-section,
     .tc-discussion-section{
       position: relative;
-      margin: 20px;
+    }
+
+    .tc-posting-section {
+      padding: 20px 50px;
+      border-bottom: 1px dotted #dededf;
     }
   }
 }

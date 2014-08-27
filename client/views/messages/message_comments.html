@@ -6,8 +6,8 @@
         <div class="tc-avatar pull-left">
           <img src="{{avatar userId}}" class="media-object img-rounded" />
         </div>
-        <div class="tc-message-body media-body">
-          <div class="tc-message-heading media-heading small">
+        <div class="tc-comment-body media-body">
+          <div class="tc-comment-heading media-heading small">
             <a class="tc-username">{{fullname userId}}</a>
             <span class="tc-bullet" aria-hidden="true"> • </span>
             <span class="tc-timeago"> {{createdAt}}</span>
@@ -26,7 +26,7 @@
           <form  novalidate>
 
             <div class="form-group">
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control tc-comment-form" placeholder="Write a comment..." />
             </div>
 
           </form>

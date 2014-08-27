@@ -1,5 +1,5 @@
 <template name="message">
-  <div id="{{_id}}" class="tc-message {{#if draft}}tc-message-draft{{/if}} media" style="{{delay}}">
+  <div id="{{_id}}" class="tc-message {{#if draft}}tc-message-draft{{/if}}" style="{{delay}}">
 
     <div class="media-object pull-left">      
       <div class="tc-avatar">
@@ -17,10 +17,12 @@
       {{else}}
         {{> message_read}}
       {{/if}}
-
-      {{#unless draft}}
-        {{> message_comments}}
-      {{/unless}}
     </div>
+  
+    {{#unless draft}}
+      {{> message_comments}}
+    {{/unless}}
+
   </div>
+
 </template>
