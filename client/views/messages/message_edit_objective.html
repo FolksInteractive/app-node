@@ -2,13 +2,10 @@
 
   <div class="tc-message-objectives">
     
-    {{> message_edit_objective_line}}
+    {{#each objectives}}
+      {{> message_edit_objective_line}}
+    {{/each}}
 
-    <div class="form-group">
-      <button type="button" id="addObjectiveBtn" class="btn btn-default btn-xs">
-        <span class="glyphicon glyphicon-plus"></span> Add objective
-      </button>
-    </div>
   </div>
 </template>
 
@@ -18,7 +15,7 @@
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-ok"></span>
         </span>
-        <input type="text" class="form-control input-sm" />        
+        <input type="text" value="{{title}}" class="form-control input-sm" />        
       </div>
 
       <button type="button" class="tc-remove btn btn-sm btn-link">

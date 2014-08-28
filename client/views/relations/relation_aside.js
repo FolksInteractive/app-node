@@ -23,10 +23,14 @@ Template.relation_aside.helpers({
   },
 
   'count_pending' : function(){
-    return countObjectives({progress: {"$lt": 100}})
+    return countObjectives({
+      'progress': {"$lt": 100}
+    })
   },
 
   'count_completed' : function(){
-    return countObjectives({progress: 100})
+    return countObjectives({
+      'progress': 100
+    })
   }
 });

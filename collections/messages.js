@@ -30,6 +30,32 @@ Meteor.methods({
   },
 
 
+  'write_message' : function(params){
+    check(params, {
+      'messageId': String,
+      'body' : Match.Optional(String),
+    });
+
+    // Must be loggedIn
+    if(!this.userId)
+      throw new Meteor.Error(403)
+    
+    // Looking for the message
+    var message = Messages.findOne({
+      '_id' : params.messageId
+    });
+
+    if(!message)
+      throw new Meteor.Error(403, "Can't find message.");
+
+    if(message.authorId != this.userId)
+      throw new Meteor.Error(403, "User doesn't have the rights to edit this message.");
+
+    return Messages.update(params.messageId, {'$set':{
+        'body' : params.body || ''
+      }
+    });
+  },
 
 
   'draft_message': function(params){
@@ -63,15 +89,7 @@ Meteor.methods({
 
   'post_message' : function(params){
     check(params, {
-      'messageId' : String,
-      'body' : String,
-      // Message Type Objective Params
-      'objectives' : Match.Optional([String]),
-      // Message Type Progress Param
-      'progress' : Match.Optional({
-        'objectiveId' : String,
-        'value' : Number
-      })
+      'messageId' : String
     })
 
     // Must be loggedIn
@@ -95,46 +113,29 @@ Meteor.methods({
       'body' : params.body,
       'postedAt' : new Date()
     };
-    //
-    //
-    // For Objective Message
-    //
-    if(params.objectives){
 
-      // Insert Objectives and remember their ids
-      var objectivesIds = _.map(params.objectives, function(title){
-        return Objectives.insert({
-          'messageId' : message._id,
-          'title' : title,
-          'progress' : 0,
-          'createdAt' : new Date(),
-          'relationId' : message.relationId 
-        })
-      });
-      // Update insert params to specify objectives
-      insertParams = _.extend(insertParams, {
-        'objectives' : objectivesIds
-      });
-    }
-    //
-    //
-    // For Progress Message
-    //
-    if(params.progress){
+    // Delete all empty objectives
+    Objectives.remove({
+      'messageId' : params.messageId, 
+      'title' : '', 
+      'draft' : true
+    });
 
-      // Update objective progress
-      Objectives.update(params.progress.objectiveId, {
-        '$set':{
-          'progress': params.progress.value
-      }});  
+    // Delete all empty ProgressNotes
+    // ProgressNotes.remove({'messageId' : params.messageId, 'title':''});
 
-      // Update insert params with progress data
-      insertParams = _.extend(insertParams, {
-        'objectiveId' : params.progress.objectiveId, 
-        'progress': params.progress.value
-      });  
-    }
+    Objectives.update( {'messageId' : params.messageId}, {'$set' : {
+      'draft' : false
+    }}, {'multi': true});
+    Files.update( {'messageId' : params.messageId}, {'$set' : {
+      'draft' : false
+    }}, {'multi': true});
+    ProgressNotes.update( {'messageId' : params.messageId}, {'$set' : {
+      'draft' : false
+    }}, {'multi': true});
 
-    return Messages.update(message._id, insertParams);
+    return Messages.update(message._id, {'$set' : {
+      'draft' : false
+    }});
   } 
 })

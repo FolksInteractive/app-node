@@ -7,7 +7,11 @@ Template.message_edit_progress.rendered = function(){
 }
 
 Template.message_edit_progress.helpers({
-  objectives : function(){
+  'objectives' : function(){
     return getObjectives();
   },
+
+  'progress_notes' : function(){
+    return getProgressNotesByMessage(this);
+  }
 })

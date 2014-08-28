@@ -32,8 +32,6 @@ Meteor.methods({
     if(!canEditRelationById(file.relationId, this.userId))
       throw new Meteor.Error(403, "Access denied this relation");
     
-    Files.remove(file._id)
-
-    Message.update(messageId, {'$pull' : {'files' : file._id}});
+    Files.remove(file._id);
   }
 })

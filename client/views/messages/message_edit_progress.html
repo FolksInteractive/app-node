@@ -2,32 +2,37 @@
 
   <div class="tc-message-progress">
     <div class="row">
-      <div class="col-xs-7 col-sm-5 col-md-6 col-lg-7">
-        <select name="progressObjective" class="form-control" placeholder="Select an Objective">
-          {{#each objectives}}
-          <option value="{{_id}}">{{title}}</option>
-          {{/each}}
-        </select>
-      </div>
-      <div class="col-xs-3 text-center" style="padding-top:5px">
-        <em class="small">is now completed at</em>
-      </div>
-      <div class="col-xs-2 col-sm-4 col-md-3 col-lg-2">
-        <select name="progressValue" class="form-control">
-          <option value="10">10%</option>
-          <option value="20">20%</option>
-          <option value="30">30%</option>
-          <option value="40">40%</option>
-          <option value="50">50%</option>
-          <option value="60">60%</option>
-          <option value="70">70%</option>
-          <option value="80">80%</option>
-          <option value="90">90%</option>
-          <option value="100">100%</option>
-        </select>
-      </div>
+    {{#each progress_notes}}
+      {{> message_edit_progress_line}}
+    {{/each}}      
     </div>
   </div> 
-  
-  {{> message_edit_files}}
+</template>
+
+<template name="message_edit_progress_line">
+  <div class="col-xs-7 col-sm-5 col-md-6 col-lg-7">
+    <select name="progressObjective" class="form-control" 
+      placeholder="Select an Objective">
+      {{#each objectives}}
+      <option value="{{_id}}">{{title}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="col-xs-3 text-center" style="padding-top:5px">
+    <em class="small">is now completed at</em>
+  </div>
+  <div class="col-xs-2 col-sm-4 col-md-3 col-lg-2">
+    <select name="progressValue" class="form-control">
+      <option value="10">10%</option>
+      <option value="20">20%</option>
+      <option value="30">30%</option>
+      <option value="40">40%</option>
+      <option value="50">50%</option>
+      <option value="60">60%</option>
+      <option value="70">70%</option>
+      <option value="80">80%</option>
+      <option value="90">90%</option>
+      <option value="100">100%</option>
+    </select>
+  </div>
 </template>
