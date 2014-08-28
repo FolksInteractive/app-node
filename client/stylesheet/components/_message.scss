@@ -40,6 +40,10 @@
 		}
 	}
 
+	.tc-message-edit-objectives, .tc-message-edit-progress, .tc-attachments-bottom {
+		display: none;
+	}
+
 	.tc-message-header {
 		background: #fff;
 		text-align: left;
@@ -133,7 +137,7 @@
 		 .form-control {
 				border: none;
 				box-shadow: none;
-				font-size: 18px;
+				font-size: 16px;
 				padding: 0;
 		}
 	}

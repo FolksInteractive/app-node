@@ -5,8 +5,21 @@
 		padding: 10px 0;
 
 		.form-files {
-			float: left;
+			display: inline-block;
 			padding-left: 10px;
+			padding-right: 7px;
+		}
+
+		.form-objectives {
+			display: inline-block;
+			padding-left: 12px;
+			border-left: 1px solid #dededf;
+		}
+
+		.form-submit {
+			position: absolute;
+			right: 60px;
+			display: inline-block;
 		}
 
 		.form-group {
@@ -14,15 +27,38 @@
 
 			.btn-file {
 				border: none;
-				border-radius: 4px;
 				color: #555;
 
 				&:hover {
 					background: #3580bd;
+					border-radius: 4px;
 					color: #fff;
+				}
+
+				.progress-icon {
+					font-weight: bold;
+				}
+			}
+
+			.btn-checkmark {
+				padding-top: 7px;
+
+				.checkmark {
+					&:before {
+						font-size: 16px;
+						margin: 0;
+						line-height: 0;
+					}
 				}
 			}
 		}
+	}
+
+	.tc-attachments-top {
+		position: absolute;
+		top: 25px;
+		right: 70px;
+		border-top: none;
 	}
 
 	.tc-edit-objective{
