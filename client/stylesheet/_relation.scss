@@ -5,14 +5,8 @@
     background: #fff;
     @include hbox-item;
     
-    .tc-posting-section,
     .tc-discussion-section{
       position: relative;
-    }
-
-    .tc-posting-section {
-      padding: 20px 50px;
-      border-bottom: 1px dotted #dededf;
     }
   }
 }

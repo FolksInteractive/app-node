@@ -52,7 +52,10 @@
       .tc-comment-form {
         box-shadow: none;
         border-radius: 0;
-        border: 1px solid #dededf;
+        border: none;
+        padding: 0;
+        margin-top: -2px;
+        color: #333;
       }
     }
   }

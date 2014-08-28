@@ -4,7 +4,7 @@
   <!-- Contact list -->
   <div class="tc-menu-secton">
     <div class="tc-current-user">
-      <a href="{{pathFor 'relation_invite'}}">
+      <a href="#">
         <div class="tc-avatar">
           <div class="tc-status {{status}}"></div>
           <img src="{{avatar currentUser}}" />
@@ -29,10 +29,14 @@
     </ul>
   </div>
 
-
-  <div class="tc-logo">
+  <!--<div class="tc-logo">
       <a href="#" class="center-block"></a>
+  </div>-->
+
+  <div class="tc-new-project">
+    <a href="{{pathFor 'relation_invite'}}">New Partnership</a>
   </div>
+
 </div>
 </template>
 
