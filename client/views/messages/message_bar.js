@@ -11,8 +11,7 @@ Template.message_bar.events({
     e.preventDefault();
 
     Meteor.call('draft_message', {
-      'relationId' : Session.get('currentRelationId'),
-      'type' : $(e.target).data('type')
+      'relationId' : Session.get('currentRelationId')
     });
   }
 })

@@ -1,26 +1,41 @@
 <template name="message_edit">
   <form novalidate>
-    {{> UI.dynamic template=message_template}}
 
-    <div class="tc-message-control-bar">
-	    <div class="form-group form-files">
-			  <div class="btn-group">
-			    <span class="btn-file btn btn-default">
-			      <span class="glyphicon glyphicon-picture"></span>
-			      <input type="file" multiple=""/>
-			    </span>
+  <div class="tc-discuss-section">
+  	{{> message_edit_discuss}}
+  </div>
 
-			    <span class="btn-file btn btn-default">
-			      <span class="glyphicon glyphicon-paperclip"></span>
-			      <input type="file" multiple="" />
-			    </span>
-			  </div>
-			</div>
+  <div class="tc-objectives-section">
+  	{{> message_edit_objectives}}
+  </div>
 
-	    <div class="form-group text-right">
-	      <button type="submit" class='btn btn-primary'> Post</button>
-	      <button type="button" class='tc-discard btn btn-default'> Cancel</button>
-	    </div>
+  <div class="tc-progress-section">
+  	{{> message_edit_progress}}
+  </div>
+
+  <div class="tc-files-section">
+  	{{> message_edit_files}}
+  </div>
+
+  <div class="tc-message-control-bar">
+    <div class="form-group form-files">
+		  <div class="btn-group">
+		    <span class="btn-file btn btn-default">
+		      <span class="glyphicon glyphicon-picture"></span>
+		      <input type="file" multiple=""/>
+		    </span>
+
+		    <span class="btn-file btn btn-default">
+		      <span class="glyphicon glyphicon-paperclip"></span>
+		      <input type="file" multiple="" />
+		    </span>
+		  </div>
 		</div>
+
+    <div class="form-group text-right">
+      <button type="submit" class='btn btn-primary'> Post</button>
+      <button type="button" class='tc-discard btn btn-default'> Cancel</button>
+    </div>
+	</div>
   </form>
 </template>

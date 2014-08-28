@@ -1,11 +1,5 @@
 Messages = new Meteor.Collection('messages');
 
-MessageTypes = {
-  'DISCUSS' : 'discuss',
-  'OBJECTIVE': 'objective',
-  'PROGRESS': 'progress',
-}
-
 Meteor.methods({
   'discard_message': function(params){
     check(params, {
@@ -43,12 +37,8 @@ Meteor.methods({
       'relationId' : Match.Where(function (id) {
         check(id, String);
         return !!Relations.findOne(id);
-      }),
-      'type' : Match.Where(function (type) {
-        check(type, String);
-        return isValidMessageType(type);
       })
-    })
+    });
 
     // Must be loggedIn
     if(!this.userId)
@@ -100,19 +90,16 @@ Meteor.methods({
 
 
     // Insert default message first
-    var insertParams = _.pick(params, 'body');
-    insertParams = _.extend(params, {
-      'draft' : false,
+    var insertParams = {
+      'authorId' : this.userId,
+      'body' : params.body,
       'postedAt' : new Date()
-    });
-
-    Messages.update(message._id, {'$set' : insertParams});
-
+    };
     //
     //
     // For Objective Message
     //
-    if(MessageTypes.OBJECTIVE === message.type){
+    if(params.objectives){
 
       // Insert Objectives and remember their ids
       var objectivesIds = _.map(params.objectives, function(title){
@@ -124,14 +111,16 @@ Meteor.methods({
           'relationId' : message.relationId 
         })
       });
-      // Update message to specify objectives
-      Messages.update(message._id, {'$set':{'objectives' : objectivesIds}})
+      // Update insert params to specify objectives
+      insertParams = _.extend(insertParams, {
+        'objectives' : objectivesIds
+      });
     }
     //
     //
     // For Progress Message
     //
-    if(MessageTypes.PROGRESS === message.type){
+    if(params.progress){
 
       // Update objective progress
       Objectives.update(params.progress.objectiveId, {
@@ -139,14 +128,13 @@ Meteor.methods({
           'progress': params.progress.value
       }});  
 
-      // Update message with progress data
-      Messages.update(message._id, {
-        '$set':{
-          'objectiveId' : params.progress.objectiveId, 
-          'progress': params.progress.value
-      }});      
+      // Update insert params with progress data
+      insertParams = _.extend(insertParams, {
+        'objectiveId' : params.progress.objectiveId, 
+        'progress': params.progress.value
+      });  
     }
 
-    return message._id;
+    return Messages.update(message._id, insertParams);
   } 
 })

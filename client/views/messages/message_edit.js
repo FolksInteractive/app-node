@@ -1,7 +1,4 @@
 Template.message_edit.helpers({
-  'message_template' : function(){
-    return "message_edit_"+this.type;
-  }
 });
 
 Template.message_edit.events({

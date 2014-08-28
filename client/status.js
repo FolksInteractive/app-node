@@ -1,11 +1,8 @@
 Deps.autorun(function(c) {
   try{
-    // if(UserStatus.isMonitoring)
-    //   return
-
     UserStatus.startMonitor({
-      'threshold': 10000,
-      'interval': 1000,
+      'threshold': 120000,
+      'interval': 60000,
       'idleOnBlur': true
     });
   }catch(e){}

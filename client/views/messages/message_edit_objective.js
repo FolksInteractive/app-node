@@ -1,10 +1,10 @@
-Template.message_edit_objective.helpers({
+Template.message_edit_objectives.helpers({
   objectives : function(){
     return getNewObjectives();
   },
 });
 
-Template.message_edit_objective.events({
+Template.message_edit_objectives.events({
   'click #addObjectiveBtn' : function(e, template){
     var list = $('.tc-message-objectives');
     var newLine = UI.render(Template.message_edit_objective_line);
