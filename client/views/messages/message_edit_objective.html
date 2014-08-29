@@ -1,25 +1,25 @@
 <template name="message_edit_objectives">
 
-  <div class="tc-message-edit-objectives">
+  <ul class="list-unstyled">
     
     {{#each objectives}}
       {{> message_edit_objective_line}}
     {{/each}}
 
-  </div>
+  </ul>
 </template>
 
 <template name="message_edit_objective_line">
-  <div class="tc-edit-objective form-group">
-      <div class="input-group">
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-ok"></span>
-        </span>
-        <input type="text" value="{{title}}" class="form-control input-sm" />        
-      </div>
-
-      <button type="button" class="tc-remove btn btn-sm btn-link">
-        <span class="glyphicon glyphicon-remove"></span>
-      </button>
+  <li class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-ok"></span>
+      </span>
+      <input type="text" value="{{title}}" class="form-control input-sm" />        
     </div>
+
+    <button type="button" class="tc-remove btn btn-sm btn-link">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+  </li>
 </template>

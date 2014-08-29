@@ -1,47 +1,32 @@
 .tc-message-draft{
 
-	.tc-message-control-bar {
+	.tc-controls-section {
+		position: relative;
 		border-top: 1px solid #eee;
 		padding: 10px 0;
 
-		.form-files {
-			display: inline-block;
-			padding-left: 10px;
-			padding-right: 7px;
-		}
 
-		.form-objectives {
-			display: inline-block;
-			padding-left: 12px;
-			border-left: 1px solid #dededf;
-		}
-
-		.form-submit {
+		.tc-submit-group {
 			position: absolute;
-			right: 60px;
-			display: inline-block;
+			top: 10px;
+			right: 10px;
 		}
 
-		.form-group {
-			margin: 0;
-
-			.btn-file {
+		.tc-attachments-group{
+			.btn{
 				border: none;
 				color: #555;
+				padding: 6px 10px;
 
 				&:hover {
 					background: #3580bd;
-					border-radius: 4px;
 					color: #fff;
-				}
-
-				.progress-icon {
-					font-weight: bold;
 				}
 			}
 
-			.btn-checkmark {
-				padding-top: 7px;
+			.tc-btn-objective {
+				// Adjusting padding because icon font-size is bigger than other button
+				padding: 6px 9px; 
 
 				.checkmark {
 					&:before {
@@ -51,46 +36,94 @@
 					}
 				}
 			}
+
+			.tc-btn-progress {
+				.progress-icon {
+					font-weight: bold;
+				}
+			}
+
+			.tc-separator{
+				width: 0;
+				margin: 0 8px;
+				height: 24px;
+				display: inline-block;
+				vertical-align: middle;
+				border-left: 1px solid $gray-light;
+			}
+		} 
+	}
+
+	// When the draft message is empty
+	// We want the attachment bar top right
+	&.tc-empty{
+		.media-body{
+			position: relative;
 		}
-	}
-
-	.tc-attachments-top {
-		position: absolute;
-		top: 25px;
-		right: 70px;
-		border-top: none;
-	}
-
-	.tc-edit-objective{
-		position: relative;
-
-		.tc-remove{
+		.tc-controls-section{
 			position: absolute;
-			top: -2px;
-			right: 0;
-			display: none;
-			width: 34px;
-			height: 34px;
-			line-height: 0;
-			text-align: center;
-			color: $gray-light;
-			border-left:0;
-			z-index:2;
-		}
+			top:10px;
+			right:0px;
+			border-top: 0;
+			padding: 0;
 
-		&:hover{
-			.tc-remove{
-				display:block;
-				color: $brand-danger;
+			.tc-submit-group{
+				display:none;
 			}
 		}
 	}
 
-	.tc-message-progress {
+	// Remove button
+	.tc-progress-section,
+	.tc-objectives-section{
 
+		ul > li{
+			position: relative;
+
+			.tc-remove{
+				position: absolute;
+				top: -2px;
+				right: 0;
+				display: none;
+				width: 34px;
+				height: 34px;
+				line-height: 0;
+				text-align: center;
+				color: $gray-light;
+				border-left:0;
+				z-index:2;
+			}
+
+			&:hover{
+				.tc-remove{
+					display:block;
+					color: $brand-danger;
+				}
+			}
+		}
 	}
 
-	.tc-message-files{
+	.tc-progress-section{
+		ul > li{
+			margin-top: 10px;
+
+			.tc-col-value{
+				padding-right: 40px;
+			}
+
+			.tc-remove{
+				top: -2px;
+				right: 5px;
+
+				&:focus{
+					outline: 0;
+				}
+			}
+		}
+	}
+
+	// FILES list
+	.tc-files-section{
 		color: $gray-light;
 		
 		ul{
@@ -103,20 +136,19 @@
 				padding-top:2px;
 				color: $gray-light;
 			}
-		}
-		
-		li:hover{
-			.tc-remove{
-				color: $brand-danger;
+
+			&:hover{
+				.tc-remove{
+					color: $brand-danger;
+				}
+			}
+
+			.tc-upload-progress{
+				height : 10px;
+				width: 90px;
+				margin-top: 5px;
+				margin-bottom:0;
 			}
 		}
-
-		.tc-upload-progress{
-			height : 10px;
-			width: 90px;
-			margin-top: 5px;
-			margin-bottom:0;
-		}
-
 	}
 }

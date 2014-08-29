@@ -1,7 +1,7 @@
 Objectives = new Meteor.Collection('objectives');
 
 Meteor.methods({
-  'draft_objective' : function(params){    
+  'attach_objective' : function(params){    
     check(params, {
       'messageId' : String,
     });

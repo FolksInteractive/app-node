@@ -17,10 +17,17 @@
 </div>
 {{/if}}
 
-{{# if progress}}
+{{# if isNotEmpty progress_notes}}
 <div class="tc-message-progress">
-  <h3>{{progress}}% Completed</h3>
-  <p>Design personnalisé ( technologie « responsive » ) – Ordinateur / Tablettes / Mobile</p>
+
+  <ul class="list-unstyled">
+    {{#each progress_notes}}
+      <li>
+        <h3>{{value}}% Completed</h3>
+        <p>{{objective_title}}</p>
+      </li>
+    {{/each}}
+  </ul>
 
 </div>
 {{/if}}

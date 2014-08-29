@@ -47,7 +47,8 @@ Meteor.publish('relation', function(relationId){
     }),
     Meteor.users.find({'_id': {'$in':[relation.clientId, relation.vendorId]}}),
     Files.find({'relationId' : relationId}),
-    Objectives.find({'relationId' : relationId})
+    Objectives.find({'relationId' : relationId}),
+    ProgressNotes.find({'relationId' : relationId})
   ]
 
   return publications;

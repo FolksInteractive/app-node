@@ -5,10 +5,6 @@
   	{{> message_edit_discuss}}
   </div>
 
-  <div class="tc-message-control-bar tc-attachments-top">
-    {{> message_attachments}}
-  </div>
-
   <div class="tc-objectives-section">
   	{{> message_edit_objectives}}
   </div>
@@ -21,14 +17,8 @@
   	{{> message_edit_files}}
   </div>
 
-  <div class="tc-message-control-bar tc-attachments-bottom">
-
-    {{> message_attachments}}
-
-    <div class="form-group form-submit">
-      <button type="submit" class='btn btn-primary'> Post</button>
-      <button type="button" class='tc-discard btn btn-default'> Cancel</button>
-    </div>
-	</div>
+  <div class="tc-controls-section">
+    {{> message_edit_controls}}
+  </div>
   </form>
 </template>

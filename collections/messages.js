@@ -122,7 +122,10 @@ Meteor.methods({
     });
 
     // Delete all empty ProgressNotes
-    // ProgressNotes.remove({'messageId' : params.messageId, 'title':''});
+    ProgressNotes.remove({
+      'messageId' : params.messageId, 
+      'objectiveId' : {'$exists' : false}
+    });
 
     Objectives.update( {'messageId' : params.messageId}, {'$set' : {
       'draft' : false
@@ -134,8 +137,13 @@ Meteor.methods({
       'draft' : false
     }}, {'multi': true});
 
-    return Messages.update(message._id, {'$set' : {
+    Messages.update(message._id, {'$set' : {
       'draft' : false
     }});
+
+    Meteor.call('draft_message', {
+      'relationId' : message.relationId
+    })
+    return message._id;
   } 
 })

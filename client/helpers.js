@@ -26,5 +26,9 @@ UI.registerHelper('isEmpty', function(array){
 })
 
 UI.registerHelper('isNotEmpty', function(array){
+  // check if it a Meteor.Collection
+  if(array.count)
+    return array.count() > 0;
+
   return array.length > 0;
 })

@@ -1,30 +1,19 @@
 Template.message_edit_objectives.helpers({
-  objectives : function(){
+  'objectives' : function(){
     return getObjectivesByMessage(this);
   },
 });
 
 Template.message_edit_objectives.events({
-  'click #addObjectiveBtn' : function(e, template){
-    var params = {
-      'messageId':this._id
-    }
-
-    Meteor.call('draft_objective', params, function(err){
-      if(err)
-        console.log(err);
-    });
-  },
-
-  'keyup .tc-edit-objective:last input' : function(e){
-    Meteor.call('draft_objective', {'messageId': this.messageId})
+  'change li:last input' : function(e){
+    Meteor.call('attach_objective', {'messageId': this.messageId})
   }
 })
 
 Template.message_edit_objective_line.events({
 
   // Remove an objective line
-  'click .tc-edit-objective .tc-remove' : function(e){
+  'click .tc-remove' : function(e){
     Meteor.call('remove_objective', {'objectiveId' : this._id})
   },
 
