@@ -15,6 +15,7 @@ Template.message.helpers({
     if(!this.draft) return false;
 
     return !(
+      this.body ||
       getObjectivesByMessage(this).count() > 0 ||
       getProgressNotesByMessage(this).count() > 0 ||
       getFilesByMessage(this).count() > 0
