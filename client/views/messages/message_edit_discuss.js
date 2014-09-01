@@ -1,6 +1,6 @@
 Template.message_edit_discuss.events({
 
-  'keyup/change/keydown textarea' : _.debounce(function(e, template){
+  'keyup textarea' : _.debounce(function(e, template){
     var params = {
       'messageId' : this._id,
       'body' : _.trim($(e.target).val())

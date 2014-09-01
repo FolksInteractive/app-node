@@ -4,28 +4,35 @@ Meteor.methods({
   'discard_message': function(params){
     check(params, {
       'messageId': String,
-      'wait': Match.Optional(Number),
     });
 
     // Must be loggedIn
     if(!this.userId)
       throw new Meteor.Error(403)
 
-    var message = Messages.findOne(params.messageId);
+    var message = Messages.findOne({
+      '_id': params.messageId,
+      'draft' : true,
+      'authorId' : this.userId
+    });
 
     if(!message)
       throw new Meteor.Error(403)
 
-    if(!message.draft)
-      throw new Meteor.Error(403, "User cannot discard a non-drafted message.");
+    // Instead of deleting the draft message,
+    // We only clear its data
+    // Resetting draft
+    Messages.update(params.messageId, {
+      '$set' : {
+        'body' : '',
+        'draftedAt' : new Date()
+      }
+    });
 
-
-    if(message.authorId != this.userId)
-      throw new Meteor.Error(403, "User doesn't have the rights to discard this message.");
-
-    Messages.remove(message._id);
-    Files.remove({'messageId': message._id});
-    Objectives.remove({'messageId': message._id});
+    // Removing its attachments
+    Objectives.remove({'messageId' : params.messageId});
+    Files.remove({'messageId' : params.messageId});
+    ProgressNotes.remove({'messageId' : params.messageId});
 
   },
 
@@ -42,7 +49,8 @@ Meteor.methods({
     
     // Looking for the message
     var message = Messages.findOne({
-      '_id' : params.messageId
+      '_id' : params.messageId,
+      'draft' : true
     });
 
     if(!message)
@@ -61,7 +69,6 @@ Meteor.methods({
   'draft_message': function(params){
     check(params, {
       'relationId' : Match.Where(function (id) {
-        check(id, String);
         return !!Relations.findOne(id);
       })
     });
@@ -74,14 +81,21 @@ Meteor.methods({
     if(!canPostMessageInRelationById(params.relationId, this.userId))
       throw new Meteor.Error(403, "User doesn't have the rights to post message in this relation");
 
+
     params = _.extend(params, {
+      'relationId': params.relationId,
       'authorId' : this.userId,
       'draft' : true,
-      'draftedAt' : new Date()
     })
 
-    return Messages.insert(params);
+    // Make sur there isn't already a draft
+    if(message = Messages.findOne(params))
+      return message._id;
 
+
+    params.draftedAt = new Date();
+
+    return Messages.insert(params);
   },
 
 
@@ -107,13 +121,6 @@ Meteor.methods({
       throw new Meteor.Error(403, "Can't find draft message.");
 
 
-    // Insert default message first
-    var insertParams = {
-      'authorId' : this.userId,
-      'body' : params.body,
-      'postedAt' : new Date()
-    };
-
     // Delete all empty objectives
     Objectives.remove({
       'messageId' : params.messageId, 
@@ -127,6 +134,7 @@ Meteor.methods({
       'objectiveId' : {'$exists' : false}
     });
 
+    // Remove draft mode on attachments
     Objectives.update( {'messageId' : params.messageId}, {'$set' : {
       'draft' : false
     }}, {'multi': true});
@@ -137,13 +145,13 @@ Meteor.methods({
       'draft' : false
     }}, {'multi': true});
 
+    // Apply progress to objectives
+
     Messages.update(message._id, {'$set' : {
-      'draft' : false
+      'draft' : false,
+      'postedAt' : new Date()
     }});
 
-    Meteor.call('draft_message', {
-      'relationId' : message.relationId
-    })
     return message._id;
   } 
 })

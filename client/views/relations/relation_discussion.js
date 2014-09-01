@@ -5,6 +5,7 @@ Template.relation_discussion.helpers({
   discussion : function(){
     var query = {
       '$or' : [],
+      'draft' : false,
       'relationId' : Session.get('currentRelationId')
     };
 
@@ -23,13 +24,10 @@ Template.relation_discussion.helpers({
     // $or must be nonempty array
     if(_.isEmpty(query.$or)){
       delete query.$or;
-    }else{
-      query.$or.push({'draft' : true})
     }
 
     return getMessages(query, {
       'sort': {
-        'draftedAt': -1, 
         'postedAt': -1
       }
     })

@@ -17,7 +17,7 @@ Template.message_edit_objective_line.events({
     Meteor.call('remove_objective', {'objectiveId' : this._id})
   },
 
-  'keyup/change/keydown input' : _.debounce(function(e, template){
+  'keyup input' : _.debounce(function(e, template){
     var params = {
       'objectiveId' : this._id,
       'title' : _.trim($(e.target).val())
