@@ -1,6 +1,5 @@
 Template.relation_bar.rendered = function(){
-  $('a.tc-invite-link').tooltip()
-
+  
 }
 
 Template.relation_bar.helpers({
@@ -8,26 +7,20 @@ Template.relation_bar.helpers({
     return getRelations();
   },
 
-  'status' : function(){
-    if(!Meteor.user() || !Meteor.user().status)
-      return "";
+  'current_relation' : function(){
+    return getRelation(Session.get('currentRelationId'));
+  },
 
-    if (Meteor.user().status.idle)
-      return "tc-away"
-    else if (Meteor.user().status.online)
-      return "tc-online"
-    else
-      return ""
-  } 
+  'current_relation_id' : function(){
+    return Session.get('currentRelationId');
+  }
 });
 
 
-Template.relation_bar_item.rendered = function(){
-  $('a[rel=tooltip]').tooltip()
-
+Template.relation_bar_contact.rendered = function(){
 }
 
-Template.relation_bar_item.helpers({
+Template.relation_bar_contact.helpers({
   'contact' : function(){
     return getContact(this._id);
   },

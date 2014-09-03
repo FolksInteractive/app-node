@@ -1,0 +1,75 @@
+.tc-navbar { 
+  margin-bottom: 0;
+  
+  a{
+    color: white;
+    display: block;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  .navbar-nav{
+
+    &.navbar-left{
+      margin-left:15%;
+    }
+
+    & > li{
+      text-align: center;
+      transition: all .15s ease-in-out;
+      box-sizing: border-box;
+      border-bottom: 4px solid transparent;
+      height: 74px;
+
+      &:hover,
+      &.active{
+        border-bottom-color: $brand-primary;
+
+        .tc-label{
+          color: $brand-primary;
+        }
+      }
+
+      .tc-label{   
+        display: block;             
+        font-size: 11px;
+        letter-spacing: .02em;
+        text-transform: uppercase;
+        transition: color .15s ease-in-out;
+      }
+      .tc-value{
+        display: block;
+        font-size: 18px;
+        padding-top: 3px;
+        font-weight: 500;
+        transition: color .15s ease-in-out;
+        color: $brand-primary;
+      }
+    }
+  }
+
+  li.dropdown{
+    margin-right: 5px;
+    width: 200px;
+
+    & > a{
+      color: white;
+    }
+  }
+  .dropdown-menu{
+    width:200px;
+    a{
+      padding: 3px 15px;
+      color: $gray;
+    }
+  }
+
+  .tc-current {
+    .tc-contact{
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

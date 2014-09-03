@@ -24,9 +24,10 @@
 }
 
 .tc-message{
-	padding: 20px 60px;
+	padding: 20px 30px;
 	margin-top: 10px;
-	border-bottom: 1px dotted #dededf;
+	background: white;
+	border-radius:4px;
 	
 	@include transition(all 400ms ease 0s);
 	@include animation(scale-in 400ms ease);

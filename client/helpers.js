@@ -19,6 +19,13 @@ UI.registerHelper('date', function(date){
   return moment(date).format('MMMM Do YY');
 });
 
+UI.registerHelper('fileSize', function(size){
+  return sizeToKoOrMo(size);
+});
+
+UI.registerHelper('fromNow', function(date){
+  return moment(date).fromNow();
+});
 
 
 UI.registerHelper('isEmpty', function(array){

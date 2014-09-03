@@ -1,6 +1,6 @@
 Template.message_edit_files.helpers({
   files : function(){
-    return getFilesByMessage(this)
+    return getFilesByMessage(this);
   }  
 });
 

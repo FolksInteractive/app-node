@@ -1,0 +1,42 @@
+<template name="relation_files">
+  <!--
+  <header class="navbar">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"></li>
+        <li></li>
+      </ul>
+    </div>
+  </header>
+  -->
+
+  <div class='container'>
+    <ul class="list-unstyled">
+      {{#each files}}
+        {{#unless isImage this}}
+          {{> file_item}}
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+</template>
+
+<template name="file_item">
+  <li class="tc-file media">
+    <div class="pull-left">
+      <span class="tc-icon-pdf media-object"></span>
+    </div>
+    <div class="media-body">
+      <a class="tc-name" href="#" data-toggle="popover" data-trigger="focus">{{name}}</a>
+      <div class="tc-details">
+        <span class="tc-size">{{fileSize size}}</span> -
+        <span class="tc-date">{{fromNow uploadedAt}}</span>
+      </div>
+    </div>
+<!-- 
+    <div class='tc-popover'>
+      <img src='{{url}}' />
+    </div> -->
+  </li>
+</template>

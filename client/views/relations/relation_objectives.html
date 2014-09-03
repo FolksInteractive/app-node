@@ -1,0 +1,51 @@
+<template name="relation_objectives">
+
+  <header class="navbar">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a href="#asideObjectivesPending" role="tab" data-toggle="pill">{{count_pending}} To Do</a>
+        </li>
+        <li>
+          <a href="#asideObjectivesCompleted" role="tab" data-toggle="pill">{{count_completed}} Completed</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class='container'>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="asideObjectivesPending">
+        <ul class="list-unstyled">
+          {{#each objectives_pending}}
+            {{> objective_item}}
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="tab-pane fade in" id="asideObjectivesCompleted">
+        <ul class="list-unstyled">
+          {{#each objectives_completes}}
+            {{> objective_item}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="objective_item">
+  <li class="tc-objective {{progress_state}} {{active_state}}">
+    <div class="tc-check {{#if completed}} tc-check-completed {{/if}} img-circle pull-left">
+      <span class="glyphicon glyphicon-ok"></span>
+    </div>
+    <div class="tc-info">
+      <div class="tc-title">{{title}}</div>
+      <div class="tc-createdAt">Created on {{date createdAt}}</div>
+      <div class="tc-progress progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+        </div>
+      </div>
+    </div>
+  </li>
+</template>

@@ -1,14 +1,14 @@
 <template name="relation_discussion">
+  <header>
+    <div class="container">
+      {{> message draft}}
+    </div>
+  </header>
 
-<div class="scrollable-wrapper">
-  <div class="tc-discussion-section">
-
-    {{> message draft}}
-
+  <div class='container'>
     {{#each discussion}}
       {{> message}} 
     {{/each}}
   </div>
-</div>
 
 </template>

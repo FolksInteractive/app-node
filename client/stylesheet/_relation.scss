@@ -1,12 +1,39 @@
 .tc-relation-global{
-  @include hbox;
 
   .tc-relation-main{
-    background: #fff;
-    @include hbox-item;
+
+    .container{
+      max-width: 750px;
+    }
     
-    .tc-discussion-section{
-      position: relative;
+    & > header {
+      background: white;
+      border-bottom: 1px solid #dededf;
+
+      ul > li{
+        padding: 0;
+        padding-top:5px;
+        
+        a{
+          background:none;
+          color: $gray-light;
+          font-size:12px;
+          padding: 8px;
+        }
+
+        &.active{
+          a{
+            background:none;
+            color: $brand-primary;
+          }
+        }
+      }
+    }
+
+    ul{
+      & > li {
+        padding : 20px;
+      }
     }
   }
 }

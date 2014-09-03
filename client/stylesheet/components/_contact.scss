@@ -1,0 +1,30 @@
+.tc-contact {
+  display: block;
+  
+  .tc-contact-inner{
+    display: table;
+  }
+
+  .tc-avatar {
+    position: relative;
+    display: table-cell;
+
+    img {
+      border-radius: 4px;
+      width: 40px;
+    }
+
+    .tc-status {
+      // Styling must be made in _status.scss component 
+      bottom:-2px;
+      right:-2px;
+    }
+  }
+
+  .tc-name {
+    display: table-cell;
+    padding-left: 15px;
+    vertical-align: middle;
+    font-size: 13px;
+  }
+}

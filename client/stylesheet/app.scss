@@ -26,9 +26,12 @@
 // the COMPONENTS are each individuals pieces of the app
 //@import "vendor/select2-bootstrap3.css";
 @import "components/comment";
+@import "components/contact";
+@import "components/file";
 @import "components/message";
 @import "components/message-edit";
-@import "components/menubar";
+@import "components/navbar";
+@import "components/objective";
 @import "components/progress-bars";
 @import "components/scrollable";
 @import "components/status";
@@ -38,6 +41,6 @@
 @import "layouts";
 @import "dashboard";
 @import "relation";
-@import "relation_aside";
+@import "relation_objectives";
 @import "relation_invite";
 @import "user";

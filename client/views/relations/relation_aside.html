@@ -1,50 +1,44 @@
 <template name="relation_aside">
   <div class="tc-relation-aside">
 
-    <div class="scrollable-wrapper">
+    <div class="tc-tabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <!-- Objectives tab -->
+        <li class="tc-objectives-tab active">
+          <a href="#asideObjectives" role="tab" data-toggle="tab">
+            <span class="flaticon-checkmark5 checkmark"></span>
+          </a>
+        </li>
+        <!-- Images tab -->
+        <li class="tc-images-tab">
+          <a href="#asideImages" role="tab" data-toggle="tab">
+            <span class="glyphicon glyphicon-picture"></span>
+          </a>
+        </li>
+        <!-- Files tab -->
+        <li class="tc-files-tab">
+          <a href="#asideFiles" role="tab" data-toggle="tab">
+            <span class="glyphicon glyphicon-paperclip"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-      <div class="tc-relation-aside-head">
-        <!--<div class="tc-contact-section">
-          <div class="tc-contact-avatar">
-            <img src="{{avatar contact}}" class="pull-left" />
-          </div>
-          <div class="tc-contact-infos">
-            <div class="tc-contact-name">
-              <h3>{{fullname contact}}</h3>
-            </div>
-            <div class="tc-contact-title">
-              <p>Gestionnaire de projets chez Flawless Learning Solutions Inc.</p>
-            </div>
-          </div>
-        </div>-->
 
-        <div class="tc-overview-section">
-          <div class="tc-overview">
-            <ul class="nav">
-              <li class="active">
-                <a href="#asidePending" role="tab" data-toggle="pill">{{count_pending}} To Do</a>
-              </li>
-              <li>
-                <a href="#asideCompleted" role="tab" data-toggle="pill">{{count_completed}} Completed</a></li>
-            </ul>
-          </div>
-        </div>
+    <div class="tc-panes tab-content">
+        <!-- Objectives Pane -->
+      <div class="tc-objectives-pane tc-pane tab-pane  fade in active" id="asideObjectives">
+        {{> objectives_list}}
       </div>
-
-      <div class="tc-objectives-section">
-        <ul id="asideCompleted" class="tc-objectives tab-pane fade list-unstyled">
-          {{#each objectives_completed}}          
-            {{> relation_aside_item}}
-          {{/each}}
-        </ul>
-
-
-        <ul id="asidePending" class="tc-objectives tab-pane fade in active list-unstyled">
-          {{#each objectives_pending}}
-            {{> relation_aside_item}}
-          {{/each}}
-        </ul>
+        <!-- Images Pane -->
+      <div class="tc-images-pane tc-pane  fade in tab-pane" id="asideImages">
+        {{> images_list}}
+      </div>
+      <!-- Files Pane -->
+      <div class="tc-files-pane tc-pane  fade in tab-pane" id="asideFiles">
+        {{> files_list}}
       </div>
     </div>
+
   </div>
 </template>
